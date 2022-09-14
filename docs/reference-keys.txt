@@ -1,4 +1,10 @@
-fig:nice-fig
-tab:nice-tab
-prerequisites
-intro
+simple-linear-regression
+covariance
+correlation
+rules-for-expectation-roll-into-prior-post
+rules-for-variance
+rules-for-covariance
+modeling-simple-linear-regression
+features-of-models
+least-squares-estimation
+estimating-betas
