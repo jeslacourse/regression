@@ -1,4 +1,6 @@
 
+bookdown::html_book:
+    theme: darkly
 bookdown::gitbook:
   css: style.css
   config:
