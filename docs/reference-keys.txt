@@ -1,9 +1,13 @@
 simple-linear-regression
+modeling
+utility
+expected-values
+rules-for-expectation
+variance
+rules-for-variance
+bias
 covariance
 correlation
-rules-for-expectation-roll-into-prior-post
-rules-for-variance
-rules-for-covariance
 modeling-simple-linear-regression
 features-of-models
 least-squares-estimation
