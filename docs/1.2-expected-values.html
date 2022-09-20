@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="Page not found | Regression Analysis" />
+<meta property="og:title" content="1.2 Expected Values | Regression Analysis" />
 <meta property="og:type" content="book" />
 
 <meta property="og:description" content="A Linear Regression Notebook" />
@@ -24,7 +24,7 @@ MathJax.Hub.Config({
 
 <meta name="description" content="A Linear Regression Notebook">
 
-<title>Page not found | Regression Analysis</title>
+<title>1.2 Expected Values | Regression Analysis</title>
 
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -122,13 +122,41 @@ details > summary {
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="expected-values" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Expected Values</h2>
+<p>For a <strong>discrete</strong> random variable <span class="math inline">\(Y\)</span> with possible values <span class="math inline">\(y_1... y_k\)</span> we can say:
+<span class="math display">\[ E(Y) = \sum_{i=1}^k y_1 P(Y = y_i)\]</span>
+where <span class="math inline">\(E(Y)\)</span> is a weighted average of the possible values <span class="math inline">\(y_1... y_k\)</span> and the weights <span class="math inline">\(P(Y = y_1)...P(Y = y_k)\)</span> are the expected probabilities. This will give us a weighted average.</p>
+<p>Weighted Average:
+<span class="math display">\[\sum_{i=1}^k w_ia_i\]</span>
+If <span class="math inline">\(\sum w_i = 1\)</span> and <span class="math inline">\(0 \leq w_1 \leq 1\)</span>.</p>
+<p>A <strong>continuous</strong> random variable <span class="math inline">\(Y\)</span> would be represented by a density function:</p>
+<p><span class="math display">\[E(Y) = \int_{-\infty}^{\infty} yf(y)dy\]</span>
+For example, the normal distribution <code>Y ~ N(0,1)</code> with mean <code>0</code> and variance <code>1</code>, would be represented using the density function:</p>
+<p><span class="math display">\[E(Y) = \int_{-\infty}^{\infty}y\frac{1}{\sqrt{2\pi}}
+  \exp\left( -\frac{y^2}{2}\right) dy = 0 \]</span></p>
+<p>The <strong>population mean</strong> is the expected value. If <span class="math inline">\(Z_1..Z_N\)</span> for all values in the population, then we would use the parameter:</p>
+<p><span class="math display">\[ E(Z) = \frac{1}{N}\sum_{i=1}^N Z_i\]</span></p>
+<p><strong>Sample means</strong> are averages. Given the sample data <span class="math inline">\(X_1... X_n\)</span>, would return the <em>statistic</em>:</p>
+<p><span class="math display">\[ \bar{x}  = \frac{1}{n} \sum_{i = 1}^nX_i\]</span></p>
+<div id="rules-for-expectation" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Rules for Expectation</h3>
+<p>Given random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> and constants <span class="math inline">\(a,b,\)</span> &amp; <span class="math inline">\(c\)</span>:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(E(c) = c\)</span></li>
+<li><span class="math inline">\(E(cX) = cE(X)\)</span></li>
+<li><span class="math inline">\(E(X+Y) = E(X) + E(Y)\)</span></li>
+</ol>
+<p>An example:</p>
+<p><span class="math display">\[\begin{align}
+E(a+bX+cY) \\
+= a + bE(X) + cE(Y)
+\end{align}\]</span></p>
+</div>
 </div>
 <p style="text-align: center;">
+<a href="1.1-modeling.html"><button class="btn btn-default">Previous</button></a>
+<a href="1.3-variance.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>

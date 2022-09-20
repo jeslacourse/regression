@@ -1,0 +1,42 @@
+# Hypothesis Testing
+
+There are three approaches to two-sided hypothesis testing. 
+
+All three render the same conclusion and use the same significance level, $\alpha$.
+
+1. P-values
+2. Critical Values (t-Testing)
+3. Confidence Intervals
+
+
+Given the null ($H_0$) and alternative ($H_1$) hypotheses: 
+
+$$\begin{align}
+H_0: \beta_1 = 0\\
+H_1: \beta_1 \neq 0
+\end{align}$$
+
+Where $b_1\sim N$ and $E(b_1) = \beta_1$, we can build the test statistic, $t^*$: 
+
+$$
+t^* = \frac{b_1}{s(b_1)}
+$$
+
+where
+
+$$\begin{align} 
+s(b_1) = \sqrt{s^2(b_1)}\\
+= \sqrt{\frac{MSE}{\sum(x_1-\bar{x})^2}}
+\end{align}$$
+
+## P-values
+
+If a p-value $\lt\alpha$, reject $H_0$. Otherwise, do not reject $H_0$. 
+
+$$ 2P(t \leq |t^*|\mid H_0 true)$$
+
+## Critical Values
+
+$$
+t(1-\frac{\alpha}{2}; n-2)
+$$
