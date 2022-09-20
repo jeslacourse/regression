@@ -31,12 +31,12 @@ Where $\beta_0$ and $\beta_1$ are parameters; usually unknown values related to 
 
 After collecting data from the population, we can create a sample on which to run our statistics for which we can estimate our parameters. 
 
-|           | parameter | statistic |
-|-----------|-----------|-----------|
-| mean      | \mu       | \bar{y}   |
-| variance  | \sigma^2  | s^2       |
-| slope     | \beta_1   | b_1       |
-| intercept | \beta_0   | b_0       |
+|           | parameter   | statistic   |
+|-----------|-------------|-------------|
+| mean      | $\mu$       | $\bar{y}$   |
+| variance  | $\sigma^2$  | $s^2$       |
+| slope     | $\beta_1$   | $b_1$       |
+| intercept | $\beta_0$   | $b_0$       |
 
 ## Utility
 
