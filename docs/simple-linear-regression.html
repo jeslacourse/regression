@@ -6,21 +6,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>1 Simple Linear Regression | Regression Analysis</title>
 <meta name="author" content="Jes LaCourse">
-<meta name="description" content="One predictor, one outcome Linear Regression: The measure of lineal relationship between two variables. Simple regression will have one continuous response variable (y) and one continuous...">
-<meta name="generator" content="bookdown 0.28 with bs4_book()">
+<meta name="description" content="One predictor, one outcome Linear Regression: A measure of the lineal relationship between two variables. Simple regression will have one continuous response variable (\(y\)) and one continuous...">
+<meta name="generator" content="bookdown 0.25 with bs4_book()">
 <meta property="og:title" content="1 Simple Linear Regression | Regression Analysis">
 <meta property="og:type" content="book">
-<meta property="og:description" content="One predictor, one outcome Linear Regression: The measure of lineal relationship between two variables. Simple regression will have one continuous response variable (y) and one continuous...">
+<meta property="og:description" content="One predictor, one outcome Linear Regression: A measure of the lineal relationship between two variables. Simple regression will have one continuous response variable (\(y\)) and one continuous...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="1 Simple Linear Regression | Regression Analysis">
-<meta name="twitter:description" content="One predictor, one outcome Linear Regression: The measure of lineal relationship between two variables. Simple regression will have one continuous response variable (y) and one continuous...">
+<meta name="twitter:description" content="One predictor, one outcome Linear Regression: A measure of the lineal relationship between two variables. Simple regression will have one continuous response variable (\(y\)) and one continuous...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -59,36 +60,20 @@
 <blockquote>
 <p>One predictor, one outcome</p>
 </blockquote>
-<p><strong>Linear Regression:</strong> The measure of lineal relationship between two variables.</p>
-<p>Simple regression will have one continuous response variable (y) and one continuous explanatory variable (x). Response variables are also known as the <em>dependent</em> or <em>outcome</em> variable. Explanatory variables, aka <em>independent</em>, <em>predictor</em>, or <em>covariate</em> variables, can include categorical values.</p>
+<p><strong>Linear Regression:</strong> A measure of the lineal relationship between two variables.</p>
+<p>Simple regression will have one continuous response variable (<span class="math inline">\(y\)</span>) and one continuous explanatory variable (<span class="math inline">\(x\)</span>). The response variable(s), <span class="math inline">\(y\)</span> are also known as the <em>dependent</em> or <em>outcome</em> variable. Explanatory variables, <span class="math inline">\(x\)</span> aka <em>independent</em>, <em>predictor</em>, or <em>covariate</em> variables, can include categorical values.</p>
 <p><span class="math display">\[y=\beta_0 + \beta_1x\]</span>
 Where <span class="math inline">\(\beta_0\)</span> is the y-intercept and <span class="math inline">\(\beta_1\)</span> is the slope of the function.</p>
-<p>Regression is used for:</p>
-<ol style="list-style-type: decimal">
-<li>Observational studies</li>
-</ol>
-<ul>
-<li>just observe, no manipulation</li>
-<li>treatment is not randomized</li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
-<li>Experimental studies</li>
-</ol>
-<ul>
-<li>manipulate the explanatory variables</li>
-<li>treatment must be randomized</li>
-</ul>
-<div id="modeling" class="section level2" number="1.1">
-<h2>
-<span class="header-section-number">1.1</span> Modeling<a class="anchor" aria-label="anchor" href="#modeling"><i class="fas fa-link"></i></a>
-</h2>
-<p><span class="math inline">\(X\)</span> is treated as a fixed variable whose values have been chosen by the researcher. Though it should be noted that regression is often used where variable is not wholly chosen. For example, sampling a population will return a distribution of ages that may not match the true distribution of the population. So <span class="math inline">\(X\)</span> is also, technically, random.</p>
-<p><span class="math inline">\(Y\)</span> is a random variable</p>
-<p>Our regression model dependency of <span class="math inline">\(Y\)</span> on <span class="math inline">\(X\)</span>
-esti
-<span class="math display">\[Y=\beta_0 + \beta_1X + \epsilon\]</span>
-<span class="math inline">\(\beta\)</span>’s and <span class="math inline">\(X\)</span> are considered fixed values, with random variable <span class="math inline">\(\epsilon\)</span>.</p>
-<p>Where <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> are parameters; usually unknown values related to the population and not the sample.</p>
+<p>Regression is used for both observational studies and experimental studies. <strong>Observational studies</strong> are experiments with no manipulation from the researcher. Treatments are not randomized. <strong>Experimental studies</strong> allow the researcher to manipulate explanatory variables. Treatment must be randomized</p>
+<p><strong>Fixed and Random Variables</strong></p>
+<p><span class="math inline">\(X\)</span> is treated as a fixed variable whose values have been chosen by the researcher. Though it should be noted that regression is often used when variable is not wholly chosen. For example, sampling a population will return a distribution of ages that may not match the true distribution of the population. So while we treat <span class="math inline">\(X\)</span> as a fixed value, it is also technically random.</p>
+<p><span class="math inline">\(Y\)</span> is also a random variable given it’s dependency on <span class="math inline">\(X\)</span></p>
+<p><span class="math display">\[
+Y=\beta_0 + \beta_1X + \epsilon
+\]</span>
+<span class="math inline">\(\beta\)</span>’s are considered fixed values along with <span class="math inline">\(X\)</span>. <span class="math inline">\(\epsilon\)</span> is a random variable.</p>
+<p><strong>Parameters and Statistics</strong></p>
+<p><span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> are parameters; usually unknown values related to the population and not the sample.</p>
 <ul>
 <li>parameter: values for the population</li>
 <li>statistic: values for the sample</li>
@@ -126,10 +111,9 @@ esti
 </tr>
 </tbody>
 </table></div>
-</div>
-<div id="expected-values" class="section level2" number="1.2">
+<div id="expected-values" class="section level2" number="1.1">
 <h2>
-<span class="header-section-number">1.2</span> Expected Values<a class="anchor" aria-label="anchor" href="#expected-values"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.1</span> Expected Values<a class="anchor" aria-label="anchor" href="#expected-values"><i class="fas fa-link"></i></a>
 </h2>
 <p>For a <strong>discrete</strong> random variable <span class="math inline">\(Y\)</span> with possible values <span class="math inline">\(y_1... y_k\)</span> we can say:
 <span class="math display">\[ E(Y) = \sum_{i=1}^k y_1 P(Y = y_i)\]</span>
@@ -146,9 +130,9 @@ For example, the normal distribution <code>Y ~ N(0,1)</code> with mean <code>0</
 <p><span class="math display">\[ E(Z) = \frac{1}{N}\sum_{i=1}^N Z_i\]</span></p>
 <p><strong>Sample means</strong> are averages. Given the sample data <span class="math inline">\(X_1... X_n\)</span>, would return the <em>statistic</em>:</p>
 <p><span class="math display">\[ \bar{x}  = \frac{1}{n} \sum_{i = 1}^nX_i\]</span></p>
-<div id="rules-for-expectation" class="section level3" number="1.2.1">
+<div id="rules-for-expectation" class="section level3" number="1.1.1">
 <h3>
-<span class="header-section-number">1.2.1</span> Rules for Expectation<a class="anchor" aria-label="anchor" href="#rules-for-expectation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.1.1</span> Rules for Expectation<a class="anchor" aria-label="anchor" href="#rules-for-expectation"><i class="fas fa-link"></i></a>
 </h3>
 <p>Given random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> and constants <span class="math inline">\(a,b,\)</span> &amp; <span class="math inline">\(c\)</span>:</p>
 <ol style="list-style-type: decimal">
@@ -163,25 +147,41 @@ E(a+bX+cY) \\
 \end{align}\]</span></p>
 </div>
 </div>
-<div id="variance" class="section level2" number="1.3">
+<div id="bias" class="section level2" number="1.2">
 <h2>
-<span class="header-section-number">1.3</span> Variance<a class="anchor" aria-label="anchor" href="#variance"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.2</span> Bias<a class="anchor" aria-label="anchor" href="#bias"><i class="fas fa-link"></i></a>
 </h2>
-<p>We can use the <strong>population variance</strong> formula to show that <span class="math inline">\(E(Y)\)</span> is equivalent to the parameter <span class="math inline">\(\mu\)</span>. Given the population variance <span class="math inline">\(var(Y)\)</span>:</p>
+<p>The estimators <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> are unbiased estimators. They only require that for any <span class="math inline">\(\epsilon_i\)</span>, that <span class="math inline">\(E(\epsilon_i) = 0\)</span>.</p>
+<p>So <span class="math inline">\(E(b_0) =\beta_0\)</span> and <span class="math inline">\(E(b_1) = \beta_1\)</span>.</p>
+<p>Because of random variability, <span class="math inline">\(s^2\)</span> will vary with each experiment. An unbiased sample variance is an average value of those experiments.</p>
+<p><span class="math display">\[ E(s^2) = E\frac{\sum(Y_i-\bar{Y})^2}{n-1}= var(Y)\]</span></p>
+</div>
+<div id="variance-and-covariance" class="section level2" number="1.3">
+<h2>
+<span class="header-section-number">1.3</span> Variance and Covariance<a class="anchor" aria-label="anchor" href="#variance-and-covariance"><i class="fas fa-link"></i></a>
+</h2>
+<div id="variance" class="section level3" number="1.3.1">
+<h3>
+<span class="header-section-number">1.3.1</span> Variance<a class="anchor" aria-label="anchor" href="#variance"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Population variance</strong> can be defined as:</p>
+<p><span class="math display">\[
+var(Y) = E[Y-E(Y)]^2
+\]</span></p>
+<p>We can use the population variance formula to show that <span class="math inline">\(E(Y)\)</span> is equivalent to the parameter <span class="math inline">\(\mu\)</span>. Given <span class="math inline">\(var(Y)\)</span>:</p>
 <p><span class="math display">\[\begin{align} var(Y) = E[Y-E(Y)]^2\\=E[Y-\mu]^2\\\therefore \mu = E(Y)\end{align}\]</span></p>
-<p>The squaring of <span class="math inline">\([Y-E(Y)]\)</span> “removes the sign”, reverting all distances to positive distances from the mean.</p>
+<p>The squaring of <span class="math inline">\([Y-E(Y)]\)</span> “removes the sign”, and reverts all measures to positive distances from the mean.</p>
 <p>Given our known substitutions, we can say:</p>
-<p><span class="math display">\[\begin{align} var(Y) = E[Y-E(Y)]^2\\=\sum_{i=1}^k (y_i-\mu)^2P(Y-y_i)\end{align}\]</span></p>
+<p><span class="math display">\[\begin{align} var(Y)= E[Y-E(Y)]^2\\
+=\sum_{i=1}^k (y_i-\mu)^2P(Y-y_i)
+\end{align}\]</span></p>
 <p>If <span class="math inline">\(Z_1... Z_n\)</span> account for all values in a population, we would have parameter:</p>
 <p><span class="math display">\[var(Z) = \frac{1}{N}\sum_{i=1}^{N}(Z_i-\bar{Z})^2\]</span></p>
 <p>where <span class="math inline">\(\bar{Z} = E(Z)\)</span>.</p>
 <p>Sample data <span class="math inline">\(x_i...x_n\)</span> would give us the <strong>unbiased sample variance</strong>:</p>
 <p><span class="math display">\[s^2 = \frac{\sum(x_i - \bar{x})^2}{n-1}\]</span></p>
 <p>Focusing on the denominator, sample sizes <span class="math inline">\(n\)</span> will shift the statistic significantly compared to if the sample was larger.</p>
-<div id="rules-for-variance" class="section level3" number="1.3.1">
-<h3>
-<span class="header-section-number">1.3.1</span> Rules for Variance<a class="anchor" aria-label="anchor" href="#rules-for-variance"><i class="fas fa-link"></i></a>
-</h3>
+<p><strong>Rules for Variance</strong></p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(var(a) = 0\)</span></li>
 <li><span class="math inline">\(var(aX) = a^2 var(X)\)</span></li>
@@ -195,28 +195,15 @@ var(a+bX-cY) \\
 =b^2var(X) + c^2var(Y)+2[(-bc)cov(X,Y)]
 \end{align}\]</span></p>
 </div>
-</div>
-<div id="bias" class="section level2" number="1.4">
-<h2>
-<span class="header-section-number">1.4</span> Bias<a class="anchor" aria-label="anchor" href="#bias"><i class="fas fa-link"></i></a>
-</h2>
-<p>Because of random variability, <span class="math inline">\(s^2\)</span> will vary with each experiment. An unbiased sample variance is an average value of those experiments.</p>
-<p><span class="math display">\[ E(s^2) = E\frac{\sum(Y_i-\bar{Y})^2}{n-1}= var(Y)\]</span></p>
-<p>The estimators <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> are unbiased estimators. They only require that for any <span class="math inline">\(\epsilon_i\)</span>, that <span class="math inline">\(E(\epsilon_i) = 0\)</span>.</p>
-<p>So <span class="math inline">\(E(b_0) =\beta_0\)</span> and <span class="math inline">\(E(b_1) = \beta_1\)</span>.</p>
-</div>
-<div id="covariance" class="section level2" number="1.5">
-<h2>
-<span class="header-section-number">1.5</span> Covariance<a class="anchor" aria-label="anchor" href="#covariance"><i class="fas fa-link"></i></a>
-</h2>
+<div id="covariance" class="section level3" number="1.3.2">
+<h3>
+<span class="header-section-number">1.3.2</span> Covariance<a class="anchor" aria-label="anchor" href="#covariance"><i class="fas fa-link"></i></a>
+</h3>
 <p>Given the random variables <span class="math inline">\((X,Y)\)</span> <strong>covariance</strong> is defined as:</p>
 <p><span class="math display">\[cov(X,Y) = E[(X -\mu_x)(Y-\mu_y)]\]</span></p>
 <p>with <strong>sample covariance</strong></p>
 <p><span class="math display">\[\hat{cov}(X,Y) = \frac{\sum(X_i - \bar{X})(Y_i-\bar{Y})^2}{n-1} \]</span></p>
-<div id="rules-for-covariance" class="section level3" number="1.5.1">
-<h3>
-<span class="header-section-number">1.5.1</span> Rules for Covariance<a class="anchor" aria-label="anchor" href="#rules-for-covariance"><i class="fas fa-link"></i></a>
-</h3>
+<p><strong>Rules for Covariance</strong></p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(cov(X,Y) = cov(Y,X)\)</span></li>
 <li>if <span class="math inline">\(X ⫫ Y \Rightarrow cov(X,Y) = 0\)</span>, if the random variables are independent of one another, then we cannot predict their variability</li>
@@ -230,19 +217,22 @@ var(a+bX-cY) \\
 <li><span class="math inline">\(cov(X,X) = var(X)\)</span></li>
 </ol>
 </div>
-</div>
-<div id="correlation" class="section level2" number="1.6">
-<h2>
-<span class="header-section-number">1.6</span> Correlation<a class="anchor" aria-label="anchor" href="#correlation"><i class="fas fa-link"></i></a>
-</h2>
+<div id="correlation" class="section level3" number="1.3.3">
+<h3>
+<span class="header-section-number">1.3.3</span> Correlation<a class="anchor" aria-label="anchor" href="#correlation"><i class="fas fa-link"></i></a>
+</h3>
+<div class="rmdwarning">
 <p>(!) Correlations is not equal to causation in non-random studies</p>
+</div>
 <p><strong>Correlation</strong> is defined on the scale <span class="math inline">\(-1 \leq corr(X,Y) \leq 1\)</span> where:</p>
 <p><span class="math display">\[corr(X,Y) = \frac{cov(X,Y)}{\sqrt{var(X)var(Y)}}\]</span></p>
 </div>
-<div id="modeling-simple-linear-regression" class="section level2" number="1.7">
+</div>
+<div id="modeling" class="section level2" number="1.4">
 <h2>
-<span class="header-section-number">1.7</span> Modeling Simple Linear Regression<a class="anchor" aria-label="anchor" href="#modeling-simple-linear-regression"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.4</span> Modeling<a class="anchor" aria-label="anchor" href="#modeling"><i class="fas fa-link"></i></a>
 </h2>
+<p>The simple linear regression model is:</p>
 <p><span class="math display">\[Y_i= \beta_0 +\beta_1X_i + \epsilon_i\]</span></p>
 <p>where:</p>
 <ul>
@@ -265,7 +255,8 @@ var(a+bX-cY) \\
 <p>The expected value of <span class="math inline">\(\epsilon\)</span> is on the regression line.</p>
 </blockquote>
 <p><strong>Property 1</strong>:</p>
-<p>$$<span class="math display">\[\begin{align}
+<p>$$
+<span class="math display">\[\begin{align}
 E(\epsilon_i) = 0\\
 \epsilon_i = Y_i -(\beta_0 +\beta_1X_i) \\
 E[\epsilon_i] = E[Y_i -(\beta_0 +\beta_1X_i)] \\
@@ -274,7 +265,8 @@ E[\epsilon_i] = E[Y_i -(\beta_0 +\beta_1X_i)] \\
 0  = E[Y_i] - \beta_0 + \beta_1X_i \\
    \Rightarrow E[Y_i] = \beta_0 + \beta_1X_i \\
    
-\end{align}\]</span>$$</p>
+\end{align}\]</span>
+$$</p>
 <p>showing that on average, <span class="math inline">\(Y_i\)</span> falls along the regression line. We can say the regression line is the average of <span class="math inline">\(Y_i\)</span>, conditional on <span class="math inline">\(X_i\)</span>.</p>
 <p><span class="math display">\[ E(Y_i|X_i)= \beta_0 +\beta_1X_i \]</span>
 <strong>Property 2</strong>:</p>
@@ -282,17 +274,19 @@ E[\epsilon_i] = E[Y_i -(\beta_0 +\beta_1X_i)] \\
 <p>Define $^2(_i) ^2 $, then $^2(Y_i) = var(Y_i) $. <span class="math inline">\(var(\epsilon_i)\)</span> increases as <span class="math inline">\(X\)</span> increases.</p>
 <p><strong>Property 3</strong>:</p>
 <p><span class="math inline">\(\epsilon_i...\epsilon_n\)</span> are uncorrelated.</p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
   corr(\epsilon_i,\epsilon_j) = 0, i\neq j \\
   corr(\epsilon_i,\epsilon_j) = var(\epsilon_i) \neq 0 \\
   cov(\epsilon_i,\epsilon_j) = 0, i\neq j
-\end{align}\]</span></p>
+\end{align}
+\]</span></p>
 <p>Similarly, but with different notation, <span class="math inline">\(corr(\epsilon_i,\epsilon_j) = \sigma(\epsilon_i,\epsilon_j)\)</span>.</p>
 <p><strong>Property 4</strong>:</p>
 <p><span class="math inline">\(\epsilon_i...\epsilon_n\)</span> are normal.</p>
-<div id="features-of-models" class="section level3" number="1.7.1">
+<div id="features-of-models" class="section level3" number="1.4.1">
 <h3>
-<span class="header-section-number">1.7.1</span> Features of Models<a class="anchor" aria-label="anchor" href="#features-of-models"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.4.1</span> Features of Models<a class="anchor" aria-label="anchor" href="#features-of-models"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(Y_i\)</span> is a sum of a constant term plus a random variable. The constant in this case is <span class="math inline">\(\beta_0 +\beta_1X_i\)</span>. The random variable is <span class="math inline">\(\epsilon_i\)</span>.</p></li>
@@ -323,13 +317,13 @@ E(Y|X = 20) \\= 90 + 0.9(20)\\=108
 <p>Factoring in an error margin, given <span class="math inline">\(X = 20\)</span> we would expect <span class="math inline">\(Y = 108 +\epsilon\)</span>.</p>
 </div>
 </div>
-<div id="least-squares-estimation" class="section level2" number="1.8">
+<div id="least-squares-estimation" class="section level2" number="1.5">
 <h2>
-<span class="header-section-number">1.8</span> Least Squares Estimation<a class="anchor" aria-label="anchor" href="#least-squares-estimation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.5</span> Least Squares Estimation<a class="anchor" aria-label="anchor" href="#least-squares-estimation"><i class="fas fa-link"></i></a>
 </h2>
-<div id="formulas" class="section level3" number="1.8.1">
+<div id="formulas" class="section level3" number="1.5.1">
 <h3>
-<span class="header-section-number">1.8.1</span> Formulas<a class="anchor" aria-label="anchor" href="#formulas"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.5.1</span> Formulas<a class="anchor" aria-label="anchor" href="#formulas"><i class="fas fa-link"></i></a>
 </h3>
 <p>True regression line:</p>
 <p><span class="math display">\[y= \beta_0 + \beta_1x\]</span></p>
@@ -346,9 +340,9 @@ Residual for observation <span class="math inline">\(i\)</span>:</p>
 = y_i - (b_0 - b_1x_i)
 \end{align}\]</span></p>
 </div>
-<div id="estimating-betas" class="section level3" number="1.8.2">
+<div id="estimating-betas" class="section level3" number="1.5.2">
 <h3>
-<span class="header-section-number">1.8.2</span> Estimating <span class="math inline">\(\beta\)</span>’s<a class="anchor" aria-label="anchor" href="#estimating-betas"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.5.2</span> Estimating <span class="math inline">\(\beta\)</span>’s<a class="anchor" aria-label="anchor" href="#estimating-betas"><i class="fas fa-link"></i></a>
 </h3>
 <p>We can find good estimates of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> using the <strong>least squares method</strong>, where <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> are unbiased least squares estimates.</p>
 <p>When you have <span class="math inline">\(n\)</span> pairs of data, <span class="math inline">\((x_1, y_1)...(x_n, y_n)\)</span>:</p>
@@ -375,9 +369,9 @@ b_0 = \bar{y}- b_1\bar{x}\\
 \end{align}\]</span></p>
 <p>where the point <span class="math inline">\((\bar{x}, \bar{y})\)</span> falls along the regression line.</p>
 </div>
-<div id="linear-combinations" class="section level3" number="1.8.3">
+<div id="linear-combinations" class="section level3" number="1.5.3">
 <h3>
-<span class="header-section-number">1.8.3</span> Linear Combinations<a class="anchor" aria-label="anchor" href="#linear-combinations"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.5.3</span> Linear Combinations<a class="anchor" aria-label="anchor" href="#linear-combinations"><i class="fas fa-link"></i></a>
 </h3>
 <p>The <strong>linear combination</strong> of a set of values <span class="math inline">\(a_1...a_n\)</span> has the formula:</p>
 <p><span class="math display">\[
@@ -390,9 +384,9 @@ b_1 = \frac{\sum(x_i-\bar{x}) y_i}{\sum(x_i-\bar{x})^2}
 \]</span></p>
 <p>where the factors exclusive of <span class="math inline">\(y_i\)</span> render the constant <span class="math inline">\(c_i\)</span>.</p>
 </div>
-<div id="errors" class="section level3" number="1.8.4">
+<div id="errors" class="section level3" number="1.5.4">
 <h3>
-<span class="header-section-number">1.8.4</span> Errors<a class="anchor" aria-label="anchor" href="#errors"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.5.4</span> Errors<a class="anchor" aria-label="anchor" href="#errors"><i class="fas fa-link"></i></a>
 </h3>
 <p>Properties for <span class="math inline">\(\epsilon_i\)</span>:</p>
 <p>The distribution of errors, <span class="math inline">\(\epsilon_1...\epsilon_n\)</span>, is normal.</p>
@@ -424,8 +418,8 @@ MSE = \frac{\sum_{i = 1}^n (y_i - \hat y)^2}{n-2} \\
 <p>and so,</p>
 <p><span class="math display">\[
 s^2(b_1)=\frac{MSE}{\sum(x_i -\bar x)^2}
-\]</span>
-which we’ll use in our p-value and confidence interval calculations.</p>
+\]</span></p>
+<p>which we’ll use in our p-value and confidence interval calculations.</p>
 <p>If <span class="math inline">\(H_0\)</span> is true, then <span class="math inline">\(t^*\)</span> has a t-distribution with <span class="math inline">\(n-2\)</span> degrees of freedom.</p>
 
 </div>
@@ -438,27 +432,26 @@ which we’ll use in our p-value and confidence interval calculations.</p>
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#simple-linear-regression"><span class="header-section-number">1</span> Simple Linear Regression</a></li>
-<li><a class="nav-link" href="#modeling"><span class="header-section-number">1.1</span> Modeling</a></li>
 <li>
-<a class="nav-link" href="#expected-values"><span class="header-section-number">1.2</span> Expected Values</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#rules-for-expectation"><span class="header-section-number">1.2.1</span> Rules for Expectation</a></li></ul>
+<a class="nav-link" href="#expected-values"><span class="header-section-number">1.1</span> Expected Values</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#rules-for-expectation"><span class="header-section-number">1.1.1</span> Rules for Expectation</a></li></ul>
+</li>
+<li><a class="nav-link" href="#bias"><span class="header-section-number">1.2</span> Bias</a></li>
+<li>
+<a class="nav-link" href="#variance-and-covariance"><span class="header-section-number">1.3</span> Variance and Covariance</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#variance"><span class="header-section-number">1.3.1</span> Variance</a></li>
+<li><a class="nav-link" href="#covariance"><span class="header-section-number">1.3.2</span> Covariance</a></li>
+<li><a class="nav-link" href="#correlation"><span class="header-section-number">1.3.3</span> Correlation</a></li>
+</ul>
 </li>
 <li>
-<a class="nav-link" href="#variance"><span class="header-section-number">1.3</span> Variance</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#rules-for-variance"><span class="header-section-number">1.3.1</span> Rules for Variance</a></li></ul>
-</li>
-<li><a class="nav-link" href="#bias"><span class="header-section-number">1.4</span> Bias</a></li>
-<li>
-<a class="nav-link" href="#covariance"><span class="header-section-number">1.5</span> Covariance</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#rules-for-covariance"><span class="header-section-number">1.5.1</span> Rules for Covariance</a></li></ul>
-</li>
-<li><a class="nav-link" href="#correlation"><span class="header-section-number">1.6</span> Correlation</a></li>
-<li>
-<a class="nav-link" href="#modeling-simple-linear-regression"><span class="header-section-number">1.7</span> Modeling Simple Linear Regression</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#features-of-models"><span class="header-section-number">1.7.1</span> Features of Models</a></li></ul>
+<a class="nav-link" href="#modeling"><span class="header-section-number">1.4</span> Modeling</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#features-of-models"><span class="header-section-number">1.4.1</span> Features of Models</a></li></ul>
 </li>
 <li>
-<a class="nav-link" href="#least-squares-estimation"><span class="header-section-number">1.8</span> Least Squares Estimation</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#formulas"><span class="header-section-number">1.8.1</span> Formulas</a></li>
-<li><a class="nav-link" href="#estimating-betas"><span class="header-section-number">1.8.2</span> Estimating \(\beta\)’s</a></li>
-<li><a class="nav-link" href="#linear-combinations"><span class="header-section-number">1.8.3</span> Linear Combinations</a></li>
-<li><a class="nav-link" href="#errors"><span class="header-section-number">1.8.4</span> Errors</a></li>
+<a class="nav-link" href="#least-squares-estimation"><span class="header-section-number">1.5</span> Least Squares Estimation</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#formulas"><span class="header-section-number">1.5.1</span> Formulas</a></li>
+<li><a class="nav-link" href="#estimating-betas"><span class="header-section-number">1.5.2</span> Estimating \(\beta\)’s</a></li>
+<li><a class="nav-link" href="#linear-combinations"><span class="header-section-number">1.5.3</span> Linear Combinations</a></li>
+<li><a class="nav-link" href="#errors"><span class="header-section-number">1.5.4</span> Errors</a></li>
 </ul>
 </li>
 </ul>
@@ -477,7 +470,7 @@ which we’ll use in our p-value and confidence interval calculations.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Regression Analysis</strong>" was written by Jes LaCourse. It was last built on 2022-09-20.</p>
+    <p>"<strong>Regression Analysis</strong>" was written by Jes LaCourse. It was last built on 2022-09-21.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -490,7 +483,7 @@ which we’ll use in our p-value and confidence interval calculations.</p>
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

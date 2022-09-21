@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="1.6 Least Squares Estimation | Regression Analysis" />
+<meta property="og:type" content="book" />
+
+<meta property="og:description" content="A Linear Regression Notebook" />
+
+
+<meta name="author" content="Jes LaCourse" />
+
+<meta name="date" content="2022-09-21" />
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta name="description" content="A Linear Regression Notebook">
+
+<title>1.6 Least Squares Estimation | Regression Analysis</title>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/darkly.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+
+<link rel="stylesheet" href="toc.css" type="text/css" />
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+/* show arrow before summary tag as in bootstrap
+TODO: remove if boostrap in updated in html_document (rmarkdown#1485) */
+details > summary {
+  display: list-item;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li><a href="index.html#section"></a></li>
+<li class="has-sub"><a href="1-simple-linear-regression.html#simple-linear-regression"><span class="toc-section-number">1</span> Simple Linear Regression</a>
+<ul>
+<li class="has-sub"><a href="1.1-expected-values.html#expected-values"><span class="toc-section-number">1.1</span> Expected Values</a>
+<ul>
+<li><a href="1.1-expected-values.html#rules-for-expectation"><span class="toc-section-number">1.1.1</span> Rules for Expectation</a></li>
+</ul></li>
+<li><a href="1.2-bias.html#bias"><span class="toc-section-number">1.2</span> Bias</a></li>
+<li class="has-sub"><a href="1.3-variance-and-covariance.html#variance-and-covariance"><span class="toc-section-number">1.3</span> Variance and Covariance</a>
+<ul>
+<li><a href="1.3-variance-and-covariance.html#variance"><span class="toc-section-number">1.3.1</span> Variance</a></li>
+<li><a href="1.3-variance-and-covariance.html#covariance"><span class="toc-section-number">1.3.2</span> Covariance</a></li>
+</ul></li>
+<li><a href="1.4-correlation.html#correlation"><span class="toc-section-number">1.4</span> Correlation</a></li>
+<li class="has-sub"><a href="1.5-modeling-simple-linear-regression.html#modeling-simple-linear-regression"><span class="toc-section-number">1.5</span> Modeling Simple Linear Regression</a>
+<ul>
+<li><a href="1.5-modeling-simple-linear-regression.html#features-of-models"><span class="toc-section-number">1.5.1</span> Features of Models</a></li>
+</ul></li>
+<li class="has-sub"><a href="1.6-least-squares-estimation.html#least-squares-estimation"><span class="toc-section-number">1.6</span> Least Squares Estimation</a>
+<ul>
+<li><a href="1.6-least-squares-estimation.html#formulas"><span class="toc-section-number">1.6.1</span> Formulas</a></li>
+<li><a href="1.6-least-squares-estimation.html#estimating-betas"><span class="toc-section-number">1.6.2</span> Estimating <span class="math inline">\(\beta\)</span>’s</a></li>
+<li><a href="1.6-least-squares-estimation.html#linear-combinations"><span class="toc-section-number">1.6.3</span> Linear Combinations</a></li>
+<li><a href="1.6-least-squares-estimation.html#errors"><span class="toc-section-number">1.6.4</span> Errors</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="2-hypothesis-testing.html#hypothesis-testing"><span class="toc-section-number">2</span> Hypothesis Testing</a>
+<ul>
+<li><a href="2.1-p-values.html#p-values"><span class="toc-section-number">2.1</span> P-values</a></li>
+<li><a href="2.2-critical-values.html#critical-values"><span class="toc-section-number">2.2</span> Critical Values</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="least-squares-estimation" class="section level2" number="1.6">
+<h2><span class="header-section-number">1.6</span> Least Squares Estimation</h2>
+<div id="formulas" class="section level3" number="1.6.1">
+<h3><span class="header-section-number">1.6.1</span> Formulas</h3>
+<p>True regression line:</p>
+<p><span class="math display">\[y= \beta_0 + \beta_1x\]</span></p>
+<p>Estimated regression line:</p>
+<p><span class="math display">\[y = b_0 + b_1x\]</span></p>
+<p>Data value:</p>
+<p><span class="math display">\[y_i = b_0+b_1+x_i+e_i\]</span></p>
+<p>Predicted value, an estimate for <span class="math inline">\(E(Y|X_i)\)</span>:</p>
+<p><span class="math display">\[\hat{y} = b_0+b_1x_i\]</span>
+Residual for observation <span class="math inline">\(i\)</span>:</p>
+<p><span class="math inline">\(e_i=\)</span> observed - predicted</p>
+<p><span class="math display">\[\begin{align}
+= y_i - \hat y\\
+= y_i - (b_0 - b_1x_i)
+\end{align}\]</span></p>
+</div>
+<div id="estimating-betas" class="section level3" number="1.6.2">
+<h3><span class="header-section-number">1.6.2</span> Estimating <span class="math inline">\(\beta\)</span>’s</h3>
+<p>We can find good estimates of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> using the <strong>least squares method</strong>, where <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> are unbiased least squares estimates.</p>
+<p>When you have <span class="math inline">\(n\)</span> pairs of data, <span class="math inline">\((x_1, y_1)...(x_n, y_n)\)</span>:</p>
+<p>Use the <strong>deviation</strong> formula:</p>
+<p><span class="math display">\[e_i = y_i - (\beta_0 +\beta_1x_i)\]</span></p>
+<p>where <span class="math inline">\(e_i\)</span> is the <strong>observed error residual</strong>. Compose the <strong>squared deviation</strong> formula:</p>
+<p><span class="math display">\[e_i^2 = [y_i - (\beta_0 +\beta_1x_i)]^2\]</span></p>
+<p>This will allow us to define <span class="math inline">\(Q\)</span>, the <strong>sum of squared deviations</strong>:</p>
+<p><span class="math display">\[\begin{align}
+Q \equiv \sum_{i = 1}^n e_i^2\\=\sum_{i = 1}^n [y_i - (\beta_0 +\beta_1x_i)]^2
+\end{align}\]</span></p>
+<p>The least squares estimates are values of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> that minimize <span class="math inline">\(Q\)</span>.</p>
+<p>We use <span class="math inline">\(b_1\)</span> to estimate the slope <span class="math inline">\(\beta_1\)</span>:</p>
+<p><span class="math display">\[\begin{align}
+b_1 = \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sum(x_i-\bar{x})^2}\\
+=\frac{\hat{cov}(X,Y)}{\hat{var}(X,Y)}
+\end{align}\]</span></p>
+<p>The <strong>sampling distribution</strong> of <span class="math inline">\(b_1\)</span> is normal.
+<span class="math display">\[ b_1\sim N\]</span></p>
+<p>Once we have <span class="math inline">\(b_1\)</span>, the estimate for the intercept <span class="math inline">\(\beta_0\)</span> is straightforward:</p>
+<p><span class="math display">\[\begin{align}
+b_0 = \bar{y}- b_1\bar{x}\\
+\bar{y} = b_0 + b_1\bar{x}
+\end{align}\]</span></p>
+<p>where the point <span class="math inline">\((\bar{x}, \bar{y})\)</span> falls along the regression line.</p>
+</div>
+<div id="linear-combinations" class="section level3" number="1.6.3">
+<h3><span class="header-section-number">1.6.3</span> Linear Combinations</h3>
+<p>The <strong>linear combination</strong> of a set of values <span class="math inline">\(a_1...a_n\)</span> has the formula:</p>
+<p><span class="math display">\[
+\sum_{i=1}^n c_ia_i
+\]</span></p>
+<p>where <span class="math inline">\(c_1...c_n\)</span> are constants.</p>
+<p>Using the notation above we can estimate <span class="math inline">\(b_1\)</span>:</p>
+<p><span class="math display">\[
+b_1 = \frac{\sum(x_i-\bar{x}) y_i}{\sum(x_i-\bar{x})^2}
+\]</span></p>
+<p>where the factors exclusive of <span class="math inline">\(y_i\)</span> render the constant <span class="math inline">\(c_i\)</span>.</p>
+</div>
+<div id="errors" class="section level3" number="1.6.4">
+<h3><span class="header-section-number">1.6.4</span> Errors</h3>
+<p>Properties for <span class="math inline">\(\epsilon_i\)</span>:</p>
+<p>The distribution of errors, <span class="math inline">\(\epsilon_1...\epsilon_n\)</span>, is normal.</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\sum e_i = 0\)</span></li>
+<li><span class="math inline">\(\sum y_i = \sum \hat y\)</span></li>
+<li><span class="math inline">\(\sum x_ie_i = 0\)</span></li>
+<li><span class="math inline">\(\sum y_ie_i = 0\)</span></li>
+</ol>
+<p><strong>SSE</strong>: Sum of Squared Errors</p>
+<p>The residual sum of squares.</p>
+<p>$$<span class="math display">\[\begin{align}
+SSE = \sum_{i = 1}^n e_i^2\\
+= \sum_{i = 1}^n (y_i - \hat y)^2
+
+\end{align}\]</span>$$</p>
+<p><strong>MSE</strong>: Mean Squared Errors</p>
+<p>$$<span class="math display">\[\begin{align}
+MSE = \frac{\sum_{i = 1}^n (y_i - \hat y)^2}{n-2} \\
+= \frac{SSE}{n-2}
+
+\end{align}\]</span>$$</p>
+<p>Where we have <span class="math inline">\(n-2\)</span> degrees of freedom for estimating two parameters, <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>. The MSE is an unbiased estimator for <span class="math inline">\(\sigma^2\)</span>, as the expected value is the true value.</p>
+<p><span class="math display">\[ E(MSE) = \sigma^2\]</span></p>
+<p>Our estimates of <span class="math inline">\(\beta\)</span>’s are random variables. We expect <span class="math inline">\(b_1\)</span> to change with each sampling. As we repeat sampling, we expect the MSE to average out to <span class="math inline">\(\thicksim\sigma^2\)</span>.</p>
+<p><span class="math display">\[
+\sigma^2(b_1) = \frac{\sigma^2}{\sum(x_i -\bar x)^2}
+\]</span></p>
+<p>and so,</p>
+<p><span class="math display">\[
+s^2(b_1)=\frac{MSE}{\sum(x_i -\bar x)^2}
+\]</span>
+which we’ll use in our p-value and confidence interval calculations.</p>
+<p>If <span class="math inline">\(H_0\)</span> is true, then <span class="math inline">\(t^*\)</span> has a t-distribution with <span class="math inline">\(n-2\)</span> degrees of freedom.</p>
+
+</div>
+</div>
+<!-- </div> -->
+<p style="text-align: center;">
+<a href="1.5-modeling-simple-linear-regression.html"><button class="btn btn-default">Previous</button></a>
+<a href="2-hypothesis-testing.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>

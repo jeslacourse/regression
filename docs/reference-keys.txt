@@ -1,14 +1,12 @@
 simple-linear-regression
-modeling
 expected-values
 rules-for-expectation
-variance
-rules-for-variance
 bias
+variance-and-covariance
+variance
 covariance
-rules-for-covariance
 correlation
-modeling-simple-linear-regression
+modeling
 features-of-models
 least-squares-estimation
 formulas

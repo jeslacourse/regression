@@ -2,39 +2,31 @@
 
 > One predictor, one outcome
 
-**Linear Regression:** The measure of lineal relationship between two variables. 
+**Linear Regression:** A measure of the lineal relationship between two variables. 
 
-Simple regression will have one continuous response variable (y) and one continuous explanatory variable (x). Response variables are also known as the *dependent* or *outcome* variable. Explanatory variables, aka *independent*, *predictor*, or *covariate* variables, can include categorical values. 
+Simple regression will have one continuous response variable ($y$) and one continuous explanatory variable ($x$). The response variable(s), $y$ are also known as the *dependent* or *outcome* variable. Explanatory variables, $x$ aka *independent*, *predictor*, or *covariate* variables, can include categorical values. 
 
 $$y=\beta_0 + \beta_1x$$
 Where $\beta_0$ is the y-intercept and $\beta_1$ is the slope of the function. 
 
-Regression is used for:
-
-1. Observational studies
-- just observe, no manipulation
-- treatment is not randomized
-2. Experimental studies
-- manipulate the explanatory variables
-- treatment must be randomized
+Regression is used for both observational studies and experimental studies. **Observational studies** are experiments with no manipulation from the researcher. Treatments are not randomized. **Experimental studies** allow the researcher to manipulate explanatory variables. Treatment must be randomized   
 
 
 
+**Fixed and Random Variables**
 
-## Modeling
+$X$ is treated as a fixed variable whose values have been chosen by the researcher. Though it should be noted that regression is often used when variable is not wholly chosen. For example, sampling a population will return a distribution of ages that may not match the true distribution of the population. So while we treat $X$ as a fixed value, it is also technically random. 
 
-$X$ is treated as a fixed variable whose values have been chosen by the researcher. Though it should be noted that regression is often used where variable is not wholly chosen. For example, sampling a population will return a distribution of ages that may not match the true distribution of the population. So $X$ is also, technically, random. 
+$Y$ is also a random variable given it's dependency on $X$ 
 
-$Y$ is a random variable 
+$$
+Y=\beta_0 + \beta_1X + \epsilon
+$$
+$\beta$'s are considered fixed values along with $X$. $\epsilon$ is a random variable.
 
-Our regression model dependency of $Y$ on $X$
-esti
-$$Y=\beta_0 + \beta_1X + \epsilon$$
-$\beta$'s and $X$ are considered fixed values, with random variable $\epsilon$.
+**Parameters and Statistics**
 
-
-
-Where $\beta_0$ and $\beta_1$ are parameters; usually unknown values related to the population and not the sample. 
+$\beta_0$ and $\beta_1$ are parameters; usually unknown values related to the population and not the sample. 
 
 - parameter: values for the population
 - statistic: values for the sample 
@@ -94,18 +86,40 @@ E(a+bX+cY) \\
 = a + bE(X) + cE(Y)
 \end{align}$$
 
-## Variance
+## Bias
 
-We can use the **population variance** formula to show that $E(Y)$ is equivalent to the parameter $\mu$. Given the population variance $var(Y)$: 
+The estimators $b_0$ and $b_1$ are unbiased estimators. They only require that for any $\epsilon_i$, that $E(\epsilon_i) = 0$.
+
+So $E(b_0) =\beta_0$ and $E(b_1) = \beta_1$. 
+
+Because of random variability, $s^2$ will vary with each experiment. An unbiased sample variance is an average value of those experiments. 
+
+$$ E(s^2) = E\frac{\sum(Y_i-\bar{Y})^2}{n-1}= var(Y)$$ 
+
+
+
+## Variance and Covariance 
+
+### Variance 
+
+**Population variance** can be defined as: 
+
+$$
+var(Y) = E[Y-E(Y)]^2
+$$
+
+We can use the population variance formula to show that $E(Y)$ is equivalent to the parameter $\mu$. Given $var(Y)$: 
 
 
 $$\begin{align} var(Y) = E[Y-E(Y)]^2\\=E[Y-\mu]^2\\\therefore \mu = E(Y)\end{align}$$
 
-The squaring of $[Y-E(Y)]$ "removes the sign", reverting all distances to positive distances from the mean.  
+The squaring of $[Y-E(Y)]$ "removes the sign", and reverts all measures to positive distances from the mean.  
 
 Given our known substitutions, we can say:
 
-$$\begin{align} var(Y) = E[Y-E(Y)]^2\\=\sum_{i=1}^k (y_i-\mu)^2P(Y-y_i)\end{align}$$
+$$\begin{align} var(Y)= E[Y-E(Y)]^2\\
+=\sum_{i=1}^k (y_i-\mu)^2P(Y-y_i)
+\end{align}$$
 
 If $Z_1... Z_n$ account for all values in a population, we would have parameter:
 
@@ -120,7 +134,7 @@ $$s^2 = \frac{\sum(x_i - \bar{x})^2}{n-1}$$
 
 Focusing on the denominator, sample sizes $n$ will shift the statistic significantly compared to if the sample was larger. 
 
-### Rules for Variance
+**Rules for Variance**
 
 1. $var(a) = 0$ 
 2. $var(aX) = a^2 var(X)$
@@ -135,19 +149,7 @@ var(a+bX-cY) \\
 =b^2var(X) + c^2var(Y)+2[(-bc)cov(X,Y)]
 \end{align}$$
 
-
-## Bias
-
-Because of random variability, $s^2$ will vary with each experiment. An unbiased sample variance is an average value of those experiments. 
-
-$$ E(s^2) = E\frac{\sum(Y_i-\bar{Y})^2}{n-1}= var(Y)$$ 
-
-The estimators $b_0$ and $b_1$ are unbiased estimators. They only require that for any $\epsilon_i$, that $E(\epsilon_i) = 0$.
-
-So $E(b_0) =\beta_0$ and $E(b_1) = \beta_1$. 
-
-
-## Covariance 
+### Covariance 
 
 Given the random variables $(X,Y)$ **covariance** is defined as: 
 
@@ -157,7 +159,7 @@ with **sample covariance**
 
 $$\hat{cov}(X,Y) = \frac{\sum(X_i - \bar{X})(Y_i-\bar{Y})^2}{n-1} $$
 
-### Rules for Covariance 
+**Rules for Covariance**
 
 1. $cov(X,Y) = cov(Y,X)$
 2. if $X ⫫ Y \Rightarrow cov(X,Y) = 0$, if the random variables are independent of one another, then we cannot predict their variability
@@ -169,16 +171,27 @@ $$\hat{cov}(X,Y) = \frac{\sum(X_i - \bar{X})(Y_i-\bar{Y})^2}{n-1} $$
 8. $cov(X, Y+Z) = cov(X,Y)+cov(X,Z)$
 9. $cov(X,X) = var(X)$
 
-## Correlation 
 
+
+
+
+
+
+### Correlation 
+
+::: {.rmdwarning}
 (!) Correlations is not equal to causation in non-random studies 
+:::
+
 
 **Correlation** is defined on the scale $-1 \leq corr(X,Y) \leq 1$ where: 
 
 $$corr(X,Y) = \frac{cov(X,Y)}{\sqrt{var(X)var(Y)}}$$
 
 
-## Modeling Simple Linear Regression  
+## Modeling
+
+The simple linear regression model is: 
 
 $$Y_i= \beta_0 +\beta_1X_i + \epsilon_i$$
 
@@ -204,7 +217,8 @@ On average, the error *is* the regression line, 0. Put another way,
  
 **Property 1**: 
 
-$$\begin{align} 
+$$
+\begin{align} 
 E(\epsilon_i) = 0\\
  \epsilon_i = Y_i -(\beta_0 +\beta_1X_i) \\
  E[\epsilon_i] = E[Y_i -(\beta_0 +\beta_1X_i)] \\
@@ -213,7 +227,8 @@ E(\epsilon_i) = 0\\
  0  = E[Y_i] - \beta_0 + \beta_1X_i \\
    \Rightarrow E[Y_i] = \beta_0 + \beta_1X_i \\
    
-\end{align}$$
+\end{align}
+$$
 
 showing that on average, $Y_i$ falls along the regression line. We can say the regression line is the average of $Y_i$, conditional on $X_i$. 
 
@@ -228,11 +243,13 @@ $\epsilon_i...\epsilon_n$ have the same variance
 
 $\epsilon_i...\epsilon_n$ are uncorrelated. 
  
-$$\begin{align}
+$$
+\begin{align}
   corr(\epsilon_i,\epsilon_j) = 0, i\neq j \\ 
   corr(\epsilon_i,\epsilon_j) = var(\epsilon_i) \neq 0 \\
   cov(\epsilon_i,\epsilon_j) = 0, i\neq j 
-\end{align}$$
+\end{align}
+$$
  
 Similarly, but with different notation, $corr(\epsilon_i,\epsilon_j) = \sigma(\epsilon_i,\epsilon_j)$. 
 
@@ -409,6 +426,7 @@ and so,
 $$
 s^2(b_1)=\frac{MSE}{\sum(x_i -\bar x)^2}
 $$
+
 which we'll use in our p-value and confidence interval calculations. 
 
 

@@ -4,5 +4,6 @@ bookdown::html_book:
     toc: true
     css: toc.css
 bookdown::bs4_book:
+  css: style.css
   theme: 
-    bootswatch: sketchy
+    bootswatch: paper
