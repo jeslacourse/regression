@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="2 Hypothesis Testing | Regression Analysis" />
+<meta property="og:title" content="2.2 Critical Values | Regression Analysis" />
 <meta property="og:type" content="book" />
 
 <meta property="og:description" content="A Linear Regression Notebook" />
@@ -24,7 +24,7 @@ MathJax.Hub.Config({
 
 <meta name="description" content="A Linear Regression Notebook">
 
-<title>2 Hypothesis Testing | Regression Analysis</title>
+<title>2.2 Critical Values | Regression Analysis</title>
 
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -122,33 +122,16 @@ details > summary {
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="hypothesis-testing" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Hypothesis Testing</h1>
-<p>There are three approaches to two-sided hypothesis testing.</p>
-<p>All three render the same conclusion and use the same significance level, <span class="math inline">\(\alpha\)</span>.</p>
-<ol style="list-style-type: decimal">
-<li>P-values</li>
-<li>Critical Values (t-Testing)</li>
-<li>Confidence Intervals</li>
-</ol>
-<p>Given the null (<span class="math inline">\(H_0\)</span>) and alternative (<span class="math inline">\(H_1\)</span>) hypotheses:</p>
-<p><span class="math display">\[\begin{align}
-H_0: \beta_1 = 0\\
-H_1: \beta_1 \neq 0
-\end{align}\]</span></p>
-<p>Where <span class="math inline">\(b_1\sim N\)</span> and <span class="math inline">\(E(b_1) = \beta_1\)</span>, we can build the test statistic, <span class="math inline">\(t^*\)</span>:</p>
+<div id="critical-values" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Critical Values</h2>
 <p><span class="math display">\[
-t^* = \frac{b_1}{s(b_1)}
+t(1-\frac{\alpha}{2}; n-2)
 \]</span></p>
-<p>where</p>
-<p><span class="math display">\[\begin{align}
-s(b_1) = \sqrt{s^2(b_1)}\\
-= \sqrt{\frac{MSE}{\sum(x_1-\bar{x})^2}}
-\end{align}\]</span></p>
+
 </div>
+<!-- </div> -->
 <p style="text-align: center;">
-<a href="1.html"><button class="btn btn-default">Previous</button></a>
-<a href="2.html"><button class="btn btn-default">Next</button></a>
+<a href="2.html"><button class="btn btn-default">Previous</button></a>
 </p>
 </div>
 </div>

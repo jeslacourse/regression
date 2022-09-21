@@ -4,10 +4,14 @@ author: "Jes LaCourse"
 date: "`r Sys.Date()`"
 output_dir: "docs"
 site: bookdown::bookdown_site
-output: bookdown::html_book
 documentclass: book
 description: "A Linear Regression Notebook"
 ---
+
+
+```{r setup, include = FALSE}
+thematic::thematic_rmd()
+```
 
 # {-}
 

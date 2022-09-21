@@ -3,3 +3,6 @@ bookdown::html_book:
     theme: darkly
     toc: true
     css: toc.css
+bookdown::bs4_book:
+  theme: 
+    bootswatch: sketchy
