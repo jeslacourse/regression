@@ -2,15 +2,29 @@
 
 > One predictor, one outcome
 
+:::: {.recap}
+::: {.center}
+
+**In Summary**
+:::
+
+This section serves as an introduction to expectation, variance, bias, and modeling. These topics serve as building blocks of linear regression. As we sample and re-sample our data repeated, we'll start to see our statistics, our estimates, start to mirror the true parameters they emulate.  
+
+::::
+
+
+
 **Linear Regression:** A measure of the lineal relationship between two variables. 
+
+Regression is used for both observational studies and experimental studies. **Observational studies** are experiments with no manipulation from the researcher. Treatments are not randomized. **Experimental studies** allow the researcher to manipulate explanatory variables. Treatment must be randomized.  
 
 Simple regression will have one continuous response variable ($y$) and one continuous explanatory variable ($x$). The response variable(s), $y$ are also known as the *dependent* or *outcome* variable. Explanatory variables, $x$ aka *independent*, *predictor*, or *covariate* variables, can include categorical values. 
 
 $$y=\beta_0 + \beta_1x$$
 Where $\beta_0$ is the y-intercept and $\beta_1$ is the slope of the function. 
 
-Regression is used for both observational studies and experimental studies. **Observational studies** are experiments with no manipulation from the researcher. Treatments are not randomized. **Experimental studies** allow the researcher to manipulate explanatory variables. Treatment must be randomized   
 
+Regression is used for both observational studies and experimental studies. **Observational studies** are experiments with no manipulation from the researcher. Treatments are not randomized. **Experimental studies** allow the researcher to manipulate explanatory variables. Treatment must be randomized.   
 
 
 **Fixed and Random Variables**
@@ -26,12 +40,16 @@ $\beta$'s are considered fixed values along with $X$. $\epsilon$ is a random var
 
 **Parameters and Statistics**
 
+::: {.callout .callout-info .d-flex .align-items-center}
+:::{.fa .fa-bookmark-o .fa-2x .text-info }
+:::
+Statistics are used to estimate the true parameters 
+:::
+
 $\beta_0$ and $\beta_1$ are parameters; usually unknown values related to the population and not the sample. 
 
-- parameter: values for the population
-- statistic: values for the sample 
-
-> We are using statistics to estimate our parameters 
+- [**Parameter**]{class="text-info"}: values for the population
+- [**Statistic**]{class="text-info"}: values for the sample 
 
 After collecting data from the population, we can create a sample on which to run our statistics for which we can estimate our parameters. 
 
@@ -45,23 +63,31 @@ After collecting data from the population, we can create a sample on which to ru
 
 ## Expected Values
 
-For a **discrete** random variable $Y$ with possible values $y_1... y_k$ we can say: 
-$$ E(Y) = \sum_{i=1}^k y_1 P(Y = y_i)$$
-where $E(Y)$ is a weighted average of the possible values $y_1... y_k$ and the weights $P(Y = y_1)...P(Y = y_k)$ are the expected probabilities. This will give us a weighted average.
+Expected values are *mean* or average values. They look a little different depending on what the data looks like. 
 
-Weighted Average:
-$$\sum_{i=1}^k w_ia_i$$
-If $\sum w_i = 1$ and $0 \leq w_1 \leq 1$. 
+For a **discrete** random variable $Y$ with possible values $y_1... y_k$ we can say $E(Y)$ is a weighted average of the possible values $y_1... y_k$ and their respective expected probabilities $P(Y = y_1)...P(Y = y_k)$:
+
+$$\begin{equation} E(Y) = \sum_{i=1}^k y_i P(Y = y_i)\end{equation}$$
+
+
+Generally speaking, we can use the following form for a weighted average:
+
+$$\begin{equation}\sum_{i=1}^k w_ia_i\end{equation}$$
+Because we're working with probability, however, we need to add in the caveats $\sum w_i = 1$ and $0 \leq w_1 \leq 1$. 
 
 
 A **continuous** random variable $Y$ would be represented by a density function:
 
 $$E(Y) = \int_{-\infty}^{\infty} yf(y)dy$$
-For example, the normal distribution `Y ~ N(0,1)` with mean `0` and variance `1`, would be represented using the density function:
+
+
+::: {.callout .callout-warning }
+[Example]{class="badge badge-warning"} The normal distribution `Y ~ N(0,1)` with mean `0` and variance `1`, would be represented using the density function:
 
 $$E(Y) = \int_{-\infty}^{\infty}y\frac{1}{\sqrt{2\pi}} 
   \exp\left( -\frac{y^2}{2}\right) dy = 0 $$
-  
+:::
+
 The **population mean** is the expected value. If $Z_1..Z_N$ for all values in the population, then we would use the parameter: 
 
 $$ E(Z) = \frac{1}{N}\sum_{i=1}^N Z_i$$
@@ -179,8 +205,10 @@ $$\hat{cov}(X,Y) = \frac{\sum(X_i - \bar{X})(Y_i-\bar{Y})^2}{n-1} $$
 
 ### Correlation 
 
-::: {.rmdwarning}
-(!) Correlations is not equal to causation in non-random studies 
+::: {.callout .callout-danger .d-flex .align-items-center}
+:::{.fa .fa-skull-crossbones .text-danger }
+:::
+ Correlations is not equal to causation in non-random studies 
 :::
 
 
@@ -271,9 +299,11 @@ and the regression function:
 
 $$Y= \beta_0 +\beta_1X + \epsilon$$
 
-An example: 
+[Example]{class="badge badge-warning"} We want to estimate the systolic blood pressure for a 20 year old. 
 
-We want to estimate the systolic blood pressure for a 20 year old. We know the following variables: 
+::: {.callout .callout-warning }
+
+We know the following variables: 
 
 - $x$: age
 - $y$: systolic blood pressure
@@ -288,6 +318,7 @@ E(Y|X = 20) \\= 90 + 0.9(20)\\=108
 
 Factoring in an error margin, given $X = 20$ we would expect $Y = 108 +\epsilon$. 
 
+:::
 
 ## Least Squares Estimation
 
