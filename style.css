@@ -7,80 +7,72 @@
   margin-bottom: 10px;
   border: 2px solid #DECBB7;
   border-radius: 10px;
-  background: #cccccc 5px center/3em no-repeat;
+  background: #eeeeee 5px center/3em no-repeat;
 }
 
-.caution {
-  background-image: url("images/exclamation.svg");
+.warning {
+  background-image: url("images/info.png");
   background-size: 50px;
   background-position-x: 15px;
   
 }
 
-.label {
-  display: inline;
-  padding: .2em .6em .3em;
-  font-size: 75%;
-  font-weight: 700;
-  line-height: 1;
-  color: #ffffff;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: .25em;
+.callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 6px !important;
+    border-radius: 3px;
+    background: #eeeeee 5px center/3em no-repeat;
 }
-a.label:hover,
-a.label:focus {
-  color: #ffffff;
-  text-decoration: none;
-  cursor: pointer;
+.book.color-theme-1 .callout {
+    border: 1px solid #ebdaa5;
 }
-.label:empty {
-  display: none;
+.book.color-theme-2 .callout {
+    border: 1px solid #2f3549;
 }
-.btn .label {
-  position: relative;
-  top: -1px;
+.callout h4 {
+    margin-top: 0;
+    margin-bottom: 1em;
 }
-.label-default {
-  background-color: #bbbbbb;
+.callout p:last-child {
+    margin-bottom: 0;
 }
-.label-default[href]:hover,
-.label-default[href]:focus {
-  background-color: #a2a2a2;
+.callout code {
+    border-radius: 3px;
 }
-.label-primary {
-  background-color: #2196f3;
+.callout+.callout {
+    margin-top: -5px;
 }
-.label-primary[href]:hover,
-.label-primary[href]:focus {
-  background-color: #0c7cd5;
+.callout-default {
+    border-left-color: #777 !important;
 }
-.label-success {
-  background-color: #4caf50;
+
+.callout-primary {
+    border-left-color: #428bca !important;
 }
-.label-success[href]:hover,
-.label-success[href]:focus {
-  background-color: #3d8b40;
+
+.callout-success {
+    border-left-color: #5cb85c !important;
 }
-.label-info {
-  background-color: #9c27b0;
+
+.callout-danger {
+    border-left-color: #d9534f !important;
 }
-.label-info[href]:hover,
-.label-info[href]:focus {
-  background-color: #771e86;
+
+.callout-warning {
+    border-left-color: #f0ad4e !important;
 }
-.label-warning {
-  background-color: #ff9800;
+
+.callout-info {
+    border-left-color: #5bc0de !important;
 }
-.label-warning[href]:hover,
-.label-warning[href]:focus {
-  background-color: #cc7a00;
+
+
+.fa {
+  padding-right: 15px;
 }
-.label-danger {
-  background-color: #e51c23;
-}
-.label-danger[href]:hover,
-.label-danger[href]:focus {
-  background-color: #b9151b;
+
+.fa-warning {
+  
 }
