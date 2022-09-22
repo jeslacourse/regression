@@ -1,3 +1,7 @@
+general-content
+examples
+definitions
+dangers
 simple-linear-regression
 expected-values
 rules-for-expectation

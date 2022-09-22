@@ -1,0 +1,130 @@
+@import "_variables";
+
+
+// "Oh hey, this is exam-worthy" - Yellow Box 
+.testmaterial {
+  padding: 1em 1em 1em 1em;
+  margin-bottom: 10px;
+  border: 2px solid $brand-secondary; //yellow
+  border-radius: 3px;
+  background: #F6F6F6 5px center/3em no-repeat;
+  position: relative;
+}
+
+
+.tm-inline {
+  padding: 2px 2px 2px 2px;
+  margin-bottom: 10px;
+  border: 2px solid $brand-secondary; //yellow
+  
+  background: #F6F6F6 5px center/3em no-repeat;
+  position: relative;
+}
+
+/*
+ *   Callouts  
+ */
+.callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 6px !important;
+    border-radius: 3px;
+    background: #F6F6F6 5px center/3em no-repeat;
+}
+
+.book.color-theme-1 .callout {
+    border: 1px solid #F1E7CA; //#ebdaa5;
+}
+.book.color-theme-2 .callout {
+    border: 1px solid #2f3549;
+}
+
+.callout p:last-child {
+    margin-bottom: 0;
+}
+.callout code {
+    border-radius: 3px;
+}
+.callout+.callout {
+    margin-top: -5px;
+}
+.callout-default {
+    border-left-color: #777 !important;
+}
+
+.callout-primary {
+    border-left-color: $brand-primary !important;
+}
+
+.callout-success {
+    border-left-color: $brand-success !important;
+}
+
+.callout-danger {
+    border-left-color: $brand-danger !important;
+}
+
+.callout-warning {
+    border-left-color: $brand-warning !important;
+}
+
+.callout-info {
+    border-left-color: $brand-info !important;
+}
+
+/*
+ *  Font Awesome - Callout Icons
+ */
+
+// Give icons some breathing room in callout flexboxes
+.fa {
+  padding-right: 15px;
+  font-size: 2em;
+  
+// In progress  
+}
+
+.fa-primary {
+  content: "fa-pen";
+  color: $brand-primary;
+  
+}
+
+.fa-success {
+  content: "fa-check-circle-o";
+  color: $brand-success;
+}
+
+.fa-danger {
+  content: "fa-check-circle-o";
+  color: $brand-danger;
+}
+
+.fa-warning {
+  content: "fa-check-circle-o";
+  color: $brand-warning; 
+}
+
+.fa-info {
+  content: "fa-bookmark-o";
+  color: $brand-info;
+}
+
+/*
+ *  Recap Box
+ */
+
+.center {
+  text-align: center;
+}
+
+.recap {
+  padding: 1em 1em 1em 4.5em;
+  margin-bottom: 10px;
+  border: 2px solid #dddddd;
+  border-radius: 10px;
+  background: #F6F6F6 5px center/3em no-repeat;
+  position:relative;
+  font-size: 0.75em;
+}

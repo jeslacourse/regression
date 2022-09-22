@@ -65,7 +65,7 @@
 }
 
 .callout-info {
-    border-left-color: $info !important;
+    border-left-color: #5bc0de !important;
 }
 
 
@@ -74,5 +74,5 @@
 }
 
 .fa-warning {
-  
+  image: "fa-check-circle-o"
 }

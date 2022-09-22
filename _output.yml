@@ -1,9 +1,10 @@
-
-bookdown::html_book:
-    theme: darkly
-    toc: true
-    css: toc.css
 bookdown::bs4_book:
-  css: style.css
+  css: [_variables.scss, style.scss]
   theme: 
-    bootswatch: paper
+  #  bootswatch: materia
+    primary: "#222222"      # dark-gray  #rmdnote
+    secondary: "#FFD147"    # yellow         
+    success: "#66afb7"      # cyan       #rmdimportant
+    info: "#702DAE"         # purple     #rmdtip
+    warning: "#FF8E38"      # orange     #rmdwarning
+    danger: "#EE5555"       # red        #rmdcaution
