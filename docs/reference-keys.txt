@@ -3,6 +3,7 @@ examples
 definitions
 dangers
 simple-linear-regression
+variables
 expected-values
 rules-for-expectation
 bias
