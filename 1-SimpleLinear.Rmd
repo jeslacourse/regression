@@ -471,6 +471,26 @@ $$
 which we'll use in our p-value and confidence interval calculations. 
 
 
-
-
 If $H_0$ is true, then $t^*$ has a t-distribution with $n-2$ degrees of freedom. 
+
+
+[Example]{class="badge badge-warning"} We want to estimate the systolic blood pressure for 20 subjects. We know the following variables: 
+
+- $x$: age
+- $y$: systolic blood pressure
+- $\beta_0$: the intercept, $90$
+- $\beta_1$: the slope, $0.9$
+
+Note that $\beta$'s are usually unknown.
+
+We are given the following information 
+
+$$\begin{equation}
+\sum_{i =1}^{20} (x_1- \bar x)(y_i - \bar y)\approx 4863.282\\
+\sum_{i =1}^{20} (x_1- \bar x) \approx 6072.55\\ 
+\b_1 = \frac{4863.282}{6072.55} \approx 0.8
+
+\end{equation}$$
+:::
+
+
