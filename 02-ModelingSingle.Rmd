@@ -1,4 +1,4 @@
-# Modeling Single Variable 
+# Modeling and Errors 
 
 The simple linear regression model is: 
 
@@ -42,7 +42,7 @@ $$
 showing that on average, $Y_i$ falls along the regression line. We can say the regression line is the average of $Y_i$, conditional on $X_i$. 
 
 $$ E(Y_i|X_i)= \beta_0 +\beta_1X_i $$
-**Property 2**:
+ **Property 2**:
 
 $\epsilon_i...\epsilon_n$ have the same variance 
  
@@ -241,27 +241,23 @@ $$
 
 which we'll use in our p-value and confidence interval calculations. 
 
-
 If $H_0$ is true, then $t^*$ has a t-distribution with $n-2$ degrees of freedom. 
 
 
-[Example]{class="badge badge-warning"} We want to estimate the systolic blood pressure for 20 subjects. We know the following variables: 
+## Examples {-}
 
-- $x$: age
-- $y$: systolic blood pressure
-- $\beta_0$: the intercept, $90$
-- $\beta_1$: the slope, $0.9$
+:::{.callout .example}
+[Example]{class="badge badge-warning"} The predicted model in Example [] were close, but not quite in line with the true regression line. Determine the errors:
 
-Note that $\beta$'s are usually unknown.
+$$\begin{equation} 
 
-We are given the following information 
-
-$$\begin{equation}
-\sum_{i =1}^{20} (x_1- \bar x)(y_i - \bar y)\approx 4863.282\\
-\sum_{i =1}^{20} (x_1- \bar x) \approx 6072.55\\ 
-\b_1 = \frac{4863.282}{6072.55} \approx 0.8
+SSE = \sum_{i= 1}^{n}e_i^2 \approx 4457.83\\
+MSE = \frac{SSE}{n-2}\approx 247\\
+s^2(b_1) = \frac{MSE}{\sum(x-\bar{ x})^2} \approx 0.04067
+s(b_1) = sqrt(0.04067) \approx 0.202
 
 \end{equation}$$
+
 :::
 
 

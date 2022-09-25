@@ -46,7 +46,7 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Regression Analysis</a></li>
 <li><a class="" href="single-linear-regression.html"><span class="header-section-number">1</span> Single Linear Regression</a></li>
-<li><a class="" href="modeling-single-variable.html"><span class="header-section-number">2</span> Modeling Single Variable</a></li>
+<li><a class="" href="modeling-and-errors.html"><span class="header-section-number">2</span> Modeling and Errors</a></li>
 <li><a class="active" href="hypothesis-testing.html"><span class="header-section-number">3</span> Hypothesis Testing</a></li>
 <li><a class="" href="style-guide.html"><span class="header-section-number">4</span> Style Guide</a></li>
 </ul>
@@ -87,6 +87,21 @@ s(b_1) = \sqrt{s^2(b_1)}\\
 </h2>
 <p>If a p-value <span class="math inline">\(\lt\alpha\)</span>, reject <span class="math inline">\(H_0\)</span>. Otherwise, do not reject <span class="math inline">\(H_0\)</span>.</p>
 <p><span class="math display">\[ 2P(t \leq |t^*|\mid H_0 true)\]</span></p>
+<div class="callout example">
+<p><span id="exm:unlabeled-div-7" class="example"><strong>Example 3.1  </strong></span><span class="badge badge-warning">Example</span> Continuing with example [] Was our estimate of the true regression line a reasonable estimate? Let <span class="math inline">\(\alpha = 0.5\)</span>.</p>
+<p><span class="math display">\[\begin{align}
+H_0: \beta_1 = 0\\
+H_1: \beta_1 \neq 0
+\end{align}\]</span></p>
+<p>$$<span class="math display">\[\begin{align}
+t^* = \frac{b_1}{s(b_1)}
+t^* = \frac{0.8}{0.202} \approx 3.96
+
+\end{align}\]</span>$$</p>
+<p>Our test statistic, <span class="math inline">\(t^* = 3.96\)</span>, returns a p-value of <span class="math inline">\(0.0009\)</span>. Our p-value is smaller than <span class="math inline">\(\alpha\)</span>.</p>
+<p><span class="math display">\[0.0009 &lt; 0.05 \checkmark\]</span>
+Reject the null hypothesis. Our estimate <span class="math inline">\(b_1\)</span> is significantly different from our expected value, <span class="math inline">\(\beta_1\)</span>.</p>
+</div>
 </div>
 <div id="critical-values" class="section level2" number="3.2">
 <h2>
@@ -99,7 +114,7 @@ t(1-\frac{\alpha}{2}; n-2)
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="modeling-single-variable.html"><span class="header-section-number">2</span> Modeling Single Variable</a></div>
+<div class="prev"><a href="modeling-and-errors.html"><span class="header-section-number">2</span> Modeling and Errors</a></div>
 <div class="next"><a href="style-guide.html"><span class="header-section-number">4</span> Style Guide</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>

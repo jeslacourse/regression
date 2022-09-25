@@ -46,7 +46,7 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Regression Analysis</a></li>
 <li><a class="active" href="single-linear-regression.html"><span class="header-section-number">1</span> Single Linear Regression</a></li>
-<li><a class="" href="modeling-single-variable.html"><span class="header-section-number">2</span> Modeling Single Variable</a></li>
+<li><a class="" href="modeling-and-errors.html"><span class="header-section-number">2</span> Modeling and Errors</a></li>
 <li><a class="" href="hypothesis-testing.html"><span class="header-section-number">3</span> Hypothesis Testing</a></li>
 <li><a class="" href="style-guide.html"><span class="header-section-number">4</span> Style Guide</a></li>
 </ul>
@@ -85,7 +85,7 @@ Y=\beta_0 + \beta_1X + \epsilon
 <p><span class="math inline">\(Y\)</span> is also a random variable given it’s dependency on <span class="math inline">\(X\)</span> and the effects of <span class="math inline">\(\epsilon\)</span>.</p>
 <p><strong>Parameters and Statistics</strong></p>
 <div class="callout note d-flex align-items-center">
-<div class="fa fa-bookmark-o fa-2x text-info">
+<div class="fa fa-note-sticky fa-2x text-info">
 
 </div>
 <p>Statistics are used to estimate the true parameters</p>
@@ -255,12 +255,50 @@ var(a+bX-cY) \\
 <p><span class="text-info"><strong>Bias</strong></span> is a term that refers to how much an estimate (or estimator) is off from its true value. Contextually, we want to know how far off the slope and intercept are for a sample of values in an experiment deviates from the true regression line.</p>
 <p>Because of random variability, <span class="math inline">\(s^2\)</span> will vary with each experiment. After repeating the experiment we can collect an unbiased sample variance, the average value of those experiments.</p>
 <p><span class="math display">\[ E(s^2) = E\frac{\sum(Y_i-\bar{Y})^2}{n-1}= var(Y)\]</span></p>
+</div>
+<div id="examples" class="section level2 unnumbered">
+<h2>Examples<a class="anchor" aria-label="anchor" href="#examples"><i class="fas fa-link"></i></a>
+</h2>
+<div class="callout example">
+<p><span id="exm:unlabeled-div-4" class="example"><strong>Example 1.4  </strong></span><span class="badge badge-warning">Example</span> We want to estimate the systolic blood pressure, <span class="math inline">\(y\)</span>, for 20 subjects based on their age, <span class="math inline">\(x\)</span>. <span class="math inline">\(\beta\)</span>’s are usually unknown, but in this case we know we want to be reasonably close to <span class="math inline">\(\beta_0=90\)</span> and <span class="math inline">\(\beta_1=0.9\)</span></p>
+<p>The mean age, <span class="math inline">\(\bar{x}\)</span>, is <span class="math inline">\(38.15\)</span> and the mean systolic blood pressure measured, <span class="math inline">\(\bar{y}\)</span> was <span class="math inline">\(118.11\)</span> mmHg.</p>
+<p>First, solve for <span class="math inline">\(b_1\)</span>:</p>
+<p>$$<span class="math display">\[\begin{align}
+b_1 =\frac{\hat{cov}(X,Y)}{\hat{var}(X,Y)}\\
+\hat{cov}(X,Y)= \sum_{i =1}^{20} (x_i- \bar x)(y_i - \bar y)\approx 4863.282\\
+\hat{var}(X,Y) = \sum_{i =1}^{20} (x_i- \bar x) \approx 6072.55\\
+b_1 = \frac{4863.282}{6072.55} \approx 0.8
+
+\end{align}\]</span>$$</p>
+<p>Then, for <span class="math inline">\(b_0\)</span>:</p>
+<p>$$<span class="math display">\[\begin{align}
+
+b_0 = \bar{y}- b_1\bar{x}\\
+b_0 = 118.11- 0.8(38.15)\\
+b_0 \approx 91.6
+
+\end{align}\]</span>$$</p>
+<p>Our <strong>estimated regression line</strong>:</p>
+<p><span class="math display">\[
+y = 0.8x-91.6
+\]</span>
+is roughly comparable to the <strong>true regression line</strong>:</p>
+<p><span class="math display">\[
+y = 0.9x-90
+\]</span></p>
+</div>
+<div class="callout example2">
+<p><span class="badge badge-success">Example</span> Given the values above, what is the predicted systolic blood pressure for a 50-year-old?</p>
+<p><span class="math display">\[E(Y|X = 50)\]</span></p>
+<p>Use the estimated regression line to determine the value for <span class="math inline">\(x_1 = 50\)</span>:
+<span class="math display">\[\hat y = 0.8(50) - 91.6\approx 131.6\]</span></p>
+</div>
 
 </div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="index.html">Regression Analysis</a></div>
-<div class="next"><a href="modeling-single-variable.html"><span class="header-section-number">2</span> Modeling Single Variable</a></div>
+<div class="next"><a href="modeling-and-errors.html"><span class="header-section-number">2</span> Modeling and Errors</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -273,6 +311,7 @@ var(a+bX-cY) \\
 <li><a class="nav-link" href="#covariance"><span class="header-section-number">1.4</span> Covariance</a></li>
 <li><a class="nav-link" href="#correlation"><span class="header-section-number">1.5</span> Correlation</a></li>
 <li><a class="nav-link" href="#bias"><span class="header-section-number">1.6</span> Bias</a></li>
+<li><a class="nav-link" href="#examples">Examples</a></li>
 </ul>
 
       <div class="book-extra">

@@ -38,7 +38,7 @@ $Y$ is also a random variable given it's dependency on $X$ and the effects of $\
 **Parameters and Statistics**
 
 ::: {.callout .note .d-flex .align-items-center}
-:::{.fa .fa-bookmark-o .fa-2x .text-info }
+:::{.fa .fa-note-sticky .fa-2x .text-info }
 :::
 Statistics are used to estimate the true parameters 
 :::
@@ -221,3 +221,52 @@ So $E(b_0) =\beta_0$ and $E(b_1) = \beta_1$.
 Because of random variability, $s^2$ will vary with each experiment. After repeating the experiment we can collect an unbiased sample variance, the average value of those experiments. 
 
 $$ E(s^2) = E\frac{\sum(Y_i-\bar{Y})^2}{n-1}= var(Y)$$ 
+
+## Examples {-}
+
+:::{.callout .example}
+[Example]{class="badge badge-warning"} We want to estimate the systolic blood pressure, $y$,  for 20 subjects based on their age, $x$. $\beta$'s are usually unknown, but in this case we know we want to be reasonably close to $\beta_0=90$ and $\beta_1=0.9$
+
+The mean age, $\bar{x}$, is $38.15$ and the mean systolic blood pressure measured, $\bar{y}$ was $118.11$ mmHg. 
+
+First, solve for $b_1$: 
+
+$$\begin{align}
+b_1 =\frac{\hat{cov}(X,Y)}{\hat{var}(X,Y)}\\
+\hat{cov}(X,Y)= \sum_{i =1}^{20} (x_i- \bar x)(y_i - \bar y)\approx 4863.282\\
+\hat{var}(X,Y) = \sum_{i =1}^{20} (x_i- \bar x) \approx 6072.55\\ 
+b_1 = \frac{4863.282}{6072.55} \approx 0.8
+
+\end{align}$$
+
+Then, for $b_0$:
+
+
+$$\begin{align}
+
+b_0 = \bar{y}- b_1\bar{x}\\
+b_0 = 118.11- 0.8(38.15)\\
+b_0 \approx 91.6
+
+\end{align}$$
+
+Our **estimated regression line**: 
+
+$$
+y = 0.8x-91.6
+$$
+is roughly comparable to the **true regression line**: 
+
+$$
+y = 0.9x-90
+$$
+:::
+
+:::{.callout .example2}
+[Example]{class="badge badge-success"} Given the values above, what is the predicted systolic blood pressure for a 50-year-old?
+
+$$E(Y|X = 50)$$
+
+Use the estimated regression line to determine the value for $x_1 = 50$:
+$$\hat y = 0.8(50) - 91.6\approx 131.6$$
+:::

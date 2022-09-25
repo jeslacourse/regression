@@ -29,11 +29,36 @@ s(b_1) = \sqrt{s^2(b_1)}\\
 = \sqrt{\frac{MSE}{\sum(x_1-\bar{x})^2}}
 \end{align}$$
 
+
+
+
 ## P-values
 
 If a p-value $\lt\alpha$, reject $H_0$. Otherwise, do not reject $H_0$. 
 
 $$ 2P(t \leq |t^*|\mid H_0 true)$$
+
+:::{.callout .example}
+[Example]{class="badge badge-warning"} Continuing with example [] Was our estimate of the true regression line a reasonable estimate? Let $\alpha = 0.5$. 
+
+$$\begin{align}
+H_0: \beta_1 = 0\\
+H_1: \beta_1 \neq 0
+\end{align}$$
+
+$$\begin{align}
+t^* = \frac{b_1}{s(b_1)}
+t^* = \frac{0.8}{0.202} \approx 3.96
+
+\end{align}$$
+
+Our test statistic, $t^* = 3.96$, returns a p-value of $0.0009$. Our p-value is smaller than $\alpha$. 
+
+$$0.0009 < 0.05 \checkmark$$
+Reject the null hypothesis. Our estimate $b_1$ is significantly different from our expected value, $\beta_1$.
+
+:::
+
 
 ## Critical Values
 
