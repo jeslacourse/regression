@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>1 Single Linear Regression | Regression Analysis</title>
+<meta name="author" content="Jes LaCourse">
+<meta name="description" content="One predictor, one outcome  In Summary This section serves as an introduction to expectation, variance, bias, and modeling. These topics serve as building blocks of linear regression. As we sample...">
+<meta name="generator" content="bookdown 0.28 with bs4_book()">
+<meta property="og:title" content="1 Single Linear Regression | Regression Analysis">
+<meta property="og:type" content="book">
+<meta property="og:description" content="One predictor, one outcome  In Summary This section serves as an introduction to expectation, variance, bias, and modeling. These topics serve as building blocks of linear regression. As we sample...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1 Single Linear Regression | Regression Analysis">
+<meta name="twitter:description" content="One predictor, one outcome  In Summary This section serves as an introduction to expectation, variance, bias, and modeling. These topics serve as building blocks of linear regression. As we sample...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="libs/sass4cb50a878774d8c2576841c502c7755c/_variables.min.css">
+<link rel="stylesheet" href="libs/sass50818e61000a3ea11664e18f0ab5248a/style.min.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Regression Analysis</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Regression Analysis</a></li>
+<li><a class="active" href="single-linear-regression.html"><span class="header-section-number">1</span> Single Linear Regression</a></li>
+<li><a class="" href="modeling-single-variable.html"><span class="header-section-number">2</span> Modeling Single Variable</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">3</span> Hypothesis Testing</a></li>
+<li><a class="" href="style-guide.html"><span class="header-section-number">4</span> Style Guide</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="single-linear-regression" class="section level1" number="1">
+<h1>
+<span class="header-section-number">1</span> Single Linear Regression<a class="anchor" aria-label="anchor" href="#single-linear-regression"><i class="fas fa-link"></i></a>
+</h1>
+<blockquote>
+<p>One predictor, one outcome</p>
+</blockquote>
+<div class="recap">
+<div class="center">
+<p><strong>In Summary</strong></p>
+</div>
+<p>This section serves as an introduction to expectation, variance, bias, and modeling. These topics serve as building blocks of linear regression. As we sample and re-sample our data repeated, we’ll start to see our statistics, our estimates, start to mirror the true parameters they emulate.</p>
+</div>
+<div id="variables" class="section level2" number="1.1">
+<h2>
+<span class="header-section-number">1.1</span> Variables<a class="anchor" aria-label="anchor" href="#variables"><i class="fas fa-link"></i></a>
+</h2>
+<p>Simple regression has only one continuous <span class="text-info"><strong>response variable (<span class="math inline">\(y\)</span>)</strong></span> and one continuous <span class="text-info"><strong>explanatory variable (<span class="math inline">\(x\)</span>)</strong></span>. The response variable, <span class="math inline">\(y\)</span> is also known as the <em>dependent</em> or <em>outcome</em> variable. Explanatory variables, <span class="math inline">\(x\)</span> aka <em>independent</em>, <em>predictor</em>, or <em>covariate</em> variables, can include categorical values. We also have two parameters in regression: <span class="math inline">\(\beta_0\)</span> is the y-intercept and <span class="math inline">\(\beta_1\)</span> is the slope of the function. All four components make up the linear regression equation, a variant of slope-intercept form.</p>
+<p><span class="math display">\[y=\beta_0 + \beta_1x\]</span></p>
+<p><strong>Fixed and Random Variables</strong></p>
+<p><span class="text-info"><strong>Fixed variables</strong></span> are those that don’t change from one experiment to the next. The values are not chosen by the researcher. <span class="math inline">\(X\)</span> is treated as a fixed variable for regression. That said, regression is often used when the <span class="math inline">\(X\)</span> is not wholly chosen; it may simply the only data you have to work with. For example, sampling a population will return a distribution of ages that may not match the true distribution of the population. So while we treat <span class="math inline">\(X\)</span> as a fixed value, it is also technically random.</p>
+<p><span class="text-info"><strong>Random variables</strong></span> are expected to return different values after repeating an experiment. The variability between the true regression line and the points <span class="math inline">\((X,Y)\)</span> is captured with an error value, <span class="math inline">\(\epsilon\)</span>.</p>
+<p><span class="math display">\[
+Y=\beta_0 + \beta_1X + \epsilon
+\]</span>
+<span class="math inline">\(\beta\)</span>’s are considered fixed values along with <span class="math inline">\(X\)</span>, whereas <span class="math inline">\(\epsilon\)</span> is a random variable.</p>
+<p><span class="math inline">\(Y\)</span> is also a random variable given it’s dependency on <span class="math inline">\(X\)</span> and the effects of <span class="math inline">\(\epsilon\)</span>.</p>
+<p><strong>Parameters and Statistics</strong></p>
+<div class="callout note d-flex align-items-center">
+<div class="fa fa-bookmark-o fa-2x text-info">
+
+</div>
+<p>Statistics are used to estimate the true parameters</p>
+</div>
+<p><span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> are parameters; usually unknown values related to the population and not the sample.</p>
+<ul>
+<li>
+<span class="text-info"><strong>Parameter</strong></span>: values for the population</li>
+<li>
+<span class="text-info"><strong>Statistic</strong></span>: values for the sample</li>
+</ul>
+<p>After collecting data from the population, we can create a sample on which to run our statistics for which we can estimate our parameters.</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th></th>
+<th>parameter</th>
+<th>statistic</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>mean</td>
+<td><span class="math inline">\(\mu\)</span></td>
+<td><span class="math inline">\(\bar{y}\)</span></td>
+</tr>
+<tr class="even">
+<td>variance</td>
+<td><span class="math inline">\(\sigma^2\)</span></td>
+<td><span class="math inline">\(s^2\)</span></td>
+</tr>
+<tr class="odd">
+<td>slope</td>
+<td><span class="math inline">\(\beta_1\)</span></td>
+<td><span class="math inline">\(b_1\)</span></td>
+</tr>
+<tr class="even">
+<td>intercept</td>
+<td><span class="math inline">\(\beta_0\)</span></td>
+<td><span class="math inline">\(b_0\)</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="expected-values" class="section level2" number="1.2">
+<h2>
+<span class="header-section-number">1.2</span> Expected Values<a class="anchor" aria-label="anchor" href="#expected-values"><i class="fas fa-link"></i></a>
+</h2>
+<p>Expected values are <em>mean</em> or average values. They look a little different depending on what the data looks like.</p>
+<p><strong>Sample means</strong> are averages. Given the sample data <span class="math inline">\(X_1... X_n\)</span>, would return the <em>statistic</em>:</p>
+<div class="text-info">
+<p><span class="math display">\[ \bar{x}  = \frac{1}{n} \sum_{i = 1}^nX_i\]</span></p>
+</div>
+<p>After several repeated experiments, we can come up with the <strong>population mean</strong>, the expected value. If <span class="math inline">\(Z_1..Z_N\)</span> for all values in the population, then we would use the parameter:</p>
+<p><span class="math display">\[ E(Z) = \frac{1}{N}\sum_{i=1}^N Z_i\]</span></p>
+<p>In general, a <strong>discrete</strong> random variable <span class="math inline">\(Y\)</span> with possible values <span class="math inline">\(y_1... y_k\)</span> we can say <span class="math inline">\(E(Y)\)</span> is a weighted average of the possible values <span class="math inline">\(y_1... y_k\)</span> and their respective expected probabilities <span class="math inline">\(P(Y = y_1)...P(Y = y_k)\)</span>:</p>
+<p><span class="math display">\[\begin{equation} E(Y) = \sum_{i=1}^k y_i P(Y = y_i)\end{equation}\]</span></p>
+<p>Expectation with discrete values is a modification of the weighted average formula. Given the limitations of probabilities, we simply have to add the caveats that the sum of all probabilities is equal to 100%, <span class="math inline">\(\sum w_i = 1\)</span>, and each probability can reasonably happen. You can’t have a 200% chance of rain, right? We have to limit ourselves to a 0-100% probability, <span class="math inline">\(0 \leq w_1 \leq 1\)</span>.</p>
+<p><span class="math display">\[\begin{equation}\sum_{i=1}^k w_ia_i\end{equation}\]</span></p>
+<p>Expectation for <strong>continuous</strong> random variable <span class="math inline">\(Y\)</span> would be calculated with a density function:</p>
+<p><span class="math display">\[E(Y) = \int_{-\infty}^{\infty} yf(y)dy\]</span>
+It’s the same thing, yet terrible because integrals.</p>
+<div class="callout example">
+<p><span id="exm:unlabeled-div-1" class="example"><strong>Example 1.1  </strong></span><span class="badge badge-warning">Example</span> The normal distribution <code>Y ~ N(0,1)</code> with mean <code>0</code> and variance <code>1</code>, would be represented using the density function:</p>
+<p><span class="math display">\[E(Y) = \int_{-\infty}^{\infty}y\frac{1}{\sqrt{2\pi}}
+  \exp\left( -\frac{y^2}{2}\right) dy = 0 \]</span></p>
+</div>
+<div id="rules-for-expectation" class="section level3" number="1.2.1">
+<h3>
+<span class="header-section-number">1.2.1</span> Rules for Expectation<a class="anchor" aria-label="anchor" href="#rules-for-expectation"><i class="fas fa-link"></i></a>
+</h3>
+<p>Given random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> and constants <span class="math inline">\(a,b,\)</span> &amp; <span class="math inline">\(c\)</span>:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(E(c) = c\)</span></li>
+<li><span class="math inline">\(E(cX) = cE(X)\)</span></li>
+<li><span class="math inline">\(E(X+Y) = E(X) + E(Y)\)</span></li>
+</ol>
+<div class="callout example">
+<p><span id="exm:unlabeled-div-2" class="example"><strong>Example 1.2  </strong></span><span class="badge badge-warning">Example</span></p>
+<p><span class="math display">\[\begin{align}   
+E(a+bX+cY) \\
+= a + bE(X) + cE(Y)
+\end{align}\]</span></p>
+</div>
+</div>
+</div>
+<div id="variance" class="section level2" number="1.3">
+<h2>
+<span class="header-section-number">1.3</span> Variance<a class="anchor" aria-label="anchor" href="#variance"><i class="fas fa-link"></i></a>
+</h2>
+<p>Sample data <span class="math inline">\(x_i...x_n\)</span> would give us the <strong>unbiased sample variance</strong>:</p>
+<p><span class="math display">\[s^2 = \frac{\sum(x_i - \bar{x})^2}{n-1}\]</span></p>
+<p>Focusing on the denominator, sample sizes <span class="math inline">\(n\)</span> will shift the statistic significantly compared to a larger sample.</p>
+<p><strong>Population variance</strong> can be defined as:
+:::{.text-info}
+<span class="math display">\[
+var(Y) = E[Y-E(Y)]^2
+\]</span>
+:::</p>
+<p>The squaring of <span class="math inline">\([Y-E(Y)]\)</span> “removes the sign”, and reverts all measures to positive distances from the mean.<br>
+We can use the population variance formula to show that <span class="math inline">\(E(Y)\)</span> is equivalent to the parameter <span class="math inline">\(\mu\)</span>. Given <span class="math inline">\(var(Y)\)</span>:</p>
+<p><span class="math display">\[\begin{align} var(Y) = E[Y-E(Y)]^2\\=E[Y-\mu]^2\\\therefore \mu = E(Y)\end{align}\]</span></p>
+<p>Given our known substitutions, we can say:</p>
+<p><span class="math display">\[\begin{align} var(Y)= E[Y-E(Y)]^2\\
+=\sum_{i=1}^k (y_i-\mu)^2P(Y-y_i)
+\end{align}\]</span></p>
+<p>If <span class="math inline">\(Z_1... Z_n\)</span> account for all values in a population, we would have parameter:</p>
+<p><span class="math display">\[var(Z) = \frac{1}{N}\sum_{i=1}^{N}(Z_i-\bar{Z})^2\]</span></p>
+<p>where <span class="math inline">\(\bar{Z} = E(Z)\)</span>.</p>
+<p><strong>Rules for Variance</strong></p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(var(a) = 0\)</span></li>
+<li><span class="math inline">\(var(aX) = a^2 var(X)\)</span></li>
+<li><span class="math inline">\(var(X+Y) = var(X) + var(Y) + 2cov(X,Y)\)</span></li>
+</ol>
+<div class="callout example">
+<p><span id="exm:unlabeled-div-3" class="example"><strong>Example 1.3  </strong></span><span class="badge badge-warning">Example</span>
+<span class="math display">\[\begin{align}
+var(a+bX-cY) \\
+= var(a) + var(bX-cY) + 2cov(X,Y)\\
+= 0 + var(bX)+ var(-cY) \\
+=b^2var(X) + c^2var(Y)+2[(-bc)cov(X,Y)]
+\end{align}\]</span></p>
+</div>
+</div>
+<div id="covariance" class="section level2" number="1.4">
+<h2>
+<span class="header-section-number">1.4</span> Covariance<a class="anchor" aria-label="anchor" href="#covariance"><i class="fas fa-link"></i></a>
+</h2>
+<p>Given the random variables <span class="math inline">\((X,Y)\)</span> <strong>covariance</strong> is defined as:</p>
+<div class="text-info">
+<p><span class="math display">\[cov(X,Y) = E[(X -\mu_x)(Y-\mu_y)]\]</span></p>
+</div>
+<p>with <strong>sample covariance</strong></p>
+<p><span class="math display">\[\hat{cov}(X,Y) = \frac{\sum(X_i - \bar{X})(Y_i-\bar{Y})^2}{n-1} \]</span></p>
+<p><strong>Rules for Covariance</strong></p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(cov(X,Y) = cov(Y,X)\)</span></li>
+<li>if <span class="math inline">\(X ⫫ Y \Rightarrow cov(X,Y) = 0\)</span>, if the random variables are independent of one another, then we cannot predict their variability</li>
+<li>if <span class="math inline">\(cov(X,Y)= 0 \Rightarrow\)</span> may or may not <span class="math inline">\(X ⫫ Y\)</span>
+</li>
+<li><span class="math inline">\(cov(a,b) = 0\)</span></li>
+<li><span class="math inline">\(cov(a, X) = 0\)</span></li>
+<li><span class="math inline">\(cov(aX, Y) = a cov(X,Y)\)</span></li>
+<li><span class="math inline">\(cov(aX, bY) = ab cov(X,Y)\)</span></li>
+<li><span class="math inline">\(cov(X, Y+Z) = cov(X,Y)+cov(X,Z)\)</span></li>
+<li><span class="math inline">\(cov(X,X) = var(X)\)</span></li>
+</ol>
+</div>
+<div id="correlation" class="section level2" number="1.5">
+<h2>
+<span class="header-section-number">1.5</span> Correlation<a class="anchor" aria-label="anchor" href="#correlation"><i class="fas fa-link"></i></a>
+</h2>
+<div class="callout danger d-flex align-items-center">
+<div class="fa fa-skull-crossbones text-danger">
+
+</div>
+<p>Correlations is not equal to causation in non-random studies</p>
+</div>
+<p><strong>Correlation</strong> is defined on the scale <span class="math inline">\(-1 \leq corr(X,Y) \leq 1\)</span> where:</p>
+<p><span class="math display">\[corr(X,Y) = \frac{cov(X,Y)}{\sqrt{var(X)var(Y)}}\]</span></p>
+</div>
+<div id="bias" class="section level2" number="1.6">
+<h2>
+<span class="header-section-number">1.6</span> Bias<a class="anchor" aria-label="anchor" href="#bias"><i class="fas fa-link"></i></a>
+</h2>
+<p>The estimators <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> are unbiased estimators. They only require that for any <span class="math inline">\(\epsilon_i\)</span>, that <span class="math inline">\(E(\epsilon_i) = 0\)</span>.</p>
+<p>So <span class="math inline">\(E(b_0) =\beta_0\)</span> and <span class="math inline">\(E(b_1) = \beta_1\)</span>.</p>
+<p><span class="text-info"><strong>Bias</strong></span> is a term that refers to how much an estimate (or estimator) is off from its true value. Contextually, we want to know how far off the slope and intercept are for a sample of values in an experiment deviates from the true regression line.</p>
+<p>Because of random variability, <span class="math inline">\(s^2\)</span> will vary with each experiment. After repeating the experiment we can collect an unbiased sample variance, the average value of those experiments.</p>
+<p><span class="math display">\[ E(s^2) = E\frac{\sum(Y_i-\bar{Y})^2}{n-1}= var(Y)\]</span></p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="index.html">Regression Analysis</a></div>
+<div class="next"><a href="modeling-single-variable.html"><span class="header-section-number">2</span> Modeling Single Variable</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#single-linear-regression"><span class="header-section-number">1</span> Single Linear Regression</a></li>
+<li><a class="nav-link" href="#variables"><span class="header-section-number">1.1</span> Variables</a></li>
+<li>
+<a class="nav-link" href="#expected-values"><span class="header-section-number">1.2</span> Expected Values</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#rules-for-expectation"><span class="header-section-number">1.2.1</span> Rules for Expectation</a></li></ul>
+</li>
+<li><a class="nav-link" href="#variance"><span class="header-section-number">1.3</span> Variance</a></li>
+<li><a class="nav-link" href="#covariance"><span class="header-section-number">1.4</span> Covariance</a></li>
+<li><a class="nav-link" href="#correlation"><span class="header-section-number">1.5</span> Correlation</a></li>
+<li><a class="nav-link" href="#bias"><span class="header-section-number">1.6</span> Bias</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Regression Analysis</strong>" was written by Jes LaCourse. It was last built on 2022-09-24.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

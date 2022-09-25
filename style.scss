@@ -1,5 +1,11 @@
 @import "_variables";
 
+/*
+.myid_container{
+  @extend .container;
+}
+*/
+
 
 // "Oh hey, this is exam-worthy" - Yellow Box 
 .testmaterial {
@@ -57,20 +63,45 @@
     border-left-color: $brand-primary !important;
 }
 
+.callout-secondary {
+    border-left-color: $brand-secondary !important;
+}
+
+.note {
+    @extend .callout-secondary;
+}
+
 .callout-success {
     border-left-color: $brand-success !important;
+}
+
+.example2{
+  @extend .callout-success;
 }
 
 .callout-danger {
     border-left-color: $brand-danger !important;
 }
 
+.danger{
+  @extend .callout-danger;
+}
+
 .callout-warning {
     border-left-color: $brand-warning !important;
 }
 
+.example{
+    @extend .callout-warning;
+}
+
 .callout-info {
     border-left-color: $brand-info !important;
+}
+
+
+.defn{
+    @extend .callout-info;
 }
 
 /*

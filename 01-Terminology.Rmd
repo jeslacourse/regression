@@ -1,0 +1,223 @@
+# Single Linear Regression 
+
+> One predictor, one outcome
+
+
+:::: {.recap}
+::: {.center}
+
+**In Summary**
+:::
+
+This section serves as an introduction to expectation, variance, bias, and modeling. These topics serve as building blocks of linear regression. As we sample and re-sample our data repeated, we'll start to see our statistics, our estimates, start to mirror the true parameters they emulate.  
+
+::::
+
+
+## Variables
+
+Simple regression has only one continuous [**response variable ($y$)**]{class="text-info"} and one continuous [**explanatory variable ($x$)**]{class="text-info"}. The response variable, $y$ is also known as the *dependent* or *outcome* variable. Explanatory variables, $x$ aka *independent*, *predictor*, or *covariate* variables, can include categorical values. We also have two parameters in regression: $\beta_0$ is the y-intercept and $\beta_1$ is the slope of the function. All four components make up the linear regression equation, a variant of slope-intercept form.   
+
+$$y=\beta_0 + \beta_1x$$
+
+
+
+**Fixed and Random Variables**
+
+[**Fixed variables**]{class="text-info"} are those that don't change from one experiment to the next. The values are not chosen by the researcher. $X$ is treated as a fixed variable for regression. That said, regression is often used when the $X$ is not wholly chosen; it may simply the only data you have to work with. For example, sampling a population will return a distribution of ages that may not match the true distribution of the population. So while we treat $X$ as a fixed value, it is also technically random. 
+
+[**Random variables**]{class="text-info"} are expected to return different values after repeating an experiment. The variability between the true regression line and the points $(X,Y)$ is captured with an error value, $\epsilon$. 
+
+$$
+Y=\beta_0 + \beta_1X + \epsilon
+$$
+$\beta$'s are considered fixed values along with $X$, whereas $\epsilon$ is a random variable.
+
+$Y$ is also a random variable given it's dependency on $X$ and the effects of $\epsilon$.
+
+**Parameters and Statistics**
+
+::: {.callout .note .d-flex .align-items-center}
+:::{.fa .fa-bookmark-o .fa-2x .text-info }
+:::
+Statistics are used to estimate the true parameters 
+:::
+
+$\beta_0$ and $\beta_1$ are parameters; usually unknown values related to the population and not the sample. 
+
+- [**Parameter**]{class="text-info"}: values for the population
+- [**Statistic**]{class="text-info"}: values for the sample 
+
+After collecting data from the population, we can create a sample on which to run our statistics for which we can estimate our parameters. 
+
+|           | parameter   | statistic   |
+|-----------|-------------|-------------|
+| mean      | $\mu$       | $\bar{y}$   |
+| variance  | $\sigma^2$  | $s^2$       |
+| slope     | $\beta_1$   | $b_1$       |
+| intercept | $\beta_0$   | $b_0$       |
+
+
+## Expected Values
+
+Expected values are *mean* or average values. They look a little different depending on what the data looks like. 
+
+**Sample means** are averages. Given the sample data $X_1... X_n$, would return the *statistic*:
+
+::: {.text-info}
+$$ \bar{x}  = \frac{1}{n} \sum_{i = 1}^nX_i$$
+:::
+
+After several repeated experiments, we can come up with the **population mean**, the expected value. If $Z_1..Z_N$ for all values in the population, then we would use the parameter: 
+
+$$ E(Z) = \frac{1}{N}\sum_{i=1}^N Z_i$$
+
+In general, a **discrete** random variable $Y$ with possible values $y_1... y_k$ we can say $E(Y)$ is a weighted average of the possible values $y_1... y_k$ and their respective expected probabilities $P(Y = y_1)...P(Y = y_k)$:
+
+$$\begin{equation} E(Y) = \sum_{i=1}^k y_i P(Y = y_i)\end{equation}$$
+
+
+Expectation with discrete values is a modification of the weighted average formula. Given the limitations of probabilities, we simply have to add the caveats that the sum of all probabilities is equal to 100%, $\sum w_i = 1$, and each probability can reasonably happen. You can't have a 200% chance of rain, right? We have to limit ourselves to a 0-100% probability,  $0 \leq w_1 \leq 1$.
+
+$$\begin{equation}\sum_{i=1}^k w_ia_i\end{equation}$$
+
+Expectation for **continuous** random variable $Y$ would be calculated with a density function:
+
+$$E(Y) = \int_{-\infty}^{\infty} yf(y)dy$$
+It's the same thing, yet terrible because integrals. 
+
+::: {.callout .example }
+[Example]{class="badge badge-warning"} The normal distribution `Y ~ N(0,1)` with mean `0` and variance `1`, would be represented using the density function:
+
+$$E(Y) = \int_{-\infty}^{\infty}y\frac{1}{\sqrt{2\pi}} 
+  \exp\left( -\frac{y^2}{2}\right) dy = 0 $$
+:::
+
+
+### Rules for Expectation 
+
+Given random variables $X$ and $Y$ and constants $a,b,$ & $c$: 
+
+1. $E(c) = c$
+2. $E(cX) = cE(X)$
+3. $E(X+Y) = E(X) + E(Y)$
+
+
+::: {.callout .example }
+[Example]{class="badge badge-warning"}
+
+$$\begin{align}   
+E(a+bX+cY) \\ 
+= a + bE(X) + cE(Y)
+\end{align}$$
+:::
+
+
+ 
+
+## Variance 
+
+Sample data $x_i...x_n$ would give us the **unbiased sample variance**:
+
+$$s^2 = \frac{\sum(x_i - \bar{x})^2}{n-1}$$
+
+Focusing on the denominator, sample sizes $n$ will shift the statistic significantly compared to a larger sample. 
+
+
+**Population variance** can be defined as: 
+:::{.text-info}
+$$
+var(Y) = E[Y-E(Y)]^2
+$$
+:::
+
+The squaring of $[Y-E(Y)]$ "removes the sign", and reverts all measures to positive distances from the mean.  
+We can use the population variance formula to show that $E(Y)$ is equivalent to the parameter $\mu$. Given $var(Y)$: 
+
+
+$$\begin{align} var(Y) = E[Y-E(Y)]^2\\=E[Y-\mu]^2\\\therefore \mu = E(Y)\end{align}$$
+
+
+Given our known substitutions, we can say:
+
+$$\begin{align} var(Y)= E[Y-E(Y)]^2\\
+=\sum_{i=1}^k (y_i-\mu)^2P(Y-y_i)
+\end{align}$$
+
+If $Z_1... Z_n$ account for all values in a population, we would have parameter:
+
+$$var(Z) = \frac{1}{N}\sum_{i=1}^{N}(Z_i-\bar{Z})^2$$
+
+where $\bar{Z} = E(Z)$. 
+
+
+
+**Rules for Variance**
+
+1. $var(a) = 0$ 
+2. $var(aX) = a^2 var(X)$
+3. $var(X+Y)  = var(X) + var(Y) + 2cov(X,Y)$ 
+
+::: {.callout .example }
+[Example]{class="badge badge-warning"}
+$$\begin{align}
+var(a+bX-cY) \\
+= var(a) + var(bX-cY) + 2cov(X,Y)\\
+= 0 + var(bX)+ var(-cY) \\
+=b^2var(X) + c^2var(Y)+2[(-bc)cov(X,Y)]
+\end{align}$$
+:::
+
+## Covariance 
+
+Given the random variables $(X,Y)$ **covariance** is defined as: 
+
+:::{.text-info}
+$$cov(X,Y) = E[(X -\mu_x)(Y-\mu_y)]$$
+:::
+
+with **sample covariance**
+
+$$\hat{cov}(X,Y) = \frac{\sum(X_i - \bar{X})(Y_i-\bar{Y})^2}{n-1} $$
+
+**Rules for Covariance**
+
+1. $cov(X,Y) = cov(Y,X)$
+2. if $X ⫫ Y \Rightarrow cov(X,Y) = 0$, if the random variables are independent of one another, then we cannot predict their variability
+3. if $cov(X,Y)= 0 \Rightarrow$ may or may not $X ⫫ Y$
+4. $cov(a,b) = 0$
+5. $cov(a, X) = 0$ 
+6. $cov(aX, Y) = a cov(X,Y)$ 
+7. $cov(aX, bY) = ab cov(X,Y)$
+8. $cov(X, Y+Z) = cov(X,Y)+cov(X,Z)$
+9. $cov(X,X) = var(X)$
+
+
+
+## Correlation 
+
+::: {.callout .danger .d-flex .align-items-center}
+:::{.fa .fa-skull-crossbones .text-danger }
+:::
+ Correlations is not equal to causation in non-random studies 
+:::
+
+
+**Correlation** is defined on the scale $-1 \leq corr(X,Y) \leq 1$ where: 
+
+$$corr(X,Y) = \frac{cov(X,Y)}{\sqrt{var(X)var(Y)}}$$
+
+
+## Bias
+
+The estimators $b_0$ and $b_1$ are unbiased estimators. They only require that for any $\epsilon_i$, that $E(\epsilon_i) = 0$.
+
+So $E(b_0) =\beta_0$ and $E(b_1) = \beta_1$. 
+
+
+[**Bias**]{class="text-info"} is a term that refers to how much an estimate (or estimator) is off from its true value. Contextually, we want to know how far off the slope and intercept are for a sample of values in an experiment deviates from the true regression line. 
+
+
+Because of random variability, $s^2$ will vary with each experiment. After repeating the experiment we can collect an unbiased sample variance, the average value of those experiments. 
+
+$$ E(s^2) = E\frac{\sum(Y_i-\bar{Y})^2}{n-1}= var(Y)$$ 

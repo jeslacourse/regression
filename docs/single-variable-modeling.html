@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>2 Simple Linear Regression | Regression Analysis</title>
+<title>2 Single Variable Modeling | Regression Analysis</title>
 <meta name="author" content="Jes LaCourse">
-<meta name="description" content="One predictor, one outcome  2.1 Modeling The simple linear regression model is: \[Y_i= \beta_0 +\beta_1X_i + \epsilon_i\] where: \(Y_i\): random variable for experimental unit \(X_i\): predictor...">
+<meta name="description" content="The simple linear regression model is: \[Y_i= \beta_0 +\beta_1X_i + \epsilon_i\] where: \(Y_i\): random variable for experimental unit \(X_i\): predictor for experimental unit, a fixed value...">
 <meta name="generator" content="bookdown 0.28 with bs4_book()">
-<meta property="og:title" content="2 Simple Linear Regression | Regression Analysis">
+<meta property="og:title" content="2 Single Variable Modeling | Regression Analysis">
 <meta property="og:type" content="book">
-<meta property="og:description" content="One predictor, one outcome  2.1 Modeling The simple linear regression model is: \[Y_i= \beta_0 +\beta_1X_i + \epsilon_i\] where: \(Y_i\): random variable for experimental unit \(X_i\): predictor...">
+<meta property="og:description" content="The simple linear regression model is: \[Y_i= \beta_0 +\beta_1X_i + \epsilon_i\] where: \(Y_i\): random variable for experimental unit \(X_i\): predictor for experimental unit, a fixed value...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2 Simple Linear Regression | Regression Analysis">
-<meta name="twitter:description" content="One predictor, one outcome  2.1 Modeling The simple linear regression model is: \[Y_i= \beta_0 +\beta_1X_i + \epsilon_i\] where: \(Y_i\): random variable for experimental unit \(X_i\): predictor...">
+<meta name="twitter:title" content="2 Single Variable Modeling | Regression Analysis">
+<meta name="twitter:description" content="The simple linear regression model is: \[Y_i= \beta_0 +\beta_1X_i + \epsilon_i\] where: \(Y_i\): random variable for experimental unit \(X_i\): predictor for experimental unit, a fixed value...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -22,7 +22,7 @@
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
 <link rel="stylesheet" href="libs/sassb862d4580bceb44487d14ed66e65e32d/_variables.min.css">
-<link rel="stylesheet" href="libs/sass0952fe582c1cd9cd764f9ba03376f366/style.min.css">
+<link rel="stylesheet" href="libs/sassad2cac759f7d24a863ca1dac735e1c05/style.min.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -44,9 +44,9 @@
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html"></a></li>
+<li><a class="" href="index.html">Regression Analysis</a></li>
 <li><a class="" href="single-linear-regression.html"><span class="header-section-number">1</span> Single Linear Regression</a></li>
-<li><a class="active" href="simple-linear-regression.html"><span class="header-section-number">2</span> Simple Linear Regression</a></li>
+<li><a class="active" href="single-variable-modeling.html"><span class="header-section-number">2</span> Single Variable Modeling</a></li>
 <li><a class="" href="hypothesis-testing.html"><span class="header-section-number">3</span> Hypothesis Testing</a></li>
 <li><a class="" href="style-guide.html"><span class="header-section-number">4</span> Style Guide</a></li>
 </ul>
@@ -56,17 +56,10 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="simple-linear-regression" class="section level1" number="2">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="single-variable-modeling" class="section level1" number="2">
 <h1>
-<span class="header-section-number">2</span> Simple Linear Regression<a class="anchor" aria-label="anchor" href="#simple-linear-regression"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2</span> Single Variable Modeling<a class="anchor" aria-label="anchor" href="#single-variable-modeling"><i class="fas fa-link"></i></a>
 </h1>
-<blockquote>
-<p>One predictor, one outcome</p>
-</blockquote>
-<div id="modeling" class="section level2" number="2.1">
-<h2>
-<span class="header-section-number">2.1</span> Modeling<a class="anchor" aria-label="anchor" href="#modeling"><i class="fas fa-link"></i></a>
-</h2>
 <p>The simple linear regression model is:</p>
 <p><span class="math display">\[Y_i= \beta_0 +\beta_1X_i + \epsilon_i\]</span></p>
 <p>where:</p>
@@ -119,9 +112,9 @@ $$</p>
 <p>Similarly, but with different notation, <span class="math inline">\(corr(\epsilon_i,\epsilon_j) = \sigma(\epsilon_i,\epsilon_j)\)</span>.</p>
 <p><strong>Property 4</strong>:</p>
 <p><span class="math inline">\(\epsilon_i...\epsilon_n\)</span> are normal.</p>
-<div id="features-of-models" class="section level3" number="2.1.1">
+<div id="features-of-models" class="section level3" number="2.0.1">
 <h3>
-<span class="header-section-number">2.1.1</span> Features of Models<a class="anchor" aria-label="anchor" href="#features-of-models"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.0.1</span> Features of Models<a class="anchor" aria-label="anchor" href="#features-of-models"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(Y_i\)</span> is a sum of a constant term plus a random variable. The constant in this case is <span class="math inline">\(\beta_0 +\beta_1X_i\)</span>. The random variable is <span class="math inline">\(\epsilon_i\)</span>.</p></li>
@@ -152,14 +145,13 @@ E(Y|X = 20) \\= 90 + 0.9(20)\\=108
 <p>Factoring in an error margin, given <span class="math inline">\(X = 20\)</span> we would expect <span class="math inline">\(Y = 108 +\epsilon\)</span>. A 20-year-old should have a systolic blood pressure around 108.</p>
 </div>
 </div>
-</div>
-<div id="least-squares-estimation" class="section level2" number="2.2">
+<div id="least-squares-estimation" class="section level2" number="2.1">
 <h2>
-<span class="header-section-number">2.2</span> Least Squares Estimation<a class="anchor" aria-label="anchor" href="#least-squares-estimation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.1</span> Least Squares Estimation<a class="anchor" aria-label="anchor" href="#least-squares-estimation"><i class="fas fa-link"></i></a>
 </h2>
-<div id="formulas" class="section level3" number="2.2.1">
+<div id="formulas" class="section level3" number="2.1.1">
 <h3>
-<span class="header-section-number">2.2.1</span> Formulas<a class="anchor" aria-label="anchor" href="#formulas"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.1.1</span> Formulas<a class="anchor" aria-label="anchor" href="#formulas"><i class="fas fa-link"></i></a>
 </h3>
 <p>True regression line:</p>
 <p><span class="math display">\[y= \beta_0 + \beta_1x\]</span></p>
@@ -176,9 +168,9 @@ Residual for observation <span class="math inline">\(i\)</span>:</p>
 = y_i - (b_0 - b_1x_i)
 \end{align}\]</span></p>
 </div>
-<div id="estimating-betas" class="section level3" number="2.2.2">
+<div id="estimating-betas" class="section level3" number="2.1.2">
 <h3>
-<span class="header-section-number">2.2.2</span> Estimating <span class="math inline">\(\beta\)</span>’s<a class="anchor" aria-label="anchor" href="#estimating-betas"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.1.2</span> Estimating <span class="math inline">\(\beta\)</span>’s<a class="anchor" aria-label="anchor" href="#estimating-betas"><i class="fas fa-link"></i></a>
 </h3>
 <p>We can find good estimates of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> using the <strong>least squares method</strong>, where <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> are unbiased least squares estimates.</p>
 <p>When you have <span class="math inline">\(n\)</span> pairs of data, <span class="math inline">\((x_1, y_1)...(x_n, y_n)\)</span>:</p>
@@ -205,9 +197,9 @@ b_0 = \bar{y}- b_1\bar{x}\\
 \end{align}\]</span></p>
 <p>where the point <span class="math inline">\((\bar{x}, \bar{y})\)</span> falls along the regression line.</p>
 </div>
-<div id="linear-combinations" class="section level3" number="2.2.3">
+<div id="linear-combinations" class="section level3" number="2.1.3">
 <h3>
-<span class="header-section-number">2.2.3</span> Linear Combinations<a class="anchor" aria-label="anchor" href="#linear-combinations"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.1.3</span> Linear Combinations<a class="anchor" aria-label="anchor" href="#linear-combinations"><i class="fas fa-link"></i></a>
 </h3>
 <p>The <strong>linear combination</strong> of a set of values <span class="math inline">\(a_1...a_n\)</span> has the formula:</p>
 <p><span class="math display">\[
@@ -220,9 +212,9 @@ b_1 = \frac{\sum(x_i-\bar{x}) y_i}{\sum(x_i-\bar{x})^2}
 \]</span></p>
 <p>where the factors exclusive of <span class="math inline">\(y_i\)</span> render the constant <span class="math inline">\(c_i\)</span>.</p>
 </div>
-<div id="errors" class="section level3" number="2.2.4">
+<div id="errors" class="section level3" number="2.1.4">
 <h3>
-<span class="header-section-number">2.2.4</span> Errors<a class="anchor" aria-label="anchor" href="#errors"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.1.4</span> Errors<a class="anchor" aria-label="anchor" href="#errors"><i class="fas fa-link"></i></a>
 </h3>
 <p>Properties for <span class="math inline">\(\epsilon_i\)</span>:</p>
 <p>The distribution of errors, <span class="math inline">\(\epsilon_1...\epsilon_n\)</span>, is normal.</p>
@@ -289,16 +281,15 @@ s^2(b_1)=\frac{MSE}{\sum(x_i -\bar x)^2}
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#simple-linear-regression"><span class="header-section-number">2</span> Simple Linear Regression</a></li>
 <li>
-<a class="nav-link" href="#modeling"><span class="header-section-number">2.1</span> Modeling</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#features-of-models"><span class="header-section-number">2.1.1</span> Features of Models</a></li></ul>
+<a class="nav-link" href="#single-variable-modeling"><span class="header-section-number">2</span> Single Variable Modeling</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#features-of-models"><span class="header-section-number">2.0.1</span> Features of Models</a></li></ul>
 </li>
 <li>
-<a class="nav-link" href="#least-squares-estimation"><span class="header-section-number">2.2</span> Least Squares Estimation</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#formulas"><span class="header-section-number">2.2.1</span> Formulas</a></li>
-<li><a class="nav-link" href="#estimating-betas"><span class="header-section-number">2.2.2</span> Estimating \(\beta\)’s</a></li>
-<li><a class="nav-link" href="#linear-combinations"><span class="header-section-number">2.2.3</span> Linear Combinations</a></li>
-<li><a class="nav-link" href="#errors"><span class="header-section-number">2.2.4</span> Errors</a></li>
+<a class="nav-link" href="#least-squares-estimation"><span class="header-section-number">2.1</span> Least Squares Estimation</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#formulas"><span class="header-section-number">2.1.1</span> Formulas</a></li>
+<li><a class="nav-link" href="#estimating-betas"><span class="header-section-number">2.1.2</span> Estimating \(\beta\)’s</a></li>
+<li><a class="nav-link" href="#linear-combinations"><span class="header-section-number">2.1.3</span> Linear Combinations</a></li>
+<li><a class="nav-link" href="#errors"><span class="header-section-number">2.1.4</span> Errors</a></li>
 </ul>
 </li>
 </ul>

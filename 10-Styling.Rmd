@@ -1,0 +1,91 @@
+# Style Guide
+
+With the help of Bookdown, the Rmarkdown Cookbook, and a little Office Ipsum.
+
+
+### General Content
+
+That's *mixter* general to you. 
+
+:::: {.recap}
+::: {.center}
+
+**In Summary**
+:::
+
+These are summary notes or thoughts at the start of the chapter. Use a `.recap` tag with an optional `.center`ed header.  
+
+I really like the colour but can you change it, nor make it sexy, nor the animation does not work, when i print the page. Is this the best we can do can the black be darker jazz it up a little, in an ideal world I like it, but can the snow look a little warmer will royalties in the company do instead of cash.
+
+::::
+
+
+This is test material. Use the `testmaterial` flag. Latex boxes tend to have built-in padding, so expect some big ol' boxes like these: 
+
+:::: {.testmaterial}
+$$
+y = mx+b
+$$ 
+::::
+
+I'll know it when i see it that sandwich needs to be more playful, yet I think we need to start from scratch that sandwich needs to be more playful, nor thats not what i saw in my head at all what is a hamburger menu or it needs to be the same, but totally different . Can we run it inline? [Remember this, your grade depends on it.]{class="tm-inline"} Yeah that works for me. Can the black be darker can it be more retro, so jazz it up a little. This red is too red this was not according to brief. Doing some work for us "pro bono" will really add to your portfolio i promise i'll know it when i see it could you do an actual logo instead of a font, but we don't need a backup, it never goes down!
+
+Office ipsum gives me anxiety sometimes. Use `[Remember Me]{class="tm-inline"}` for inline boxes.
+
+
+### Examples
+
+[color: Warning]{class="badge badge-warning"} Because please, *please* help me make sense of this monster with some practical applications. 
+
+::: {.callout .example }
+
+This is a sample problem. There may be a mix of plain text and LaTex. Flexboxes and multi-paragraph sections don't play nice for now. Use `.callout .example` tags. 
+ 
+$$ 
+y-y_0 = m(x-x_0)
+$$
+Anyway, you are the designer, you know what to do can you help me out? you will get a lot of free exposure doing this can you remove my double chin on my business card photo? i don't like the way it looks yet low resolution? It looks ok on my screen. Can you use a high definition screenshot can it handle a million in one go, for other agencies charge much lesser, you are lucky to even be doing this for us, could you do an actual logo instead of a font. Can you please send me the design specs again? 
+
+:::
+
+
+[color: Success]{class="badge badge-success"} Hashtag winning? Two examples are better than one, I guess. Though I expect to use this color infrequently. It's a great color, though. 
+
+::: {.callout .example2 }
+
+This is another sample problem. There may be a mix of plain text and LaTex. Use `.callout .example2` tags. 
+ 
+$$ 
+y-x_0 \neq m(x-y_0)
+$$
+I love it, but can you invert all colors? just do what you think. I trust you, for i'll know it when i see it. I got your invoice...it seems really high.
+
+:::
+
+### Definitions
+
+
+[color: Info]{class="badge badge-info"} Oh hey, look. Purple LaTex! And inline badges! Pretty proud of myself for that one. 
+
+::: {.text-info}
+$$
+y = x^2 + x - 1 
+$$
+:::
+ 
+Any chance we can get that color inline? [**Yeah, certainly.**]{class="text-info"} Use a square-curly bracket combination, `[definition]{class="text-info"}`. 
+
+::: {.callout .defn .d-flex .align-items-center}
+:::{.fa .fa-bookmark-o .fa-2x .text-info }
+:::
+This is a definition in a callout. There's even a little icon, fancy that. Icons play nice when there's only one paragraph of material. A block of LaTex will break up a paragraph. 
+:::
+
+
+### Dangers
+
+::: { .callout .danger .d-flex .align-items-center}
+:::{.fa .fa-skull-crossbones .fa-2x .text-danger }
+:::
+ This is a callout with danger text. I have printed it out, but the animated gif is not moving. We are a big name to have in your portfolio we don't need a contract, do we can you make it pop. It needs to be the same, but totally different can it handle a million in one go.
+:::

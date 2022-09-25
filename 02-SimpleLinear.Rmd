@@ -1,0 +1,267 @@
+# Modeling Single Variable 
+
+The simple linear regression model is: 
+
+$$Y_i= \beta_0 +\beta_1X_i + \epsilon_i$$
+
+where:
+
+- $Y_i$: random variable for experimental unit
+- $X_i$: predictor for experimental unit, a fixed value
+- $\beta_0, \beta_1$: parameters, usually known. The goal is to estimate them. 
+
+The model is considered **simple** because we are using one predictor. The model is linear in parameters and linear in the predictor variable, $X$. 
+
+Properties for $\epsilon_i$: 
+
+1. $E(\epsilon_i) = 0$, $\forall i$
+
+2. $var(\epsilon_i)$ is constant
+
+3. $\epsilon_i...\epsilon_n$ are uncorrelated
+
+On average, the error *is* the regression line, 0. Put another way, 
+ 
+ > The expected value of $\epsilon$ is on the regression line. 
+ 
+**Property 1**: 
+
+$$
+\begin{align} 
+E(\epsilon_i) = 0\\
+ \epsilon_i = Y_i -(\beta_0 +\beta_1X_i) \\
+ E[\epsilon_i] = E[Y_i -(\beta_0 +\beta_1X_i)] \\
+ 0 = E[Y_i] - E[\beta_0 +\beta_1X_i] \\
+ 0 = E[Y_i] - E[\beta_0] +E[\beta_1X_i] \\
+ 0  = E[Y_i] - \beta_0 + \beta_1X_i \\
+   \Rightarrow E[Y_i] = \beta_0 + \beta_1X_i \\
+   
+\end{align}
+$$
+
+showing that on average, $Y_i$ falls along the regression line. We can say the regression line is the average of $Y_i$, conditional on $X_i$. 
+
+$$ E(Y_i|X_i)= \beta_0 +\beta_1X_i $$
+**Property 2**:
+
+$\epsilon_i...\epsilon_n$ have the same variance 
+ 
+ Define $\sigma^2(\epsilon_i) \equiv \sigma^2 $,  then $\sigma^2(Y_i) = var(Y_i) $. $var(\epsilon_i)$ increases as $X$ increases. 
+ 
+**Property 3**:  
+
+$\epsilon_i...\epsilon_n$ are uncorrelated. 
+ 
+$$
+\begin{align}
+  corr(\epsilon_i,\epsilon_j) = 0, i\neq j \\ 
+  corr(\epsilon_i,\epsilon_j) = var(\epsilon_i) \neq 0 \\
+  cov(\epsilon_i,\epsilon_j) = 0, i\neq j 
+\end{align}
+$$
+ 
+Similarly, but with different notation, $corr(\epsilon_i,\epsilon_j) = \sigma(\epsilon_i,\epsilon_j)$. 
+
+**Property 4**:
+
+$\epsilon_i...\epsilon_n$ are normal. 
+ 
+### Features of Models
+
+1. $Y_i$ is a sum of a constant term plus a random variable. The constant in this case is $\beta_0 +\beta_1X_i$. The random variable is $\epsilon_i$. 
+
+2. $E(Y_i|X_i)= \beta_0 +\beta_1X_i$, see $\epsilon$ property 2. 
+
+3. $\epsilon_i = Y_i -(\beta_0 +\beta_1X_i)$ is a random deviation of $Y_i$ around the regression line.
+
+It's worth taking a moment to make the distinction between the regression model, which uses subscripts $i$:  
+$$Y_i= \beta_0 +\beta_1X_i + \epsilon_i$$
+and the regression function: 
+
+$$Y= \beta_0 +\beta_1X + \epsilon$$
+
+
+
+::: {.callout .example }
+
+[Example]{class="badge badge-warning"} We want to estimate the systolic blood pressure for a 20 year old. We know the following variables: 
+
+- $x$: age
+- $y$: systolic blood pressure
+- $\beta_0$: the intercept, $90$
+- $\beta_1$: the slope, $0.9$
+
+Note that $\beta$'s are usually unknown. We can say, we expect systolic blood pressure to be $90$ at age $0$ (or at birth), increasing $0.9$ units every year.  
+
+$$\begin{align}
+E(Y|X = 20) \\= 90 + 0.9(20)\\=108
+\end{align}$$
+
+Factoring in an error margin, given $X = 20$ we would expect $Y = 108 +\epsilon$. A 20-year-old should have a systolic blood pressure around 108. 
+
+:::
+
+## Least Squares Estimation
+
+### Formulas
+
+True regression line: 
+
+$$y= \beta_0 + \beta_1x$$
+
+Estimated regression line: 
+
+$$y = b_0 + b_1x$$
+
+Data value:
+
+$$y_i = b_0+b_1+x_i+e_i$$
+
+Predicted value, an estimate for $E(Y|X_i)$:
+
+$$\hat{y} = b_0+b_1x_i$$
+Residual for observation $i$: 
+
+$e_i=$ observed - predicted 
+
+$$\begin{align}
+= y_i - \hat y\\
+= y_i - (b_0 - b_1x_i)
+\end{align}$$
+
+
+
+### Estimating $\beta$'s
+
+We can find good estimates of $\beta_0$ and $\beta_1$ using the **least squares method**, where $b_0$ and $b_1$ are unbiased least squares estimates.  
+
+When you have $n$ pairs of data, $(x_1, y_1)...(x_n, y_n)$: 
+
+Use the **deviation** formula:
+
+$$e_i = y_i - (\beta_0 +\beta_1x_i)$$ 
+
+where $e_i$ is the **observed error residual**. Compose the **squared deviation** formula: 
+
+$$e_i^2 = [y_i - (\beta_0 +\beta_1x_i)]^2$$ 
+
+This will allow us to define $Q$, the **sum of squared deviations**: 
+
+$$\begin{align}
+Q \equiv \sum_{i = 1}^n e_i^2\\=\sum_{i = 1}^n [y_i - (\beta_0 +\beta_1x_i)]^2
+\end{align}$$
+
+The least squares estimates are values of $\beta_0$ and $\beta_1$ that minimize $Q$. 
+
+We use $b_1$ to estimate the slope $\beta_1$:
+
+$$\begin{align}
+ b_1 = \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sum(x_i-\bar{x})^2}\\ 
+ =\frac{\hat{cov}(X,Y)}{\hat{var}(X,Y)} 
+\end{align}$$
+
+
+The **sampling distribution** of $b_1$ is normal. 
+$$ b_1\sim N$$
+
+
+Once we have $b_1$, the estimate for the intercept $\beta_0$ is straightforward:
+
+$$\begin{align}
+b_0 = \bar{y}- b_1\bar{x}\\
+ \bar{y} = b_0 + b_1\bar{x}
+\end{align}$$
+
+where the point $(\bar{x}, \bar{y})$ falls along the regression line. 
+
+### Linear Combinations 
+
+The **linear combination** of a set of values $a_1...a_n$ has the formula: 
+
+$$
+\sum_{i=1}^n c_ia_i 
+$$
+
+where $c_1...c_n$ are constants. 
+
+Using the notation above we can estimate $b_1$:
+
+$$
+b_1 = \frac{\sum(x_i-\bar{x}) y_i}{\sum(x_i-\bar{x})^2}
+$$
+
+where the factors exclusive of $y_i$ render the constant $c_i$. 
+
+### Errors
+
+Properties for $\epsilon_i$:
+
+The distribution of errors, $\epsilon_1...\epsilon_n$, is normal. 
+
+1. $\sum e_i = 0$
+2. $\sum y_i = \sum \hat y$
+3. $\sum x_ie_i = 0$
+4. $\sum y_ie_i = 0$ 
+
+
+
+**SSE**: Sum of Squared Errors
+
+The residual sum of squares. 
+
+$$\begin{align}
+SSE = \sum_{i = 1}^n e_i^2\\
+= \sum_{i = 1}^n (y_i - \hat y)^2
+
+\end{align}$$
+
+**MSE**: Mean Squared Errors
+
+$$\begin{align}
+MSE = \frac{\sum_{i = 1}^n (y_i - \hat y)^2}{n-2} \\
+= \frac{SSE}{n-2}
+
+\end{align}$$
+
+Where we have $n-2$ degrees of freedom for estimating two parameters, $\beta_0$ and $\beta_1$. The MSE is an unbiased estimator for $\sigma^2$, as the expected value is the true value. 
+
+$$ E(MSE) = \sigma^2$$
+
+Our estimates of $\beta$'s are random variables. We expect $b_1$ to change with each sampling. As we repeat sampling, we expect the MSE to average out to $\thicksim\sigma^2$.
+
+$$
+\sigma^2(b_1) = \frac{\sigma^2}{\sum(x_i -\bar x)^2}
+$$
+
+and so, 
+
+$$
+s^2(b_1)=\frac{MSE}{\sum(x_i -\bar x)^2}
+$$
+
+which we'll use in our p-value and confidence interval calculations. 
+
+
+If $H_0$ is true, then $t^*$ has a t-distribution with $n-2$ degrees of freedom. 
+
+
+[Example]{class="badge badge-warning"} We want to estimate the systolic blood pressure for 20 subjects. We know the following variables: 
+
+- $x$: age
+- $y$: systolic blood pressure
+- $\beta_0$: the intercept, $90$
+- $\beta_1$: the slope, $0.9$
+
+Note that $\beta$'s are usually unknown.
+
+We are given the following information 
+
+$$\begin{equation}
+\sum_{i =1}^{20} (x_1- \bar x)(y_i - \bar y)\approx 4863.282\\
+\sum_{i =1}^{20} (x_1- \bar x) \approx 6072.55\\ 
+\b_1 = \frac{4863.282}{6072.55} \approx 0.8
+
+\end{equation}$$
+:::
+
+
