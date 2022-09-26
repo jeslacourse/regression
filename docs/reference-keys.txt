@@ -1,6 +1,14 @@
 exm:unlabeled-div-1
 exm:unlabeled-div-2
 exm:unlabeled-div-3
+exm:unlabeled-div-4
+exm:unlabeled-div-5
+exm:unlabeled-div-6
+exm:unlabeled-div-7
+eq:yint
+exm:unlabeled-div-8
+exm:unlabeled-div-9
+def:unlabeled-div-10
 single-linear-regression
 variables
 expected-values

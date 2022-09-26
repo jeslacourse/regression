@@ -86,8 +86,8 @@ Expectation for **continuous** random variable $Y$ would be calculated with a de
 $$E(Y) = \int_{-\infty}^{\infty} yf(y)dy$$
 It's the same thing, yet terrible because integrals. 
 
-::: { .example1 }
-[Example]{class="badge badge-warning"} The normal distribution `Y ~ N(0,1)` with mean `0` and variance `1`, would be represented using the density function:
+::: { .example}
+ The normal distribution `Y ~ N(0,1)` with mean `0` and variance `1`, would be represented using the density function:
 
 $$E(Y) = \int_{-\infty}^{\infty}y\frac{1}{\sqrt{2\pi}} 
   \exp\left( -\frac{y^2}{2}\right) dy = 0 $$
@@ -103,8 +103,8 @@ Given random variables $X$ and $Y$ and constants $a,b,$ & $c$:
 3. $E(X+Y) = E(X) + E(Y)$
 
 
-::: { .example1 }
-[Example]{class="badge badge-warning"}
+::: { .example }
+
 
 $$\begin{align}   
 E(a+bX+cY) \\ 
@@ -158,8 +158,8 @@ where $\bar{Z} = E(Z)$.
 2. $var(aX) = a^2 var(X)$
 3. $var(X+Y)  = var(X) + var(Y) + 2cov(X,Y)$ 
 
-::: { .example1 }
-[Example]{class="badge badge-warning"}
+::: { .example }
+
 $$\begin{align}
 var(a+bX-cY) \\
 = var(a) + var(bX-cY) + 2cov(X,Y)\\
@@ -224,8 +224,8 @@ $$ E(s^2) = E\frac{\sum(Y_i-\bar{Y})^2}{n-1}= var(Y)$$
 
 ## Examples {-}
 
-:::{ .example1}
-[Example]{class="badge badge-warning"} We want to estimate the systolic blood pressure, $y$,  for 20 subjects based on their age, $x$. $\beta$'s are usually unknown, but in this case we know we want to be reasonably close to $\beta_0=90$ and $\beta_1=0.9$
+:::{ .example}
+ We want to estimate the systolic blood pressure, $y$,  for 20 subjects based on their age, $x$. $\beta$'s are usually unknown, but in this case we know we want to be reasonably close to $\beta_0=90$ and $\beta_1=0.9$
 
 The mean age, $\bar{x}$, is $38.15$ and the mean systolic blood pressure measured, $\bar{y}$ was $118.11$ mmHg. 
 

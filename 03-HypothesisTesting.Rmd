@@ -11,10 +11,10 @@ All three render the same conclusion and use the same significance level, $\alph
 
 Given the null ($H_0$) and alternative ($H_1$) hypotheses: 
 
-$$\begin{align}
+\begin{align}
 H_0: \beta_1 = 0\\
 H_1: \beta_1 \neq 0
-\end{align}$$
+\end{align}
 
 Where $b_1\sim N$ and $E(b_1) = \beta_1$, we can build the test statistic, $t^*$: 
 
@@ -24,10 +24,10 @@ $$
 
 where
 
-$$\begin{align} 
+\begin{align} 
 s(b_1) = \sqrt{s^2(b_1)}\\
 = \sqrt{\frac{MSE}{\sum(x_1-\bar{x})^2}}
-\end{align}$$
+\end{align}
 
 
 
@@ -38,19 +38,19 @@ If a p-value $\lt\alpha$, reject $H_0$. Otherwise, do not reject $H_0$.
 
 $$ 2P(t \leq |t^*|\mid H_0 true)$$
 
-:::{ .example}
+:::{.example}
 [Example]{class="badge badge-warning"} Continuing with example [] Was our estimate of the true regression line a reasonable estimate? Let $\alpha = 0.5$. 
 
-$$\begin{align}
+\begin{align}
 H_0: \beta_1 = 0\\
 H_1: \beta_1 \neq 0
-\end{align}$$
+\end{align}
 
-$$\begin{align}
+\begin{align}
 t^* = \frac{b_1}{s(b_1)}
 t^* = \frac{0.8}{0.202} \approx 3.96
 
-\end{align}$$
+\end{align}
 
 Our test statistic, $t^* = 3.96$, returns a p-value of $0.0009$. Our p-value is smaller than $\alpha$. 
 

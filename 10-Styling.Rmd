@@ -1,6 +1,6 @@
 # Style Guide
 
-With the help of Bookdown, the Rmarkdown Cookbook, and a little Office Ipsum.
+With the help of Bookdown, the Rmarkdown Cookbook, and a little Office Ipsum. [*Markdown Extensions*](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html)
 
 
 ### General Content
@@ -23,12 +23,13 @@ I really like the colour but can you change it, nor make it sexy, nor the animat
 This is test material. Use the `testmaterial` flag. Latex boxes tend to have built-in padding, so expect some big ol' boxes like these: 
 
 :::: {.testmaterial}
-$$
+\begin{equation}
 y = mx+b
-$$ 
+(\#eq:yint)
+\end{equation} 
 ::::
 
-I'll know it when i see it that sandwich needs to be more playful, yet I think we need to start from scratch that sandwich needs to be more playful, nor thats not what i saw in my head at all what is a hamburger menu or it needs to be the same, but totally different . Can we run it inline? [Remember this, your grade depends on it.]{class="tm-inline"} Yeah that works for me. Can the black be darker can it be more retro, so jazz it up a little. This red is too red this was not according to brief. Doing some work for us "pro bono" will really add to your portfolio i promise i'll know it when i see it could you do an actual logo instead of a font, but we don't need a backup, it never goes down!
+Oh it's figure \@ref(eq:yint). I'll know it when i see it that sandwich needs to be more playful, yet I think we need to start from scratch that sandwich needs to be more playful. Can we run it inline? [Remember this, your grade depends on it.]{class="tm-inline"} Yeah that works for me. Can the black be darker can it be more retro, so jazz it up a little. This red is too red this was not according to brief. Doing some work for us "pro bono" will really add to your portfolio i promise i'll know it when i see it could you do an actual logo instead of a font, but we don't need a backup, it never goes down!
 
 Office ipsum gives me anxiety sometimes. Use `[Remember Me]{class="tm-inline"}` for inline boxes.
 
@@ -42,7 +43,7 @@ Can I get `.note` to standalone? Yes, heck yes I can. Mixins!
 
 [color: Warning]{class="badge badge-warning"} Because please, *please* help me make sense of this monster with some practical applications. 
 
-::: {.example }
+::: { .example }
 
 This is a sample problem. There may be a mix of plain text and LaTex. Flexboxes and multi-paragraph sections don't play nice for now. Use `.example` tags. 
  
@@ -56,9 +57,9 @@ Anyway, you are the designer, you know what to do can you help me out? you will 
 
 [color: Success]{class="badge badge-success"} Hashtag winning? Two examples are better than one, I guess. Though I expect to use this color infrequently. It's a great color, though. 
 
-::: {.example2 }
+::: {.example .example2 }
 
-This is another sample problem. There may be a mix of plain text and LaTex. Use `.callout .example2` tags. 
+This is another sample problem. There may be a mix of plain text and LaTex. Use `.example .example2` tags. 
  
 $$ 
 y-x_0 \neq m(x-y_0)
@@ -80,16 +81,14 @@ $$
  
 Any chance we can get that color inline? [**Yeah, certainly.**]{class="text-info"} Use a square-curly bracket combination, `[definition]{class="text-info"}`. 
 
-::: {.callout .defn .d-flex .align-items-center}
-:::{.fa .fa-bookmark-o .fa-2x .text-info }
-:::
-This is a definition in a callout. There's even a little icon, fancy that. Icons play nice when there's only one paragraph of material. A block of LaTex will break up a paragraph. 
+::: {.definition .defn }
+This is a definition in a callout. The numbering is reliant on Pandocs internal `.definition` class. Use `.definition .defn` to build with the definition numbering, or just `.defn` for the box without. 
 :::
 
 
 ### Dangers
 
-::: { .callout .danger .d-flex .align-items-center}
+::: {.danger .d-flex .align-items-center}
 :::{.fa .fa-skull-crossbones .fa-2x .text-danger }
 :::
  This is a callout with danger text. I have printed it out, but the animated gif is not moving. We are a big name to have in your portfolio we don't need a contract, do we can you make it pop. It needs to be the same, but totally different can it handle a million in one go.

@@ -1,5 +1,32 @@
 @import "_variables";
 
+a {
+  color: $gray;
+}
+
+.center {
+  text-align: center;
+}
+
+
+
+/*
+ *  Recap Box
+ */
+ 
+.recap {
+  padding: 1em 1em 1em 2em;
+  margin-bottom: 10px;
+  border: 2px solid #dddddd;
+  border-radius: 10px;
+  background: #F6F6F6 5px center/3em no-repeat;
+  position:relative;
+  font-size: 0.75em;
+}
+
+/*
+ *  Notes and Exam Material
+ */
 
 // "Oh hey, this is exam-worthy" - Yellow Box 
 .testmaterial {
@@ -24,22 +51,35 @@
 /*
  *   Callouts  
  */
-/*.example {
-    padding: 20px;
-    margin: 20px 0;
-    border: 1px solid #eee;
-    border: 0px solid #eee;
+
+// Pandoc has a parent class for examples, so these work a bit differntly
+.example {
+   padding: 20px;
+   margin: 20px 0;
+   background: #F6F6F6 5px center/3em no-repeat;
+
 }  
-
  
-.example:not([id^=exm]){   
-    background: #F6F6F6 5px center/3em no-repeat;
-    border-radius: 3px;
-    border-left-width: 6px !important;
+.example:not([id^=exm]){ 
+border: 1px solid #eee;  
+  border-radius: 3px;
+   border-left-width: 6px !important;
     border-left-color: $brand-example;
-}*/
+    }
+ 
+.example span[id^=exm] {
+  padding:0px;
+  
+}
+ 
+.example2 {
+    @extend .example; 
+    border-left-color: $brand-example2 !important;
+}
 
- @mixin ct { //callouts as a mixin
+
+// But our other callouts can just use the following formula
+@mixin ct { //callouts as a mixin
     padding: 20px;
     margin: 20px 0;
     border: 1px solid #eee;
@@ -58,81 +98,11 @@
     border-left-color: $brand-defn !important;
 }
 
-.example{
-  @include ct;
-  border-left-color: $brand-example !important;
-}
-
-.example2{
-  @include ct;
-  border-left-color: $brand-example2 !important;
-}
-
 .danger{
   @include ct; 
   border-left-color: $brand-danger !important;
 }
 
-
-
-
-
-
-
-/*.book.color-theme-1 .callout {
-    border: 1px solid #F1E7CA; //#ebdaa5;
-}
-.book.color-theme-2 .callout {
-    border: 1px solid #2f3549;
-}
-
-.callout p:last-child {
-    margin-bottom: 0;
-}
-.callout code {
-    border-radius: 3px;
-}
-.callout+.callout {
-    margin-top: -5px;
-}
-.callout-default {
-    border-left-color: #777 !important;
-}
-
-.callout-primary {
-    border-left-color: $brand-primary !important;
-}
-
-.callout-secondary {
-    border-left-color: $brand-secondary !important;
-}
-
-
-
-.callout-success {
-    border-left-color: $brand-success !important;
-}
-
-
-}
-.callout-danger {
-    border-left-color: $brand-danger !important;
-}
-
-
-.callout-warning {
-    border-left-color: $brand-warning !important;
-}
-
-
-
-.callout-info {
-    border-left-color: $brand-info !important;
-}
-
-
-
-*/
 
 /*
  *  Font Awesome - Callout Icons
@@ -152,20 +122,3 @@
 }
   
 
-/*
- *  Recap Box
- */
-
-.center {
-  text-align: center;
-}
-
-.recap {
-  padding: 1em 1em 1em 2em;
-  margin-bottom: 10px;
-  border: 2px solid #dddddd;
-  border-radius: 10px;
-  background: #F6F6F6 5px center/3em no-repeat;
-  position:relative;
-  font-size: 0.75em;
-}
