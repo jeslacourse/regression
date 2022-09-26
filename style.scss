@@ -24,7 +24,7 @@
 /*
  *   Callouts  
  */
-.example {
+/*.example {
     padding: 20px;
     margin: 20px 0;
     border: 1px solid #eee;
@@ -37,7 +37,7 @@
     border-radius: 3px;
     border-left-width: 6px !important;
     border-left-color: $brand-example;
-}
+}*/
 
  @mixin ct { //callouts as a mixin
     padding: 20px;
@@ -58,9 +58,13 @@
     border-left-color: $brand-defn !important;
 }
 
+.example{
+  @include ct;
+  border-left-color: $brand-example !important;
+}
 
 .example2{
-  @extend .example; 
+  @include ct;
   border-left-color: $brand-example2 !important;
 }
 
