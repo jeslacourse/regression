@@ -38,7 +38,7 @@ If a p-value $\lt\alpha$, reject $H_0$. Otherwise, do not reject $H_0$.
 
 $$ 2P(t \leq |t^*|\mid H_0 true)$$
 
-:::{.callout .example}
+:::{ .example}
 [Example]{class="badge badge-warning"} Continuing with example [] Was our estimate of the true regression line a reasonable estimate? Let $\alpha = 0.5$. 
 
 $$\begin{align}

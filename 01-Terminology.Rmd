@@ -16,7 +16,7 @@ This section serves as an introduction to expectation, variance, bias, and model
 
 ## Variables
 
-Simple regression has only one continuous [**response variable ($y$)**]{class="text-info"} and one continuous [**explanatory variable ($x$)**]{class="text-info"}. The response variable, $y$ is also known as the *dependent* or *outcome* variable. Explanatory variables, $x$ aka *independent*, *predictor*, or *covariate* variables, can include categorical values. We also have two parameters in regression: $\beta_0$ is the y-intercept and $\beta_1$ is the slope of the function. All four components make up the linear regression equation, a variant of slope-intercept form.   
+Single variable regression has only one continuous [**response variable ($y$)**]{class="text-info"} and one continuous [**explanatory variable ($x$)**]{class="text-info"}. The response variable, $y$ is also known as the *dependent* or *outcome* variable. Explanatory variables, $x$ aka *independent*, *predictor*, or *covariate* variables, can include categorical values. We also have two parameters in regression: $\beta_0$ is the y-intercept and $\beta_1$ is the slope of the function. All four components make up the linear regression equation, a variant of slope-intercept form.   
 
 $$y=\beta_0 + \beta_1x$$
 
@@ -37,7 +37,7 @@ $Y$ is also a random variable given it's dependency on $X$ and the effects of $\
 
 **Parameters and Statistics**
 
-::: {.callout .note .d-flex .align-items-center}
+::: { .note .d-flex .align-items-center}
 :::{.fa .fa-note-sticky .fa-2x .text-info }
 :::
 Statistics are used to estimate the true parameters 
@@ -86,7 +86,7 @@ Expectation for **continuous** random variable $Y$ would be calculated with a de
 $$E(Y) = \int_{-\infty}^{\infty} yf(y)dy$$
 It's the same thing, yet terrible because integrals. 
 
-::: {.callout .example }
+::: { .example1 }
 [Example]{class="badge badge-warning"} The normal distribution `Y ~ N(0,1)` with mean `0` and variance `1`, would be represented using the density function:
 
 $$E(Y) = \int_{-\infty}^{\infty}y\frac{1}{\sqrt{2\pi}} 
@@ -103,7 +103,7 @@ Given random variables $X$ and $Y$ and constants $a,b,$ & $c$:
 3. $E(X+Y) = E(X) + E(Y)$
 
 
-::: {.callout .example }
+::: { .example1 }
 [Example]{class="badge badge-warning"}
 
 $$\begin{align}   
@@ -158,7 +158,7 @@ where $\bar{Z} = E(Z)$.
 2. $var(aX) = a^2 var(X)$
 3. $var(X+Y)  = var(X) + var(Y) + 2cov(X,Y)$ 
 
-::: {.callout .example }
+::: { .example1 }
 [Example]{class="badge badge-warning"}
 $$\begin{align}
 var(a+bX-cY) \\
@@ -196,7 +196,7 @@ $$\hat{cov}(X,Y) = \frac{\sum(X_i - \bar{X})(Y_i-\bar{Y})^2}{n-1} $$
 
 ## Correlation 
 
-::: {.callout .danger .d-flex .align-items-center}
+::: { .danger .d-flex .align-items-center}
 :::{.fa .fa-skull-crossbones .text-danger }
 :::
  Correlations is not equal to causation in non-random studies 
@@ -224,7 +224,7 @@ $$ E(s^2) = E\frac{\sum(Y_i-\bar{Y})^2}{n-1}= var(Y)$$
 
 ## Examples {-}
 
-:::{.callout .example}
+:::{ .example1}
 [Example]{class="badge badge-warning"} We want to estimate the systolic blood pressure, $y$,  for 20 subjects based on their age, $x$. $\beta$'s are usually unknown, but in this case we know we want to be reasonably close to $\beta_0=90$ and $\beta_1=0.9$
 
 The mean age, $\bar{x}$, is $38.15$ and the mean systolic blood pressure measured, $\bar{y}$ was $118.11$ mmHg. 
@@ -262,7 +262,7 @@ y = 0.9x-90
 $$
 :::
 
-:::{.callout .example2}
+:::{ .example2}
 [Example]{class="badge badge-success"} Given the values above, what is the predicted systolic blood pressure for a 50-year-old?
 
 $$E(Y|X = 50)$$

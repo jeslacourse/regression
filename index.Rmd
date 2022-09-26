@@ -16,7 +16,7 @@ description: "A Linear Regression Notebook"
 **In Summary**
 :::
 
-This text serves as a personal notebook for my regression notes. It's also a space to explore different formats and styles of sharing information. This version is written in Rstudio using bookdown and bootstrap. 
+This text serves as a personal notebook for my regression notes. It's also a space to explore different formats and styles for sharing information. This version is written in Rstudio using bookdown and bootstrap. 
 
 ::::
 

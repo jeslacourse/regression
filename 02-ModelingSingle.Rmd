@@ -82,7 +82,7 @@ $$Y= \beta_0 +\beta_1X + \epsilon$$
 
 
 
-::: {.callout .example }
+::: {.callout .example1 }
 
 [Example]{class="badge badge-warning"} We want to estimate the systolic blood pressure for a 20 year old. We know the following variables: 
 
@@ -246,7 +246,7 @@ If $H_0$ is true, then $t^*$ has a t-distribution with $n-2$ degrees of freedom.
 
 ## Examples {-}
 
-:::{.callout .example}
+:::{.example}
 [Example]{class="badge badge-warning"} The predicted model in Example [] were close, but not quite in line with the true regression line. Determine the errors:
 
 $$\begin{equation} 

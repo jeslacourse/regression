@@ -1,17 +1,11 @@
 @import "_variables";
 
-/*
-.myid_container{
-  @extend .container;
-}
-*/
-
 
 // "Oh hey, this is exam-worthy" - Yellow Box 
 .testmaterial {
   padding: 1em 1em 1em 1em;
   margin-bottom: 10px;
-  border: 2px solid $brand-secondary; //yellow
+  border: 2px solid $brand-note; //yellow
   border-radius: 3px;
   background: #F6F6F6 5px center/3em no-repeat;
   position: relative;
@@ -21,7 +15,7 @@
 .tm-inline {
   padding: 2px 2px 2px 2px;
   margin-bottom: 10px;
-  border: 2px solid $brand-secondary; //yellow
+  border: 2px solid $brand-note; //yellow
   
   background: #F6F6F6 5px center/3em no-repeat;
   position: relative;
@@ -30,16 +24,58 @@
 /*
  *   Callouts  
  */
-.callout {
+.example {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border: 0px solid #eee;
+}  
+
+ 
+.example:not([id^=exm]){   
+    background: #F6F6F6 5px center/3em no-repeat;
+    border-radius: 3px;
+    border-left-width: 6px !important;
+    border-left-color: $brand-example;
+}
+
+ @mixin ct { //callouts as a mixin
     padding: 20px;
     margin: 20px 0;
     border: 1px solid #eee;
     border-left-width: 6px !important;
     border-radius: 3px;
     background: #F6F6F6 5px center/3em no-repeat;
+}    
+
+.note {
+    @include ct; 
+    border-left-color: $brand-note !important;
 }
 
-.book.color-theme-1 .callout {
+.defn{
+    @include ct; 
+    border-left-color: $brand-defn !important;
+}
+
+
+.example2{
+  @extend .example; 
+  border-left-color: $brand-example2 !important;
+}
+
+.danger{
+  @include ct; 
+  border-left-color: $brand-danger !important;
+}
+
+
+
+
+
+
+
+/*.book.color-theme-1 .callout {
     border: 1px solid #F1E7CA; //#ebdaa5;
 }
 .book.color-theme-2 .callout {
@@ -67,42 +103,32 @@
     border-left-color: $brand-secondary !important;
 }
 
-.note {
-    @extend .callout-secondary;
-}
+
 
 .callout-success {
     border-left-color: $brand-success !important;
 }
 
-.example2{
-  @extend .callout-success;
-}
 
+}
 .callout-danger {
     border-left-color: $brand-danger !important;
 }
 
-.danger{
-  @extend .callout-danger;
-}
 
 .callout-warning {
     border-left-color: $brand-warning !important;
 }
 
-.example{
-    @extend .callout-warning;
-}
+
 
 .callout-info {
     border-left-color: $brand-info !important;
 }
 
 
-.defn{
-    @extend .callout-info;
-}
+
+*/
 
 /*
  *  Font Awesome - Callout Icons
@@ -119,28 +145,8 @@
 .fa-primary {
   content: "fa-pen";
   color: $brand-primary;
+}
   
-}
-
-.fa-success {
-  content: "fa-check-circle-o";
-  color: $brand-success;
-}
-
-.fa-danger {
-  content: "fa-check-circle-o";
-  color: $brand-danger;
-}
-
-.fa-warning {
-  content: "fa-check-circle-o";
-  color: $brand-warning; 
-}
-
-.fa-info {
-  content: "fa-bookmark-o";
-  color: $brand-info;
-}
 
 /*
  *  Recap Box

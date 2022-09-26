@@ -33,13 +33,18 @@ I'll know it when i see it that sandwich needs to be more playful, yet I think w
 Office ipsum gives me anxiety sometimes. Use `[Remember Me]{class="tm-inline"}` for inline boxes.
 
 
+:::{.note}
+Can I get `.note` to standalone? Yes, heck yes I can. Mixins!
+:::
+
+
 ### Examples
 
 [color: Warning]{class="badge badge-warning"} Because please, *please* help me make sense of this monster with some practical applications. 
 
-::: {.callout .example }
+::: {.example }
 
-This is a sample problem. There may be a mix of plain text and LaTex. Flexboxes and multi-paragraph sections don't play nice for now. Use `.callout .example` tags. 
+This is a sample problem. There may be a mix of plain text and LaTex. Flexboxes and multi-paragraph sections don't play nice for now. Use `.example` tags. 
  
 $$ 
 y-y_0 = m(x-x_0)
@@ -51,7 +56,7 @@ Anyway, you are the designer, you know what to do can you help me out? you will 
 
 [color: Success]{class="badge badge-success"} Hashtag winning? Two examples are better than one, I guess. Though I expect to use this color infrequently. It's a great color, though. 
 
-::: {.callout .example2 }
+::: {.example2 }
 
 This is another sample problem. There may be a mix of plain text and LaTex. Use `.callout .example2` tags. 
  
