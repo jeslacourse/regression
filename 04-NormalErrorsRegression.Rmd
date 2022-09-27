@@ -1,0 +1,146 @@
+# Normal Errors Regression 
+
+::: {.recap}
+::: {.center}
+Thoughts
+:::
+
+$$ Y_i = \beta_0 + \beta_1X_i + \epsilon_i $$
+If we make the assumption that our data is normally distributed, we can improve the correctness of our p-values, critical values, and confidence intervals, especially for smaller samples. 
+
+
+1. $E(\epsilon_i=0)$
+2. $\epsilon_1...\epsilon_n$ have constant variance
+3. $\epsilon_1...\epsilon_n$ uncorrelated
+4. $\epsilon_i\sim N$
+
+
+:::{.theorem .note}
+
+
+If $w \sim N(\mu,\sigma)$
+
+define $Z = a +bw$, where $a$ and $b$ are constants. 
+
+Then $E(a+bw) \rightarrow a+bE(w)$
+
+$\therefore Z\sim N(a+b\mu, b^2\sigma^2)$
+
+:::
+
+
+
+:::{.definition .defn note="Conditional Normal Distribution"}
+
+With normal errors, we can say:
+
+$$Y_i|X_i~N(\beta_0+\beta_1X_1, \sigma^2)$$
+1. $E(Y_i|X_i) = \beta_0+\beta_1X_i$
+2. $\sigma^2(Y_i)$ is constant
+3. $Y_1...Y_n$ uncorrelated
+4. $Y_1...Y_n \sim N$
+:::
+
+The sampling distribution for $b_1$ also changes. 
+
+$$
+b_1 = \sum k_iy_i
+$$
+## Predicted Values
+
+Estimating the expected values of $y_i$ conditional on $x_i$:
+
+$$
+\hat y_h = b_0+b_1X_h
+$$
+allows us to estimate $\hat{y_h}$ for $x_h$, even if $h$ isn't in the original dataset. 
+
+Given $Y_h\sim N$, our $\beta$s will also be normally distributed. 
+
+:::{.definition .defn name="Normal Population Variance"}
+
+$$\sigma^2 (\hat{Y_h}) = \sigma^2[\frac{1}{n} + \frac{X - \bar X}{\sum(X-\bar X)^2}]$$
+
+:::
+
+:::{.definition .defn name="Normal Sample Variance"}
+
+$$s^2 (\hat{Y_h}) = MSE[\frac{1}{n} + \frac{X^h - \bar X}{\sum(X-\bar X)^2}]$$
+
+:::
+
+:::{.definition .defn name="Normal Conditional CI"}
+
+Given $E(Y_h|X_h)$, 
+
+$$
+\hat y \pm t(1-\frac{\alpha}{2};n-2)s(\hat{Y_h})
+$$
+:::
+
+
+
+:::{.example}
+
+| parameter                    | statistic    |
+|------------------------------|--------------|
+| $\beta_0 = 90$               | $b_0 = 91.6$ |
+| $\beta_1 = 0.9$              | $b_1= 0.8$   |
+| $\sigma^2(\epsilon_i) = 225$ | $MSE=247$    |
+
+
+Construct a $95\%$ confidence interval for the the blood pressure of a 30-year-old, $E(Y|X =30)$
+
+\begin{equation}
+\begin{split}
+s^2(\hat{Y_h}) &= 247[\frac{1}{20} + \frac{(30-33.15)^2}{6072.55}] \approx 12.75\\
+L &= 115.6-2.10\sqrt{12.75} \approx 108\\
+U &= 115.6+2.10\sqrt{12.75} \approx 123
+\end{split}
+\end{equation}
+
+Returns a 95% confidence interval of $(108,123)$. We are 95% confident that the true value of E(Y) falls in this range. 
+:::
+
+**Things to notice:**
+
+1. When $X_h = \bar X$, then 
+
+\begin{equation}
+\begin{split}
+\sigma^2 (\hat{Y_h}) &= \sigma^2[\frac{1}{n} + \frac{ \bar X - \bar X}{\sum(x_i-\bar X)^2}]\\
+&= \frac{\sigma^2}{n}
+\end{split}
+\end{equation}
+
+because $(\bar X,\bar Y )$ will always fall on the regression line. 
+
+By extension:
+
+$$ \sigma^2(\hat{Y_h}) = var(\bar y) = \frac{\sigma^2}{n} $$
+
+2. $X$ values that are more spread out are easier to predict. 
+
+Our variances $\sigma^2(\hat{Y_h})$ and $s^2(\hat{Y_h})$ decrease as $\sum(x_i-\bar x)^2$ increases. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -26,10 +26,16 @@ exm:unlabeled-div-25
 exm:unlabeled-div-26
 def:unlabeled-div-27
 exm:unlabeled-div-28
-eq:yint
-exm:unlabeled-div-29
-exm:unlabeled-div-30
+thm:unlabeled-div-29
+def:unlabeled-div-30
 def:unlabeled-div-31
+def:unlabeled-div-32
+def:unlabeled-div-33
+exm:unlabeled-div-34
+eq:yint
+exm:unlabeled-div-35
+exm:unlabeled-div-36
+def:unlabeled-div-37
 single-linear-regression
 variables
 expected-values
@@ -47,6 +53,7 @@ two-sided-t-testing
 p-values
 critical-values
 confidence-intervals
+normal-errors-regression
 style-guide
 general-content
 examples-2
