@@ -16,17 +16,17 @@ This section serves as an introduction to expectation, variance, bias, and model
 
 ## Variables
 
-Single variable regression has only one continuous [**response variable ($y$)**]{class="text-info"} and one continuous [**explanatory variable ($x$)**]{class="text-info"}. The response variable, $y$ is also known as the *dependent* or *outcome* variable. Explanatory variables, $x$ aka *independent*, *predictor*, or *covariate* variables, can include categorical values. We also have two parameters in regression: $\beta_0$ is the y-intercept and $\beta_1$ is the slope of the function. All four components make up the linear regression equation, a variant of slope-intercept form.   
+Single variable regression has only one continuous **response variable ($y$)** and one **explanatory variable ($x$)**. The response variable, $y$ is also known as the *dependent* or *outcome* variable. Explanatory variables, $x$ aka *independent*, *predictor*, or *covariate* variables, can include continuous or categorical values. We also have two parameters in regression: $\beta_0$ is the y-intercept and $\beta_1$ is the slope of the function. All four components make up the linear regression equation, a variant of slope-intercept form.   
 
 $$y=\beta_0 + \beta_1x$$
 
 
 
-**Fixed and Random Variables**
+### Fixed and Random Variables {-}
 
-[**Fixed variables**]{class="text-info"} are those that don't change from one experiment to the next. The values are not chosen by the researcher. $X$ is treated as a fixed variable for regression. That said, regression is often used when the $X$ is not wholly chosen; it may simply the only data you have to work with. For example, sampling a population will return a distribution of ages that may not match the true distribution of the population. So while we treat $X$ as a fixed value, it is also technically random. 
+**Fixed variables** are those that don't change from one experiment to the next. The values are not chosen by the researcher. $X$ is treated as a fixed variable for regression. That said, regression is often used when the $X$ is not wholly chosen; it may simply the only data you have to work with. For example, sampling a population will return a distribution of ages that may not match the true distribution of the population. So while we treat $X$ as a fixed value, it is also technically random. 
 
-[**Random variables**]{class="text-info"} are expected to return different values after repeating an experiment. The variability between the true regression line and the points $(X,Y)$ is captured with an error value, $\epsilon$. 
+**Random variables** are expected to return different values after repeating an experiment. The variability between the true regression line and the points $(X,Y)$ is captured with an error value, $\epsilon$. 
 
 $$
 Y=\beta_0 + \beta_1X + \epsilon
@@ -35,18 +35,18 @@ $\beta$'s are considered fixed values along with $X$, whereas $\epsilon$ is a ra
 
 $Y$ is also a random variable given it's dependency on $X$ and the effects of $\epsilon$.
 
-**Parameters and Statistics**
+### Parameters and Statistics {-}
 
 ::: { .note .d-flex .align-items-center}
-:::{.fa .fa-note-sticky .fa-2x .text-info }
+:::{.fa .fa-pen .fa-2x .text-secondary}
 :::
 Statistics are used to estimate the true parameters 
 :::
 
 $\beta_0$ and $\beta_1$ are parameters; usually unknown values related to the population and not the sample. 
 
-- [**Parameter**]{class="text-info"}: values for the population
-- [**Statistic**]{class="text-info"}: values for the sample 
+- **Parameter**: values for the population
+- **Statistic**: values for the sample 
 
 After collecting data from the population, we can create a sample on which to run our statistics for which we can estimate our parameters. 
 
@@ -64,9 +64,14 @@ Expected values are *mean* or average values. They look a little different depen
 
 **Sample means** are averages. Given the sample data $X_1... X_n$, would return the *statistic*:
 
-::: {.text-info}
-$$ \bar{x}  = \frac{1}{n} \sum_{i = 1}^nX_i$$
+:::{.definition .defn name="Sample Mean"}
+
+\begin{equation}
+\bar{x}  = \frac{1}{n} \sum_{i = 1}^nX_i
+
+\end{equation}
 :::
+
 
 After several repeated experiments, we can come up with the **population mean**, the expected value. If $Z_1..Z_N$ for all values in the population, then we would use the parameter: 
 
@@ -74,10 +79,14 @@ $$ E(Z) = \frac{1}{N}\sum_{i=1}^N Z_i$$
 
 In general, a **discrete** random variable $Y$ with possible values $y_1... y_k$ we can say $E(Y)$ is a weighted average of the possible values $y_1... y_k$ and their respective expected probabilities $P(Y = y_1)...P(Y = y_k)$:
 
-$$\begin{equation} E(Y) = \sum_{i=1}^k y_i P(Y = y_i)\end{equation}$$
+:::{.definition .defn name="Expected Value"}
+$$\begin{equation}
+E(Y) = \sum_{i=1}^k y_i P(Y = y_i)\end{equation}
+$$
+:::
 
 
-Expectation with discrete values is a modification of the weighted average formula. Given the limitations of probabilities, we simply have to add the caveats that the sum of all probabilities is equal to 100%, $\sum w_i = 1$, and each probability can reasonably happen. You can't have a 200% chance of rain, right? We have to limit ourselves to a 0-100% probability,  $0 \leq w_1 \leq 1$.
+Expectation with discrete values is a modification of the weighted average formula. Given the limitations of probabilities, we simply have to add the caveats that the sum of all probabilities is equal to 100%; $\sum w_i = 1$ and  $0 \leq w_1 \leq 1$.
 
 $$\begin{equation}\sum_{i=1}^k w_ia_i\end{equation}$$
 
@@ -86,15 +95,15 @@ Expectation for **continuous** random variable $Y$ would be calculated with a de
 $$E(Y) = \int_{-\infty}^{\infty} yf(y)dy$$
 It's the same thing, yet terrible because integrals. 
 
-::: { .example}
- The normal distribution `Y ~ N(0,1)` with mean `0` and variance `1`, would be represented using the density function:
+::: {.example .example2}
+The normal distribution `Y ~ N(0,1)` with mean `0` and variance `1`, would be represented using the density function:
 
 $$E(Y) = \int_{-\infty}^{\infty}y\frac{1}{\sqrt{2\pi}} 
   \exp\left( -\frac{y^2}{2}\right) dy = 0 $$
 :::
 
 
-### Rules for Expectation 
+**Rules for Expectation**
 
 Given random variables $X$ and $Y$ and constants $a,b,$ & $c$: 
 
@@ -103,13 +112,13 @@ Given random variables $X$ and $Y$ and constants $a,b,$ & $c$:
 3. $E(X+Y) = E(X) + E(Y)$
 
 
-::: { .example }
+::: {.example .example2} 
+Use the rules of expectation to simplify the equation.
 
-
-$$\begin{align}   
+\begin{equation}
 E(a+bX+cY) \\ 
 = a + bE(X) + cE(Y)
-\end{align}$$
+\end{equation}
 :::
 
 
@@ -119,13 +128,18 @@ E(a+bX+cY) \\
 
 Sample data $x_i...x_n$ would give us the **unbiased sample variance**:
 
-$$s^2 = \frac{\sum(x_i - \bar{x})^2}{n-1}$$
+:::{.definition .defn name="Sample Variance"}
+$$
+s^2 = \frac{\sum(x_i - \bar{x})^2}{n-1}
+$$
+:::
 
 Focusing on the denominator, sample sizes $n$ will shift the statistic significantly compared to a larger sample. 
 
 
 **Population variance** can be defined as: 
-:::{.text-info}
+
+:::{.definition .defn name="Variance"}
 $$
 var(Y) = E[Y-E(Y)]^2
 $$
@@ -135,14 +149,20 @@ The squaring of $[Y-E(Y)]$ "removes the sign", and reverts all measures to posit
 We can use the population variance formula to show that $E(Y)$ is equivalent to the parameter $\mu$. Given $var(Y)$: 
 
 
-$$\begin{align} var(Y) = E[Y-E(Y)]^2\\=E[Y-\mu]^2\\\therefore \mu = E(Y)\end{align}$$
+\begin{equation}
+\begin{split} 
+var(Y) & = E[Y-E(Y)]^2\\& =E[Y-\mu]^2\\\therefore \mu &= E(Y)
+\end{split}
+\end{equation}
 
 
 Given our known substitutions, we can say:
 
-$$\begin{align} var(Y)= E[Y-E(Y)]^2\\
-=\sum_{i=1}^k (y_i-\mu)^2P(Y-y_i)
-\end{align}$$
+\begin{equation}
+\begin{split}  var(Y) & = E[Y-E(Y)]^2\\
+& =\sum_{i=1}^k (y_i-\mu)^2P(Y-y_i)
+\end{split}
+\end{equation}
 
 If $Z_1... Z_n$ account for all values in a population, we would have parameter:
 
@@ -158,27 +178,36 @@ where $\bar{Z} = E(Z)$.
 2. $var(aX) = a^2 var(X)$
 3. $var(X+Y)  = var(X) + var(Y) + 2cov(X,Y)$ 
 
-::: { .example }
-
-$$\begin{align}
+::: {.example .example2} 
+Use the rules for variance to simplify the equation.
+\begin{equation}
+\begin{split}
 var(a+bX-cY) \\
-= var(a) + var(bX-cY) + 2cov(X,Y)\\
-= 0 + var(bX)+ var(-cY) \\
-=b^2var(X) + c^2var(Y)+2[(-bc)cov(X,Y)]
-\end{align}$$
+&= var(a) + var(bX-cY) + 2cov(X,Y)\\
+&= 0 + var(bX)+ var(-cY) \\
+&=b^2var(X) + c^2var(Y)+2[(-bc)cov(X,Y)]
+\end{split}
+\end{equation}
+
 :::
 
 ## Covariance 
 
-Given the random variables $(X,Y)$ **covariance** is defined as: 
+**Sample covariance** is defined as: 
 
-:::{.text-info}
+:::{.definition .defn name="Sample Covariance"}
+$$
+\hat{cov}(X,Y) = \frac{\sum(X_i - \bar{X})(Y_i-\bar{Y})^2}{n-1} 
+$$
+:::
+
+Given the random variables $(X,Y)$ we can expand the definition of **covariance** to: 
+
+:::{.definition .defn name="Covariance"}
 $$cov(X,Y) = E[(X -\mu_x)(Y-\mu_y)]$$
 :::
 
-with **sample covariance**
 
-$$\hat{cov}(X,Y) = \frac{\sum(X_i - \bar{X})(Y_i-\bar{Y})^2}{n-1} $$
 
 **Rules for Covariance**
 
@@ -193,7 +222,6 @@ $$\hat{cov}(X,Y) = \frac{\sum(X_i - \bar{X})(Y_i-\bar{Y})^2}{n-1} $$
 9. $cov(X,X) = var(X)$
 
 
-
 ## Correlation 
 
 ::: { .danger .d-flex .align-items-center}
@@ -205,7 +233,11 @@ $$\hat{cov}(X,Y) = \frac{\sum(X_i - \bar{X})(Y_i-\bar{Y})^2}{n-1} $$
 
 **Correlation** is defined on the scale $-1 \leq corr(X,Y) \leq 1$ where: 
 
-$$corr(X,Y) = \frac{cov(X,Y)}{\sqrt{var(X)var(Y)}}$$
+:::{.definition .defn name="Correlation"}
+$$
+corr(X,Y) = \frac{cov(X,Y)}{\sqrt{var(X)var(Y)}}
+$$
+:::
 
 
 ## Bias
@@ -215,7 +247,7 @@ The estimators $b_0$ and $b_1$ are unbiased estimators. They only require that f
 So $E(b_0) =\beta_0$ and $E(b_1) = \beta_1$. 
 
 
-[**Bias**]{class="text-info"} is a term that refers to how much an estimate (or estimator) is off from its true value. Contextually, we want to know how far off the slope and intercept are for a sample of values in an experiment deviates from the true regression line. 
+**Bias** is a term that refers to how much an estimate (or estimator) is off from its true value. Contextually, we want to know how far off the slope and intercept are for a sample of values in an experiment deviates from the true regression line. 
 
 
 Because of random variability, $s^2$ will vary with each experiment. After repeating the experiment we can collect an unbiased sample variance, the average value of those experiments. 
@@ -231,24 +263,29 @@ The mean age, $\bar{x}$, is $38.15$ and the mean systolic blood pressure measure
 
 First, solve for $b_1$: 
 
-$$\begin{align}
-b_1 =\frac{\hat{cov}(X,Y)}{\hat{var}(X,Y)}\\
-\hat{cov}(X,Y)= \sum_{i =1}^{20} (x_i- \bar x)(y_i - \bar y)\approx 4863.282\\
-\hat{var}(X,Y) = \sum_{i =1}^{20} (x_i- \bar x) \approx 6072.55\\ 
-b_1 = \frac{4863.282}{6072.55} \approx 0.8
+\begin{equation}
+\begin{split}
+b_1 &=\frac{\hat{cov}(X,Y)}{\hat{var}(X,Y)}\\
+\hat{cov}(X,Y)&= \sum_{i =1}^{20} (x_i- \bar x)(y_i - \bar y)\approx 4863.282\\
+\hat{var}(X,Y) &= \sum_{i =1}^{20} (x_i- \bar x) \approx 6072.55\\ 
+b_1 &= \frac{4863.282}{6072.55} \approx 0.8
 
-\end{align}$$
+\end{split}
+\end{equation}
 
 Then, for $b_0$:
 
 
-$$\begin{align}
 
-b_0 = \bar{y}- b_1\bar{x}\\
-b_0 = 118.11- 0.8(38.15)\\
-b_0 \approx 91.6
+\begin{equation}
+\begin{split}
 
-\end{align}$$
+b_0 &= \bar{y}- b_1\bar{x}\\
+b_0 &= 118.11- 0.8(38.15)\\
+b_0 &\approx 91.6
+
+\end{split}
+\end{equation}
 
 Our **estimated regression line**: 
 
@@ -262,8 +299,8 @@ y = 0.9x-90
 $$
 :::
 
-:::{ .example2}
-[Example]{class="badge badge-success"} Given the values above, what is the predicted systolic blood pressure for a 50-year-old?
+:::{ .example}
+ Given the values above, what is the predicted systolic blood pressure for a 50-year-old?
 
 $$E(Y|X = 50)$$
 
