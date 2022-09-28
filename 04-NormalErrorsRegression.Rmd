@@ -78,15 +78,14 @@ $$
 $$
 :::
 
+|     -     | parameter                    | statistic    |
+|-----------|------------------------------|--------------|
+| variance  | $\sigma^2(\epsilon_i) = 225$ | $MSE=247$    |
+| slope     | $\beta_1 = 0.9$              | $b_1= 0.8$   |
+| intercept | $\beta_0 = 90$               | $b_0 = 91.6$ |
 
 
 :::{.example}
-
-| parameter                    | statistic    |
-|------------------------------|--------------|
-| $\beta_0 = 90$               | $b_0 = 91.6$ |
-| $\beta_1 = 0.9$              | $b_1= 0.8$   |
-| $\sigma^2(\epsilon_i) = 225$ | $MSE=247$    |
 
 
 Construct a $95\%$ confidence interval for the the blood pressure of a 30-year-old, $E(Y|X =30)$
