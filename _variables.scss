@@ -18,10 +18,10 @@ $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 //https://coolors.co/ee5555-ff8e38-ffd147-702dae-222222-66afb7
 
 $brand-primary:         #222222 !default; // Dark Gray
-$brand-secondary:       #FFD147 !default; // Yellow
-$brand-success:         #66AFB7 !default; // Cyan
-$brand-info:            #702DAE !default; // Purple
-$brand-warning:         #FF8E38 !default; // Orange
+$brand-note:            #FFD147 !default; // Yellow   Secondary
+$brand-example2:        #66AFB7 !default; // Cyan     Success
+$brand-defn:            #702DAE !default; // Purple   Info
+$brand-example:         #FF8E38 !default; // Orange   Warning
 $brand-danger:          #EE5555 !default; // Red 
 
 
@@ -157,15 +157,15 @@ $btn-primary-bg:                 $brand-primary !default;
 $btn-primary-border:             transparent !default;
 
 $btn-success-color:              #fff !default;
-$btn-success-bg:                 $brand-success !default;
+$btn-success-bg:                 $brand-example2 !default;
 $btn-success-border:             transparent !default;
 
 $btn-info-color:                 #fff !default;
-$btn-info-bg:                    $brand-info !default;
+$btn-info-bg:                    $brand-defn !default;
 $btn-info-border:                transparent !default;
 
 $btn-warning-color:              #fff !default;
-$btn-warning-bg:                 $brand-warning !default;
+$btn-warning-bg:                 $brand-example !default;
 $btn-warning-border:             transparent !default;
 
 $btn-danger-color:               #fff !default;
@@ -500,15 +500,15 @@ $jumbotron-heading-font-size:    ceil(($font-size-base * 4.5)) !default;
 //
 //## Define colors for form feedback states and, by default, alerts.
 
-$state-success-text:             $brand-success !default;
+$state-success-text:             $brand-example2 !default;
 $state-success-bg:               #dff0d8 !default;
 $state-success-border:           darken(adjust-hue($state-success-bg, -10), 5%) !default;
 
-$state-info-text:                $brand-info !default;
+$state-info-text:                $brand-defn !default;
 $state-info-bg:                  #e1bee7 !default;
 $state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%) !default;
 
-$state-warning-text:             $brand-warning !default;
+$state-warning-text:             $brand-example !default;
 $state-warning-bg:               #ffe0b2 !default;
 $state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 5%) !default;
 
@@ -573,11 +573,11 @@ $label-default-bg:            $gray-light !default;
 //** Primary label background color
 $label-primary-bg:            $brand-primary !default;
 //** Success label background color
-$label-success-bg:            $brand-success !default;
+$label-success-bg:            $brand-example2 !default;
 //** Info label background color
-$label-info-bg:               $brand-info !default;
+$label-info-bg:               $brand-defn !default;
 //** Warning label background color
-$label-warning-bg:            $brand-warning !default;
+$label-warning-bg:            $brand-example !default;
 //** Danger label background color
 $label-danger-bg:             $brand-danger !default;
 
@@ -659,13 +659,13 @@ $progress-border-radius:      $border-radius-base !default;
 //** Default progress bar color
 $progress-bar-bg:             $brand-primary !default;
 //** Success progress bar color
-$progress-bar-success-bg:     $brand-success !default;
+$progress-bar-success-bg:     $brand-example2 !default;
 //** Warning progress bar color
-$progress-bar-warning-bg:     $brand-warning !default;
+$progress-bar-warning-bg:     $brand-example !default;
 //** Danger progress bar color
 $progress-bar-danger-bg:      $brand-danger !default;
 //** Info progress bar color
-$progress-bar-info-bg:        $brand-info !default;
+$progress-bar-info-bg:        $brand-defn !default;
 
 
 //== List group
@@ -726,15 +726,15 @@ $panel-primary-heading-bg:    $brand-primary !default;
 
 $panel-success-text:          #fff !default;
 $panel-success-border:        $state-success-border !default;
-$panel-success-heading-bg:    $brand-success !default;
+$panel-success-heading-bg:    $brand-example2 !default;
 
 $panel-info-text:             #fff !default;
 $panel-info-border:           $state-info-border !default;
-$panel-info-heading-bg:       $brand-info !default;
+$panel-info-heading-bg:       $brand-defn !default;
 
 $panel-warning-text:          #fff !default;
 $panel-warning-border:        $state-warning-border !default;
-$panel-warning-heading-bg:    $brand-warning !default;
+$panel-warning-heading-bg:    $brand-example !default;
 
 $panel-danger-text:           #fff !default;
 $panel-danger-border:         $state-danger-border !default;

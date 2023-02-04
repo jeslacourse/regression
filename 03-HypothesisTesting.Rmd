@@ -1,6 +1,18 @@
-# Hypothesis Testing
+# Two-Sided t-Testing
 
-There are three approaches to two-sided hypothesis testing. 
+:::: {.recap}
+::: {.center}
+
+**In Summary**
+:::
+
+Two-sided t-testing is a good introduction to hypothesis testing when samples are small and the distribution of data is not known. Given the simple example of the blood pressure study, this section breaks down how we can come to the same conclusion about our model using three different approaches.  
+
+All of the concepts up to this point will be revisited in-depth. 
+
+::::
+
+There are three approaches to two-sided hypothesis testing:
 
 All three render the same conclusion given identical significance level, $\alpha$.
 
@@ -11,24 +23,34 @@ All three render the same conclusion given identical significance level, $\alpha
 
 Given the null ($H_0$) and alternative ($H_1$) hypotheses: 
 
-$$\begin{align}
+\begin{align}
 H_0: \beta_1 = 0\\
+<<<<<<< HEAD
 H_1: \beta_1 \neq 0 
 \end{align}$$
+=======
+H_1: \beta_1 \neq 0
+\end{align}
+
+
+
+>>>>>>> 58f5a4a986bb0e5509ff67f4a3e3e3850e43ec08
 
 Where $b_1\sim N$ and $E(b_1) = \beta_1$, we can build the test statistic, $t^*$: 
 
-$$
-t^* = \frac{b_1}{s(b_1)}
-$$
+:::{.definition .defn name="t-statistic"} 
+\begin{equation}
+\begin{split}
+t^* &= \frac{b_1}{s(b_1)}\\
+&= \sqrt{\frac{MSE}{\sum(x_1-\bar{x})^2}}
+\end{split}
+\end{equation}
 
-where
+If $H_0$ is true, then $t^*$ has a t-distribution with $n-2$ degrees of freedom. 
 
-$$\begin{align} 
-s(b_1) = \sqrt{s^2(b_1)}\\
-= \sqrt{\frac{MSE}{\sum(x_1-\bar{x})^2}}
-\end{align}$$
+:::
 
+We derive the deviation of $b_1$ from its variance, $s(b_1) = \sqrt{s^2(b_1)}$.
 
 
 
@@ -38,34 +60,53 @@ If a p-value $\lt\alpha$, reject $H_0$. Otherwise, do not reject $H_0$.
 
 $$ 2P(t \leq |t^*|\mid H_0 true)$$
 
+<<<<<<< HEAD
 :::{.callout .example}
 [Example]{class="badge badge-warning"} Continuing with example [] Was our estimate of the true regression line a reasonable estimate? Let $\alpha = 0.05$. 
+=======
+:::{.example}
+Continuing with example [] Was our estimate of the true regression line a reasonable estimate? Let $\alpha = 0.5$. 
+>>>>>>> 58f5a4a986bb0e5509ff67f4a3e3e3850e43ec08
 
-$$\begin{align}
+\begin{align}
 H_0: \beta_1 = 0\\
 H_1: \beta_1 \neq 0
-\end{align}$$
+\end{align}
 
+<<<<<<< HEAD
 $$\begin{align}
 t^* = \frac{b_1}{s(b_1)}\\
 t^* = \frac{0.8}{0.202} \\
 \approx 3.96
+=======
+\begin{align}
+t^* = \frac{b_1}{s(b_1)}\\
+t^* = \frac{0.8}{0.202} \approx 3.96
+>>>>>>> 58f5a4a986bb0e5509ff67f4a3e3e3850e43ec08
 
-\end{align}$$
+\end{align}
 
 Our test statistic, $t^* = 3.96$, returns a p-value of $0.0009$. Our p-value is smaller than $\alpha$. 
 
+p-val: 
+
+$$2P(t > 3.96) \approx 0.0009$$
+
 $$0.0009 < 0.05 \checkmark$$
-Reject the null hypothesis. Our estimate $b_1$ is significantly different from our expected value, $\beta_1$.
+Reject the null hypothesis. There is sufficient evidence to conclude that there is a relationship between the predictor $X$ and outcome $Y$.
 
 :::
 
 
 ## Critical Values
 
+If $|t^*| > t(1-\frac{\alpha}{2}; n-2)$, reject $H_0$. Otherwise, do not reject $H_0$. 
+
+
 $$
 t(1-\frac{\alpha}{2}; n-2)
 $$
+<<<<<<< HEAD
 if $t^*\leq t(1-\frac{\alpha}{2}; n-2)$, fail to reject $h_0$, otherwise reject $H_0$.
 
 
@@ -137,4 +178,68 @@ If null hypothesis is in confidence interval, reject $H_0$, otherwise do not rej
 
 
 
+=======
+
+
+:::{.example} 
+Use the critical values of $t^*$ to determine we have a reasonable model. 
+
+\begin{equation}
+\begin{split}
+|t^*| &\stackrel{?}{>} t(1-\frac{0.05}{2}; 20-2)\\
+|t^*| &\stackrel{?}{>}t(0.975; 18)\approx2.101\\
+3.96 &\stackrel{?}{>} 2.101
+
+\end{split}
+\end{equation}
+
+Our t-statistic $|t^*|$ is greater than the critical value at $\alpha =0.05$.  Reject the null hypothesis. 
+
+:::
+
+## Confidence Intervals 
+
+A **confidence interval** contains a set of reasonable estimates for a parameter, given $\alpha$. 
+
+:::{.definition .defn name="Confidence Interval"}
+
+Upper and lower bounds can be found using the following generic formula: 
+
+:::{.center}
+estimate $\pm$ (critical value)*$s$(estimate)
+:::
+
+For $b_1$:
+
+$$
+b_1 \pm t(1-\frac{\alpha}{2}; n-2)s(b_1) 
+$$
+
+:::
+
+Expect a different interval if the study is repeated. Both the slope *and* the variance will vary with each study. At $\alpha = 0.05$, we would expect $95\%$ the confidence interval bands to contain $\beta_1$. 
+
+:::{.example}
+Estimate a 95% confidence interval for our favorite blood pressure study. 
+
+Lower Bound:  
+\begin{equation}
+\begin{split}
+ L &= b_1 - t(0.975; 18)s(b_1) \\
+   &= 0.8 - 2.101(0.202) \approx 0.38 
+\end{split}
+\end{equation}
+
+Upper Bound:  
+\begin{equation}
+\begin{split}
+ U &= b_1 + t(0.975; 18)s(b_1) \\
+   &= 0.8 + 2.101(0.202) \approx 1.2 
+\end{split}
+\end{equation}
+
+We are 95% confident that $\beta_1$ is in the confidence interval $(0.38,1.2)$.
+
+:::
+>>>>>>> 58f5a4a986bb0e5509ff67f4a3e3e3850e43ec08
 

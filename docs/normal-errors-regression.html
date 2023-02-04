@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>4 Normal Errors Regression | Regression Analysis</title>
+<meta name="author" content="Jes LaCourse">
+<meta name="description" content="::: {.recap} ::: {.center} Thoughts ::: \[ Y_i = \beta_0 + \beta_1X_i + \epsilon_i \] If we make the assumption that our data is normally distributed, we can improve the correctness of our...">
+<meta name="generator" content="bookdown 0.25 with bs4_book()">
+<meta property="og:title" content="4 Normal Errors Regression | Regression Analysis">
+<meta property="og:type" content="book">
+<meta property="og:description" content="::: {.recap} ::: {.center} Thoughts ::: \[ Y_i = \beta_0 + \beta_1X_i + \epsilon_i \] If we make the assumption that our data is normally distributed, we can improve the correctness of our...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="4 Normal Errors Regression | Regression Analysis">
+<meta name="twitter:description" content="::: {.recap} ::: {.center} Thoughts ::: \[ Y_i = \beta_0 + \beta_1X_i + \epsilon_i \] If we make the assumption that our data is normally distributed, we can improve the correctness of our...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="libs/sass72ad03dddab49d7b9eb76efd007c28b2/_variables.min.css">
+<link rel="stylesheet" href="libs/sass9d466805d47e849e13a36f2ef2c3636c/style.min.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Regression Analysis</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Regression Analysis</a></li>
+<li><a class="" href="single-linear-regression.html"><span class="header-section-number">1</span> Single Linear Regression</a></li>
+<li><a class="" href="modeling-and-errors.html"><span class="header-section-number">2</span> Modeling and Errors</a></li>
+<li><a class="" href="two-sided-t-testing.html"><span class="header-section-number">3</span> Two-Sided t-Testing</a></li>
+<li><a class="active" href="normal-errors-regression.html"><span class="header-section-number">4</span> Normal Errors Regression</a></li>
+<li><a class="" href="style-guide.html"><span class="header-section-number">5</span> Style Guide</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="normal-errors-regression" class="section level1" number="4">
+<h1>
+<span class="header-section-number">4</span> Normal Errors Regression<a class="anchor" aria-label="anchor" href="#normal-errors-regression"><i class="fas fa-link"></i></a>
+</h1>
+<p>::: {.recap}
+::: {.center}
+Thoughts
+:::</p>
+<p><span class="math display">\[ Y_i = \beta_0 + \beta_1X_i + \epsilon_i \]</span>
+If we make the assumption that our data is normally distributed, we can improve the correctness of our p-values, critical values, and confidence intervals, especially for smaller samples.</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(E(\epsilon_i=0)\)</span></li>
+<li>
+<span class="math inline">\(\epsilon_1...\epsilon_n\)</span> have constant variance</li>
+<li>
+<span class="math inline">\(\epsilon_1...\epsilon_n\)</span> uncorrelated</li>
+<li><span class="math inline">\(\epsilon_i\sim N\)</span></li>
+</ol>
+<div class="theorem note">
+<p><span id="thm:unlabeled-div-29" class="theorem"><strong>Theorem 4.1  </strong></span>If <span class="math inline">\(w \sim N(\mu,\sigma)\)</span></p>
+<p>define <span class="math inline">\(Z = a +bw\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are constants.</p>
+<p>Then <span class="math inline">\(E(a+bw) \rightarrow a+bE(w)\)</span></p>
+<p><span class="math inline">\(\therefore Z\sim N(a+b\mu, b^2\sigma^2)\)</span></p>
+</div>
+<div class="definition defn" note="Conditional Normal Distribution">
+<p><span id="def:unlabeled-div-30" class="definition"><strong>Definition 4.1  </strong></span>With normal errors, we can say:</p>
+<p><span class="math display">\[Y_i|X_i~N(\beta_0+\beta_1X_1, \sigma^2)\]</span>
+1. <span class="math inline">\(E(Y_i|X_i) = \beta_0+\beta_1X_i\)</span>
+2. <span class="math inline">\(\sigma^2(Y_i)\)</span> is constant
+3. <span class="math inline">\(Y_1...Y_n\)</span> uncorrelated
+4. <span class="math inline">\(Y_1...Y_n \sim N\)</span></p>
+</div>
+<p>The sampling distribution for <span class="math inline">\(b_1\)</span> also changes.</p>
+<p><span class="math display">\[
+b_1 = \sum k_iy_i
+\]</span>
+## Predicted Values</p>
+<p>Estimating the expected values of <span class="math inline">\(y_i\)</span> conditional on <span class="math inline">\(x_i\)</span>:</p>
+<p><span class="math display">\[
+\hat y_h = b_0+b_1X_h
+\]</span>
+allows us to estimate <span class="math inline">\(\hat{y_h}\)</span> for <span class="math inline">\(x_h\)</span>, even if <span class="math inline">\(h\)</span> isn’t in the original dataset.</p>
+<p>Given <span class="math inline">\(Y_h\sim N\)</span>, our <span class="math inline">\(\beta\)</span>s will also be normally distributed.</p>
+<div class="definition defn">
+<p><span id="def:unlabeled-div-31" class="definition"><strong>Definition 4.2  (Normal Population Variance) </strong></span><span class="math display">\[\sigma^2 (\hat{Y_h}) = \sigma^2[\frac{1}{n} + \frac{X - \bar X}{\sum(X-\bar X)^2}]\]</span></p>
+</div>
+<div class="definition defn">
+<p><span id="def:unlabeled-div-32" class="definition"><strong>Definition 4.3  (Normal Sample Variance) </strong></span><span class="math display">\[s^2 (\hat{Y_h}) = MSE[\frac{1}{n} + \frac{X^h - \bar X}{\sum(X-\bar X)^2}]\]</span></p>
+</div>
+<div class="definition defn">
+<p><span id="def:unlabeled-div-33" class="definition"><strong>Definition 4.4  (Normal Conditional CI) </strong></span>Given <span class="math inline">\(E(Y_h|X_h)\)</span>,</p>
+<p><span class="math display">\[
+\hat y \pm t(1-\frac{\alpha}{2};n-2)s(\hat{Y_h})
+\]</span></p>
+</div>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>-</th>
+<th>parameter</th>
+<th>statistic</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>variance</td>
+<td><span class="math inline">\(\sigma^2(\epsilon_i) = 225\)</span></td>
+<td><span class="math inline">\(MSE=247\)</span></td>
+</tr>
+<tr class="even">
+<td>slope</td>
+<td><span class="math inline">\(\beta_1 = 0.9\)</span></td>
+<td><span class="math inline">\(b_1= 0.8\)</span></td>
+</tr>
+<tr class="odd">
+<td>intercept</td>
+<td><span class="math inline">\(\beta_0 = 90\)</span></td>
+<td><span class="math inline">\(b_0 = 91.6\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<div class="example">
+<p><span id="exm:unlabeled-div-34" class="example"><strong>Example 4.1  </strong></span>Construct a <span class="math inline">\(95\%\)</span> confidence interval for the the blood pressure of a 30-year-old, <span class="math inline">\(E(Y|X =30)\)</span></p>
+<p><span class="math display">\[\begin{equation}
+\begin{split}
+s^2(\hat{Y_h}) &amp;= 247[\frac{1}{20} + \frac{(30-33.15)^2}{6072.55}] \approx 12.75\\
+L &amp;= 115.6-2.10\sqrt{12.75} \approx 108\\
+U &amp;= 115.6+2.10\sqrt{12.75} \approx 123
+\end{split}
+\end{equation}\]</span></p>
+<p>Returns a 95% confidence interval of <span class="math inline">\((108,123)\)</span>. We are 95% confident that the true value of E(Y) falls in this range.</p>
+</div>
+<p><strong>Things to notice:</strong></p>
+<ol style="list-style-type: decimal">
+<li>When <span class="math inline">\(X_h = \bar X\)</span>, then</li>
+</ol>
+<p><span class="math display">\[\begin{equation}
+\begin{split}
+\sigma^2 (\hat{Y_h}) &amp;= \sigma^2[\frac{1}{n} + \frac{ \bar X - \bar X}{\sum(x_i-\bar X)^2}]\\
+&amp;= \frac{\sigma^2}{n}
+\end{split}
+\end{equation}\]</span></p>
+<p>because <span class="math inline">\((\bar X,\bar Y )\)</span> will always fall on the regression line.</p>
+<p>By extension:</p>
+<p><span class="math display">\[ \sigma^2(\hat{Y_h}) = var(\bar y) = \frac{\sigma^2}{n} \]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>
+<span class="math inline">\(X\)</span> values that are more spread out are easier to predict.</li>
+</ol>
+<p>Our variances <span class="math inline">\(\sigma^2(\hat{Y_h})\)</span> and <span class="math inline">\(s^2(\hat{Y_h})\)</span> decrease as <span class="math inline">\(\sum(x_i-\bar x)^2\)</span> increases.</p>
+
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="two-sided-t-testing.html"><span class="header-section-number">3</span> Two-Sided t-Testing</a></div>
+<div class="next"><a href="style-guide.html"><span class="header-section-number">5</span> Style Guide</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#normal-errors-regression"><span class="header-section-number">4</span> Normal Errors Regression</a></li></ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Regression Analysis</strong>" was written by Jes LaCourse. It was last built on 2022-09-28.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
