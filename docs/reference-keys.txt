@@ -32,10 +32,11 @@ def:unlabeled-div-31
 def:unlabeled-div-32
 def:unlabeled-div-33
 exm:unlabeled-div-34
-eq:yint
 exm:unlabeled-div-35
+eq:yint
 exm:unlabeled-div-36
-def:unlabeled-div-37
+exm:unlabeled-div-37
+def:unlabeled-div-38
 single-linear-regression
 variables
 expected-values
@@ -54,6 +55,8 @@ p-values
 critical-values
 confidence-intervals
 normal-errors-regression
+predicted-values
+shape
 style-guide
 general-content
 examples-2

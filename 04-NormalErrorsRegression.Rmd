@@ -1,6 +1,6 @@
 # Normal Errors Regression 
 
-::: {.recap}
+:::: {.recap}
 ::: {.center}
 Thoughts
 :::
@@ -8,12 +8,19 @@ Thoughts
 $$ Y_i = \beta_0 + \beta_1X_i + \epsilon_i $$
 If we make the assumption that our data is normally distributed, we can improve the correctness of our p-values, critical values, and confidence intervals, especially for smaller samples. 
 
+::::
+
+Recall our constraints: 
 
 1. $E(\epsilon_i=0)$
+
 2. $\epsilon_1...\epsilon_n$ have constant variance
+
 3. $\epsilon_1...\epsilon_n$ uncorrelated
+
 4. $\epsilon_i\sim N$
 
+When $y_1...y_n$ are jointly distributed. 
 
 :::{.theorem .note}
 
@@ -34,18 +41,31 @@ $\therefore Z\sim N(a+b\mu, b^2\sigma^2)$
 
 With normal errors, we can say:
 
-$$Y_i|X_i~N(\beta_0+\beta_1X_1, \sigma^2)$$
+$$Y_i|X_i \sim N(\beta_0+\beta_1X_1, \sigma^2)$$
 1. $E(Y_i|X_i) = \beta_0+\beta_1X_i$
+
+
 2. $\sigma^2(Y_i)$ is constant
+
 3. $Y_1...Y_n$ uncorrelated
+
 4. $Y_1...Y_n \sim N$
 :::
 
-The sampling distribution for $b_1$ also changes. 
+$Y_i|X_i$ will always be fixed in the definition above. All of the variance in the model must come from $\epsilon_i$, the only random variable.  
+
+
+Why do we assume normal? The sampling distribution for $b_1$ also changes. 
 
 $$
 b_1 = \sum k_iy_i
 $$
+
+The correctness of p-values and confidence intervals, especially with smaller samples, is thanks to the central limit theorem. 
+
+If $Z_1,...Z_n$ joint normal distribution, define $Y= \Sigma(a+bz) \Rightarrow Y \sim N$
+
+
 ## Predicted Values
 
 Estimating the expected values of $y_i$ conditional on $x_i$:
@@ -122,22 +142,97 @@ $$ \sigma^2(\hat{Y_h}) = var(\bar y) = \frac{\sigma^2}{n} $$
 
 Our variances $\sigma^2(\hat{Y_h})$ and $s^2(\hat{Y_h})$ decrease as $\sum(x_i-\bar x)^2$ increases. 
 
+3. We have the least amount of variability near $\bar{x}$. In the equation
+
+$$
+s^2(\hat{Y_h}) = MSE \left[ \frac{1}{n} +  \frac{x^h - \bar x}{\sum(x-\bar x)^2}\right] 
+$$
+
+we expect $s^2(\hat{Y_h})$ to decrease as $|x^h - \bar x|$ decreases. 
 
 
 
+---
+
+There are two different intervals for $\hat{y}_h$:
+
+1. A *confidence interval* for $E(Y|X_h)$. Here the value returns a range of likely values for the parameter. 
+
+2. A *prediction interval*, which produces a range of likely values for a new observation $Y$ for a given $X_n$. 
+
+
+## Shape 
+
+
+:::{.example}
+
+
+Given the simulated data $(50,139),(29,150)$ and others to make up $n=20$. Parameters and estimates from the table below: 
+
+|     -     | parameter                    | statistic    |
+|-----------|------------------------------|--------------|
+| variance  | $\sigma^2(\epsilon_i) = 225$ | $MSE=247$    |
+| slope     | $\beta_1 = 0.9$              | $b_1= 0.8$   |
+| intercept | $\beta_0 = 90$               | $b_0 = 91.6$ |
+
+When we sample 10,000 30-year-olds and measure their blood pressures, what shape will the histogram be? What is our mean? Variance? 
+
+**Answer:** The histogram will be bell-shaped, with means and variances closely matching our true parameter values. 
+
+:::
+
+The shape of our normal distribution follows some general rules. 
+
+1. When errors follow a normal distribution, so will our values. This is what gives us the bell-curved shape. 
+
+\begin{equation}E_i \sim N \Rightarrow Y_i \sim N\end{equation}
+
+2. The center of our curve will be the mean, unless otherwise adjusted. We expect $E(\epsilon_i) = 0$ when the distribution is normal, thus yielding the mean: 
+
+\begin{equation}
+\begin{split}
+E(Y|X) = 90+0.9(30)\\
+=117
+\end{split}
+\end{equation}
+
+3. Similarly, follow the rules for variance: 
+
+\begin{equation}
+\begin{split}
+\sigma^2(\epsilon_i) = 225\\
+\sigma^2[E(Y|X)] = 225
+\end{split}
+\end{equation}
 
 
 
+With these general rules for shape established, suppose we want to look at the distribution on the interval $(a,b)$:
 
+$$
+E(Y|X_n  >30) =117
+$$
 
+We can establish a p-value: 
 
+$$
+P(a < Y_n < b ) = 0.95
+$$
+To shift for a standard normal distribution ($Z\sim N(0,1)$), we make the following adjustments: 
 
+1. Center at zero
 
+2. When 
 
+$$
+Z = \frac{Y-\mu}{\sigma}, Z \sim N (0,1)
+$$ 
 
+then
 
-
-
+$$
+P(a < Z < b ) = 0.95
+$$
 
 
 

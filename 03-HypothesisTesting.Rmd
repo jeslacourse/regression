@@ -25,16 +25,9 @@ Given the null ($H_0$) and alternative ($H_1$) hypotheses:
 
 \begin{align}
 H_0: \beta_1 = 0\\
-<<<<<<< HEAD
-H_1: \beta_1 \neq 0 
-\end{align}$$
-=======
 H_1: \beta_1 \neq 0
 \end{align}
 
-
-
->>>>>>> 58f5a4a986bb0e5509ff67f4a3e3e3850e43ec08
 
 Where $b_1\sim N$ and $E(b_1) = \beta_1$, we can build the test statistic, $t^*$: 
 
@@ -60,29 +53,20 @@ If a p-value $\lt\alpha$, reject $H_0$. Otherwise, do not reject $H_0$.
 
 $$ 2P(t \leq |t^*|\mid H_0 true)$$
 
-<<<<<<< HEAD
-:::{.callout .example}
-[Example]{class="badge badge-warning"} Continuing with example [] Was our estimate of the true regression line a reasonable estimate? Let $\alpha = 0.05$. 
-=======
+
 :::{.example}
 Continuing with example [] Was our estimate of the true regression line a reasonable estimate? Let $\alpha = 0.5$. 
->>>>>>> 58f5a4a986bb0e5509ff67f4a3e3e3850e43ec08
 
 \begin{align}
 H_0: \beta_1 = 0\\
 H_1: \beta_1 \neq 0
 \end{align}
 
-<<<<<<< HEAD
-$$\begin{align}
-t^* = \frac{b_1}{s(b_1)}\\
-t^* = \frac{0.8}{0.202} \\
-\approx 3.96
-=======
+
 \begin{align}
 t^* = \frac{b_1}{s(b_1)}\\
 t^* = \frac{0.8}{0.202} \approx 3.96
->>>>>>> 58f5a4a986bb0e5509ff67f4a3e3e3850e43ec08
+
 
 \end{align}
 
@@ -106,79 +90,6 @@ If $|t^*| > t(1-\frac{\alpha}{2}; n-2)$, reject $H_0$. Otherwise, do not reject 
 $$
 t(1-\frac{\alpha}{2}; n-2)
 $$
-<<<<<<< HEAD
-if $t^*\leq t(1-\frac{\alpha}{2}; n-2)$, fail to reject $h_0$, otherwise reject $H_0$.
-
-
-:::{.callout .example}
-[Example]{class="badge badge-warning"} Continuing with example [] Was our estimate of the true regression line a reasonable estimate? Let $\alpha = 0.05$. Use $t^*$ from the last example.  
-
-
-
-$$\begin{align}
-t(1-\frac{0.05}{2}; 20-2)\\
-t(0.975;18)\\
-\approx 2.101
-
-\end{align}$$
-
-$$\begin{align}
-|t^*| >^? t(0.975;18)\\
-3.96 >^? 2.101
-
-\end{align}$$
-
-Yes, reject $H_0$. 
-:::
-
- 
-## Confidence Interval
-
-The confidence interval for $\beta_1$ can be summarized as:
- 
- > estimate $\pm$ (critical value)*s(estimate)
- 
-for a $(1-\alpha)*100$% confidence interval. 
-
-$$\begin{equation}
-b_1 \pm t(1-\frac{\alpha}{2}; n-2)s(b_1)
-
-
-\end{equation}$$
-
-:::{.callout .example}
-[Example]{class="badge badge-warning"} Build a 95% confidence interval for the continuing example.   
-
-
-
-$$\begin{align}
-
-b_1 \pm t(1-\frac{\alpha}{2}; n-2)*s(b_1)\\
-0.8 \pm 2.101*0.202
-\end{align}$$
-
-95% confidence interval $(0.38,1.2)$. We are 95% sure $\beta_1$ falls within the confidence interval. 
-:::
-
-Expect different intervals if the study is repeated. Both the slope and the variance will vary with repeated studies. Overall, the true value for $\beta_1$ will fall within the interval $(1-\alpha)*100$% of the time. In this case, $alpha = 0.05$, the true value will be captured in 95% of confidence intervals.
-
-
-$H_0:\beta_1 = 0$
-
-If null hypothesis is in confidence interval, reject $H_0$, otherwise do not reject $H_0$. 
-
-
-
-
-
-
-
-
-
-
-
-
-=======
 
 
 :::{.example} 
@@ -241,5 +152,5 @@ Upper Bound:
 We are 95% confident that $\beta_1$ is in the confidence interval $(0.38,1.2)$.
 
 :::
->>>>>>> 58f5a4a986bb0e5509ff67f4a3e3e3850e43ec08
+
 
